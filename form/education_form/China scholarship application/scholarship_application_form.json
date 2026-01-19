@@ -1,0 +1,138 @@
+{
+  "name": "Chinese Government Scholarship Application Form",
+  "fields": {
+    "personal_data": {
+      "agency_no": "",
+      "agency_name": "",
+      "last_name": "",
+      "surname": "",
+      "chinese_name": "",
+      "gender": "male | female",
+      "date_of_birth": "YYYY-MM-DD",
+      "marital_status": "single | married | divorced | widowed | other",
+      "nationality": "",
+      "native_language": "",
+      "passport_no": "",
+      "country_of_birth": "",
+      "city_of_birth": "",
+      "religion": "",
+      "permanent_contact": {
+        "tel": "",
+        "fax": "",
+        "email": "",
+        "address": ""
+      },
+      "present_contact": {
+        "tel": "",
+        "fax": "",
+        "email": "",
+        "address": ""
+      }
+    },
+    "education_background_and_employment_record": {
+      "highest_diploma": {
+        "institution": "",
+        "years_attended": {
+          "from_date": "YYYY-MM-DD",
+          "to_date": "YYYY-MM-DD"
+        },
+        "fields_of_study": "",
+        "certificates_obtained_or_to_obtain": ""
+      },
+      "other_certificate_i": {
+        "institution": "",
+        "years_attended": {
+          "from_date": "YYYY-MM-DD",
+          "to_date": "YYYY-MM-DD"
+        },
+        "fields_of_study": "",
+        "certificates_obtained_or_to_obtain": ""
+      },
+      "other_certificate_ii": {
+        "institution": "",
+        "years_attended": {
+          "from_date": "YYYY-MM-DD",
+          "to_date": "YYYY-MM-DD"
+        },
+        "fields_of_study": "",
+        "certificates_obtained_or_to_obtain": ""
+      },
+      "current_employment": {
+        "employer": "",
+        "time_engaged": {
+          "from_date": "YYYY-MM-DD",
+          "to_date": "YYYY-MM-DD"
+        },
+        "work_engaged": "",
+        "posts_held": ""
+      }
+    },
+    "language_proficiency_and_proposed_study_in_china": {
+      "language_proficiency": {
+        "chinese_proficiency": "",
+        "level_of_hsk_test_or_other_certificates": "",
+        "english_proficiency": "",
+        "taught_in_english": "yes | no",
+        "other_language": ""
+      },
+      "proposed_study": {
+        "apply_for": "bachelor's_degree | master's_degree | doctoral_degree | other",
+        "disciplines": "",
+        "majors": "",
+        "preferences_of_institution_i": "",
+        "preferences_of_institution_ii": "",
+        "preferences_of_institution_iii": "",
+        "duration_of_major_study": {
+          "from_date": "YYYY-MM-DD",
+          "to_date": "YYYY-MM-DD"
+        },
+        "need_elementary_chinese_prior_to_major_study": "yes | no",
+        "duration_of_elementary_chinese_study": {
+          "from_date": "YYYY-MM-DD",
+          "to_date": "YYYY-MM-DD"
+        },
+        "ever_studied_or_worked_in_china": "yes | no",
+        "studied_or_worked_in_china_details": {
+          "institution_or_employer": "",
+          "time": {
+            "from_date": "YYYY-MM-DD",
+            "to_date": "YYYY-MM-DD"
+          }
+        }
+      }
+    },
+    "contact_in_china_and_family_members": {
+      "guarantor": {
+        "name": "",
+        "tel": "",
+        "email": "",
+        "fax": "",
+        "address": ""
+      },
+      "spouse": {
+        "name": "",
+        "age": "",
+        "employment": ""
+      },
+      "father": {
+        "name": "",
+        "age": "",
+        "employment": ""
+      },
+      "mother": {
+        "name": "",
+        "age": "",
+        "employment": ""
+      }
+    },
+    "supporting_documentation_attached": {
+      "documents": "two_application_forms | two_letters_of_recommendation | admission_letter_or_admission_notice_of_chinese_universities | transcripts_of_the_most_advanced_studies_notarized_photocopy | diploma_of_the_most_advanced_studies_notarized_photocopy | foreigner_physical_examination_form_photocopy | study_plan_in_china | articles_or_papers_written_or_published | examples_of_art_and_music_work_only_for_fine_arts_and_music | other_attachments",
+      "diploma_level_for_most_advanced_studies": "bachelor's | master's | doctor's | others",
+      "other_attachments_list_needed": ""
+    },
+    "declaration": {
+      "signature_of_applicant": "",
+      "date": "YYYY-MM-DD"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "name": "German Passport / Identity Card Application (Adults 18+ or ID card applicants 16+)",
+  "fields": {
+    "application_type": {
+      "document_requested": "passport | passport_48_pages | passport_express_service | identity_card | travel_permit_in_lieu_of_passport | temporary_passport"
+    },
+    "personal_details": {
+      "surname": "",
+      "surname_at_birth": "",
+      "given_names": "",
+      "name_changed_since_last_german_document_issued": {
+        "changed": "yes | no",
+        "changed_by_reason": ""
+      },
+      "date_of_birth": "",
+      "place_of_birth": "",
+      "height_cm": "",
+      "eye_colour": "",
+      "sex": "male | female | other",
+      "doctoral_degree": "",
+      "religious_name_or_artists_pseudonym": "",
+      "current_address": {
+        "street_and_number": "",
+        "postal_code": "",
+        "city_town": "",
+        "state": ""
+      },
+      "contact_details_optional": {
+        "email": "",
+        "telephone": "",
+        "fax": ""
+      },
+      "last_address_in_germany_if_entered_in_current_document": {
+        "street_and_number": "",
+        "postal_code": "",
+        "city_town": "",
+        "date_of_de_registration_in_germany": "",
+        "certificate_of_de_registration_provided": "yes | no"
+      }
+    },
+    "german_citizenship_acquisition_first_time_german_document_only": {
+      "acquisition_type": "by_birth_as_child_of_german_parent | by_adoption_as_child_of_german_parent | by_birth_in_germany_to_foreign_parents | by_naturalization | by_declaration_art_3_rustaaendg_1974_or_paragraph_5_stag | as_repatriate_late_repatriate | other",
+      "option_under_section_29_stag_exercised": "yes | no"
+    },
+    "other_citizenships": {
+      "has_acquired_or_applied_for_foreign_citizenship": "yes | no",
+      "foreign_citizenship_acquired": {
+        "acquired_on_date": "",
+        "acquisition_method": "by_birth | automatically_by_marriage_adoption_etc | upon_application",
+        "permanent_residence_when_acquiring": ""
+      },
+      "permit_to_retain_german_citizenship_granted_before_application_acquisition": {
+        "granted": "yes | no",
+        "granted_on_date": "",
+        "authority": ""
+      },
+      "applied_for_foreign_citizenship_acknowledgement_of_possible_loss_of_german_citizenship": "yes | no"
+    },
+    "foreign_armed_forces_service": {
+      "volunteered_for_service_in_foreign_armed_forces_of_other_citizenship_country": "yes | no",
+      "consent_given_or_not_required_due_to_treaty": "yes | no"
+    },
+    "current_or_expired_german_identity_document": {
+      "document_type": "passport | identity_card | childs_passport | other",
+      "document_number": "",
+      "issuing_authority": "",
+      "issued_on_date": "",
+      "valid_until_date": ""
+    },
+    "additional_valid_german_documents": {
+      "holds_additional_valid_german_documents": "yes | no",
+      "document_type": "passport | identity_card | childs_passport | other",
+      "document_number": "",
+      "issuing_authority": "",
+      "issued_on_date": "",
+      "valid_until_date": ""
+    },
+    "applicant_declaration_signature": {
+      "place": "",
+      "date": "",
+      "signature_of_applicant": ""
+    }
+  }
+}

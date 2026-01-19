@@ -1,0 +1,108 @@
+{
+  "name": "University of the West of Scotland International Undergraduate Application Form (Non-EU)",
+  "fields": {
+    "personal_details": {
+      "surname_family_name": "",
+      "first_name": "",
+      "middle_name": "",
+      "title": "mr | mrs | ms | miss | other",
+      "gender": "male | female",
+      "date_of_birth": "DD/MM/YYYY",
+      "home_phone": "",
+      "correspondence_phone": "",
+      "email_address": "",
+      "previous_surname_family_name": "",
+      "home_address": "",
+      "postcode": "",
+      "country": "",
+      "country_of_birth": "",
+      "nationality": "",
+      "passport_number": "",
+      "passport_issue_date": "DD/MM/YYYY",
+      "passport_expiry_date": "DD/MM/YYYY",
+      "place_of_passport_issue": "",
+      "uk_entry_date_if_applicable": "",
+      "correspondence_address_if_different": {
+        "address": "",
+        "valid_from": "",
+        "valid_until": "",
+        "postcode": "",
+        "country": ""
+      },
+      "residential_category": "european_union | other_country | currently_seeking_asylum_in_uk | refugee_status"
+    },
+
+    "programme_choice": {
+      "course_title": "",
+      "ucas_code": "",
+      "campus": "",
+      "point_of_entry": "",
+      "year_of_entry": ""
+    },
+
+    "education_history": {
+      "institutions_attended": [
+        {
+          "institution_name_and_address": "",
+          "from_date": "",
+          "to_date": ""
+        }
+      ],
+      "qualifications": [
+        {
+          "subject": "",
+          "awarding_body": "",
+          "level": "",
+          "study_mode": "part_time | full_time",
+          "date_attained_or_expected": "",
+          "grade_or_result": ""
+        }
+      ],
+      "english_language_proficiency": [
+        {
+          "test_title": "",
+          "date_attained_or_expected": "",
+          "grade_or_result": ""
+        }
+      ]
+    },
+
+    "further_information": {
+      "reasons_for_applying_and_supporting_information": ""
+    },
+
+    "academic_reference": {
+      "referee_name": "",
+      "referee_title": "",
+      "referee_address": "",
+      "referee_telephone_number": "",
+      "referee_fax_number": "",
+      "referee_email": "",
+      "referee_occupation_or_relationship": ""
+    },
+
+    "fee_payer_information": {
+      "fee_payer_category": "01_private_finance | 04_research_council | 05_department_of_health_or_regional_health_authority | 06_overseas_student_award_uk_government_or_british_council | 07_training_agency | 08_other_uk_government_award | 09_overseas_agency_government_university_or_industry | 10_uk_industry_or_commerce | 90_other_source | 99_not_known"
+    },
+
+    "disability_disclosure": {
+      "disability_code": "00 | 08 | 51 | 53 | 54 | 55 | 56 | 57 | 58 | 96",
+      "support_or_facilities_required_details": ""
+    },
+
+    "criminal_convictions": {
+      "has_relevant_criminal_conviction": "yes | no"
+    },
+
+    "ethnicity": {
+      "surname_family_name": "",
+      "forename": "",
+      "ethnic_origin_code": "10 | 14 | 21 | 22 | 29 | 31 | 32 | 33 | 34 | 39 | 41 | 42 | 43 | 49 | 80 | 90"
+    },
+
+    "declaration": {
+      "applicant_signature": "",
+      "date": ""
+    }
+  }
+}

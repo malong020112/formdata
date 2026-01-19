@@ -1,0 +1,110 @@
+{
+  "name": "University of Regina Application for Undergraduate Program Admission",
+  "fields": {
+    "application_start_term": {
+      "term": "fall | winter | spring_summer",
+      "year": "",
+      "campus_location": "regina | social_work_saskatoon | fn_univ_saskatoon | fn_univ_northern_campus | other"
+    },
+
+    "personal_information": {
+      "full_name": {
+        "last_family_name": "",
+        "first_given_name": "",
+        "middle_name": ""
+      },
+      "preferred_name": "",
+      "previous_name": "",
+      "title": "mr | ms | miss | mrs | other",
+      "gender": "male | female",
+      "birthdate": "DD-MON-YYYY",
+      "first_language": "english | french | other",
+      "first_language_other_details": "",
+      "aboriginal_ancestry_affiliation": [
+        "status_indian",
+        "metis",
+        "inuit"
+      ]
+    },
+
+    "contact_information": {
+      "mailing_address": {
+        "street_or_box": "",
+        "apartment_number": "",
+        "city_town": "",
+        "province": "",
+        "postal_code": "",
+        "country": ""
+      },
+      "permanent_address_same_as_mailing": "yes | no",
+      "permanent_address": {
+        "street_or_box": "",
+        "city_town": "",
+        "province": "",
+        "postal_code": "",
+        "country": ""
+      },
+      "phone_home": "",
+      "phone_business": "",
+      "phone_business_extension": "",
+      "cellular_phone": "",
+      "email": ""
+    },
+
+    "citizenship_information": {
+      "citizenship_status": "canadian_citizen | permanent_resident | other",
+      "country_of_citizenship_if_other": "",
+      "date_of_entry_to_canada_if_not_born_in_canada": "DD-MON-YYYY"
+    },
+
+    "ur_guarantee_program": {
+      "interested_in_ur_guarantee": "yes | no"
+    },
+
+    "faculty_program_and_college": {
+      "first_choice": {
+        "faculty": "",
+        "registration_choice": "u_of_r | campion | fn_univ | luther",
+        "program_of_study_or_major": ""
+      },
+      "second_choice": {
+        "faculty": "",
+        "registration_choice": "u_of_r | campion | fn_univ | luther",
+        "program_of_study_or_major": ""
+      }
+    },
+
+    "previous_and_current_education": {
+      "most_recent_high_school": {
+        "school_name": "",
+        "city_province_country": "",
+        "attended_from": "MON-YEAR",
+        "attended_to": "MON-YEAR",
+        "grade_completed_to_date": "",
+        "program_or_degree": "",
+        "degree_received": ""
+      },
+      "current_high_school_grade_12_courses_planned": "",
+      "post_secondary_education": {
+        "institutions_attended": "",
+        "required_to_withdraw_from_post_secondary": "yes | no",
+        "withdrawal_details": {
+          "institution_name": "",
+          "date": ""
+        }
+      }
+    },
+
+    "declaration": {
+      "applicant_signature": "",
+      "date": "DD-MON-YYYY"
+    },
+
+    "application_fee_payment": {
+      "card_type": "visa | mastercard | amex",
+      "card_number": "",
+      "expiry_date": "MON-YEAR",
+      "cardholder_signature": ""
+    }
+  }
+}

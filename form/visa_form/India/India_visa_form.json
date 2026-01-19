@@ -1,0 +1,132 @@
+{
+  "name": "India_visa_form",
+  "fields": {
+    "visa_application_form": {
+      "A_personal_particulars_as_in_passport": {
+        "surname": "",
+        "name": "",
+        "previous_other_name_if_any": "",
+        "sex": "",
+        "marital_status": "",
+        "date_of_birth": "",
+        "religion": "",
+        "place_of_birth_town_city": "",
+        "country_of_birth": "",
+        "citizenship_national_id_no": "",
+        "educational_qualification": "",
+        "visible_identification_marks": "",
+        "current_nationality": "",
+        "nationality_by_birth_naturalization": "",
+        "any_other_previous_past_nationality": ""
+      },
+      "B_passport_details": {
+        "passport_no": "",
+        "date_of_issue_dd_mm_yyyy": "",
+        "place_of_issue": "",
+        "date_of_expiry_dd_mm_yyyy": "",
+        "any_other_passport_identity_certificate_held": {
+          "has_any_other_passport_identity_certificate_held": "if yes ,please fill in the following",
+          "country_of_issue": "",
+          "place_of_issue": "",
+          "passport_ic_no": "",
+          "date_of_issue_dd_mm_yyyy": "",
+          "nationality_status": ""
+        }
+      },
+      "C_applicants_contact_details": {
+        "phone_no": "",
+        "mobile_cell_no": "",
+        "present_address": "",
+        "email_address": "",
+        "permanent_address": ""
+      },
+      "D_family_details": {
+        "father": {
+          "relation": "Father’s",
+          "name": "",
+          "nationality": "",
+          "prev_nationality": "",
+          "place_country_of_birth": ""
+        },
+        "mother": {
+          "relation": "Mother’s",
+          "name": "",
+          "nationality": "",
+          "prev_nationality": "",
+          "place_country_of_birth": ""
+        },
+        "spouse": {
+          "relation": "Spouse",
+          "name": "",
+          "nationality": "",
+          "prev_nationality": "",
+          "place_country_of_birth": ""
+        },
+        "were_your_grandfather_grandmother_paternal_maternal_pakistan_nationals_or_belong_to_pakistan_held_area": ""
+      },
+      "E_details_of_visa_sought": {
+        "type_of_visa_required": "",
+        "no_of_entries": "",
+        "period_of_visa_month": "",
+        "expected_date_of_journey": "",
+        "port_of_arrival": "",
+        "port_of_exit": ""
+      },
+      "required_detail_of_purpose_of_visit": {
+        "purpose_of_visit": "",
+        "required_detail_of_purpose_of_visit_text_area": ""
+      },
+      "F_previous_visit_details": {
+        "have_you_ever_visited_india": "",
+        "address_where_you_stayed_in_india": "",
+        "cities_in_india_visited": "",
+        "type_of_visa": "",
+        "visa_number": "",
+        "visa_issued_place": "",
+        "date_of_issue": "",
+        "countries_visited_in_last_10_years": "",
+        "have_you_been_refused_an_indian_visa_or_extension_of_the_same_previously_or_deported_from_india": "",
+        "if_yes_above_mention_when_and_by_whom_with_control_no_date": ""
+      },
+      "G_profession_occupation_details": {
+        "present_occupation": "",
+        "designation_rank": "",
+        "employer_name_business": "",
+        "employer_address": "",
+        "phone_number": "",
+        "past_occupation_if_any": "",
+        "are_have_you_worked_with_armed_forces_police_para_military_forces": "",
+        "organization": "",
+        "designation": "",
+        "place_of_posting": "",
+        "rank": ""
+      },
+      "H_address_of_place_of_stay_hotel": {
+        "place_hotel_name": "",
+        "address_of_place_hotel": "",
+        "state": "",
+        "phone_no": ""
+      },
+      "I_details_of_two_reference": {
+        "in_india": {
+          "name": "",
+          "address": "",
+          "phone_number": ""
+        },
+        "in_united_kingdom": {
+          "name": "",
+          "address": "",
+          "phone_number": ""
+        }
+      },
+      "I_declaration": {
+        "a": "I do not hold any other passport(s) other than those detailed above.",
+        "b": "I have read and understood all the conditions for the visit to India and I am willing and able to abide fully by them.",
+        "c": "I declare that the information given in the form is complete and correct and the visit to India will be undertaken for the purpose indicated in the application.",
+        "d": "I understand that in case the information provided in the form is found to be incorrect, I will be liable for denial of visit/ entry or deportation and/ or other penalties during the visit as provided by Indian law.",
+        "date": "",
+        "applicants_signature_as_in_passport": "Applicant’s signature (as in Passport)"
+      }
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "name": "Life Insurance Claim Form (BCBSTX / Dearborn Life)",
+  "fields": {
+    "part_1_employer_administrator": {
+      "employer_group_information": {
+        "group_name": "",
+        "group_number": "",
+        "subsidiary_name": "",
+        "account_number_or_division": "",
+        "group_address": {
+          "street": "",
+          "city": "",
+          "state": "",
+          "zip": ""
+        },
+        "authorized_representative_name_and_title": "",
+        "phone": "",
+        "email": "",
+        "preferred_communication": "email | phone"
+      },
+      "employee_information": {
+        "employee_name": {
+          "last_name": "",
+          "first_name": "",
+          "middle": ""
+        },
+        "street": "",
+        "birth_date": "",
+        "city": "",
+        "state": "",
+        "zip": "",
+        "date_of_death": "",
+        "phone": "",
+        "email": "",
+        "employee_ssn_or_id": "",
+        "status": "active | retired | disabled | terminated",
+        "date_of_hire": "",
+        "insurance_effective_date": "",
+        "last_day_worked": "",
+        "date_terminated": "",
+        "annual_salary": "",
+        "class": "",
+        "salary_effective_date": "",
+        "employee_date_of_last_premium_contribution": "",
+        "hours_worked_per_week": ""
+      },
+      "deceased_information_if_other_than_employee": {
+        "deceased_is": "spouse | dependent_child",
+        "name": {
+          "last_name": "",
+          "first_name": "",
+          "middle": ""
+        },
+        "birth_date": "",
+        "date_of_death": "",
+        "ssn": "",
+        "full_time_student": "yes | no",
+        "school": "",
+        "incapacitated_and_reliant_on_employee_for_financial_support": "yes | no"
+      },
+      "insurance_information": {
+        "basic_life_amount": "",
+        "supplemental_or_voluntary_life_amount": "",
+        "basic_add_amount": "",
+        "supplemental_or_voluntary_add_amount": "",
+        "death_due_to_accident": "yes | no",
+        "additional_add_benefits_applied_for": "seat_belt | airbag | education | repatriation | day_care | spouse_training | coma | in_the_line_of_duty | felonious_assault | common_disaster | public_conveyance | brain_damage | campus_violence | other"
+      },
+      "employer_certification": {
+        "authorized_employer_plan_representative_signature": "",
+        "date": ""
+      }
+    },
+    "part_2_beneficiary": {
+      "beneficiary_information": {
+        "name": {
+          "last_name": "",
+          "first": "",
+          "middle": ""
+        },
+        "maiden_name": "",
+        "birth_date": "",
+        "ssn_or_id": "",
+        "street": "",
+        "city": "",
+        "state": "",
+        "zip": "",
+        "phone_number": "",
+        "email": "",
+        "relationship_to_deceased": ""
+      },
+      "deceased_information": {
+        "name": {
+          "last_name": "",
+          "first": "",
+          "middle": ""
+        },
+        "ssn_or_id": "",
+        "group_number_or_name": ""
+      },
+      "irs_certification": {
+        "us_citizen": "yes | no"
+      },
+      "beneficiary_certification": {
+        "signature_of_beneficiary": "",
+        "date": ""
+      }
+    },
+    "part_3_authorization_for_release_of_information": {
+      "authorizes_provider_to_release_information_to_company": {
+        "physician_name_or_provider_name": "",
+        "records_of_deceased": {
+          "deceased_name": {
+            "last_name": "",
+            "first": "",
+            "middle": ""
+          },
+          "ssn_or_id": "",
+          "group_number_or_name": ""
+        }
+      },
+      "beneficiary_certification": {
+        "signature_of_beneficiary": "",
+        "date": ""
+      },
+      "signature_claimant_or_legal_representative": {
+        "signature": "",
+        "print_name": "",
+        "date": ""
+      },
+      "legal_representative_contact_information": {
+        "street": "",
+        "phone_number": "",
+        "city": "",
+        "state": "",
+        "zip": ""
+      }
+    }
+  }
+}

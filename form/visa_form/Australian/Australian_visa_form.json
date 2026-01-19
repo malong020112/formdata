@@ -1,0 +1,326 @@
+{
+  "name": "Australia Visitor visa – Tourist stream (Form 1419)",
+  "fields": {
+    "application_context": {
+      "application_location": "outside_australia | in_australia"
+    },
+    "visit_plan": {
+      "intended_visit_dates": {
+        "from_date": "",
+        "to_date": ""
+      },
+      "intended_stay_length": "up_to_3_months | up_to_6_months | up_to_12_months",
+      "further_stay_requested_to_date": "",
+      "further_stay_reasons": "",
+      "multiple_entries": {
+        "intends_multiple_entries": "yes | no",
+        "details": ""
+      }
+    },
+    "part_a_your_details": {
+      "passport_identity": {
+        "family_name": "",
+        "given_names": "",
+        "date_of_birth": "",
+        "sex": "male | female",
+        "passport_number": "",
+        "country_of_passport": "",
+        "nationality_of_passport_holder": "",
+        "date_of_issue": "",
+        "date_of_expiry": "",
+        "place_of_issue_or_issuing_authority": ""
+      },
+      "place_of_birth": {
+        "town_or_city": "",
+        "state_or_province": "",
+        "country": ""
+      },
+      "relationship_status": "married | de_facto | engaged | divorced | separated | widowed | never_married_or_been_in_de_facto_relationship",
+      "other_names": {
+        "has_other_name": "yes | no",
+        "details": ""
+      },
+      "current_australian_visa": {
+        "currently_holds_australian_visa": "yes | no"
+      },
+      "parent_subclass_103": {
+        "applied_for_parent_103": "yes | no",
+        "queue_date": ""
+      },
+      "apec_abtc": {
+        "holds_or_applied_for_abtc": "yes | no"
+      },
+      "other_citizenship": {
+        "is_citizen_of_any_other_country": "yes | no",
+        "countries": ""
+      },
+      "other_passports": {
+        "has_other_current_passports": "yes | no",
+        "details": [
+          {
+            "passport_number": "",
+            "country_of_passport": ""
+          }
+        ]
+      },
+      "national_identity_document": {
+        "has_identity_card_or_identity_number": "yes | no",
+        "family_name": "",
+        "given_names": "",
+        "type_of_document": "",
+        "identity_number": "",
+        "country_of_issue": ""
+      },
+      "current_location_and_status": {
+        "current_country_location": "",
+        "legal_status_in_current_location": "citizen | permanent_resident | visitor | student | work_visa | no_legal_status | other",
+        "other_status_details": "",
+        "purpose_of_stay_and_visa_status_details": ""
+      },
+      "addresses_and_contact": {
+        "current_residential_address": {
+          "address": "",
+          "postcode": "",
+          "country": ""
+        },
+        "address_for_correspondence": {
+          "address": "",
+          "postcode": "",
+          "country": ""
+        },
+        "contact_telephone_numbers": {
+          "home": "",
+          "office": "",
+          "mobile_or_cell": ""
+        },
+        "consent_to_electronic_communication": {
+          "agrees_email_or_fax": "yes | no",
+          "fax_number": "",
+          "email_address": ""
+        }
+      }
+    },
+    "part_b_family_travelling_with_you": {
+      "travelling_with_family_members": {
+        "is_travelling_with_family_members": "yes | no",
+        "family_members": [
+          {
+            "full_name": "",
+            "relationship_to_you": "",
+            "name_of_sponsor_if_applicable": ""
+          }
+        ]
+      }
+    },
+    "part_c_family_not_travelling_with_you": {
+      "has_partner_children_or_fiance_not_travelling": {
+        "has_family_not_travelling": "yes | no",
+        "details": [
+          {
+            "full_name": "",
+            "date_of_birth": "",
+            "relationship_to_you": "",
+            "their_address_while_you_are_in_australia": ""
+          }
+        ]
+      }
+    },
+    "relatives_in_australia": {
+      "has_relatives_in_australia": "yes | no",
+      "details": [
+        {
+          "full_name": "",
+          "date_of_birth": "",
+          "relationship_to_you": "",
+          "address": "",
+          "is_australian_citizen_or_permanent_resident": "yes | no"
+        }
+      ]
+    },
+    "friends_or_contacts_in_australia": {
+      "has_friends_or_contacts": "yes | no",
+      "details": [
+        {
+          "full_name": "",
+          "date_of_birth": "",
+          "relationship_to_you": "",
+          "address": "",
+          "is_australian_citizen_or_permanent_resident": "yes | no"
+        }
+      ]
+    },
+    "details_of_visit": {
+      "travel_to_other_countries_and_back": {
+        "likely_to_travel_from_australia_to_other_country_and_back": "yes | no",
+        "itinerary_details": ""
+      },
+      "reasons_for_visit": ""
+    },
+    "study_intentions": {
+      "intends_to_study_course_in_australia": "yes | no",
+      "course_name": "",
+      "institution_name": "",
+      "course_duration": ""
+    },
+    "travel_history_last_5_years": {
+      "visited_or_lived_outside_passport_country_more_than_3_months": "yes | no",
+      "details": [
+        {
+          "countries": "",
+          "date_from": "",
+          "date_to": ""
+        }
+      ]
+    },
+    "part_e_health_details": {
+      "intends_to_enter_healthcare_facility": {
+        "yes_no": "yes | no",
+        "details": ""
+      },
+      "intends_to_work_or_study_as_health_professional": {
+        "yes_no": "yes | no",
+        "details": ""
+      },
+      "tuberculosis_or_related_history": {
+        "yes_no": "yes | no",
+        "details": ""
+      },
+      "expects_to_incur_medical_costs_or_need_treatment": {
+        "yes_no": "yes | no",
+        "details": ""
+      },
+      "requires_mobility_or_care_assistance": {
+        "yes_no": "yes | no",
+        "details": ""
+      },
+      "health_examination_last_12_months": {
+        "has_undertaken": "yes | no",
+        "details_including_hap_id_if_available": ""
+      }
+    },
+    "part_f_character_details": {
+      "character_questions": {
+        "charged_awaiting_legal_action": "yes | no",
+        "convicted_of_offence_any_country": "yes | no",
+        "subject_of_arrest_warrant_or_interpol_notice": "yes | no",
+        "found_guilty_sex_offence_involving_child": "yes | no",
+        "named_on_sex_offender_register": "yes | no",
+        "acquitted_unsound_mind_or_insanity": "yes | no",
+        "found_not_fit_to_plead": "yes | no",
+        "involved_in_national_security_risk_activities": "yes | no",
+        "charged_or_indicted_for_international_crimes": "yes | no",
+        "associated_with_person_group_in_criminal_conduct": "yes | no",
+        "associated_with_organisation_engaged_in_violence": "yes | no",
+        "served_in_military_police_militia_intelligence": "yes | no",
+        "military_paramilitary_training_or_weapons_explosives_training": "yes | no",
+        "involved_in_people_smuggling_or_trafficking": "yes | no",
+        "removed_deported_or_excluded_from_any_country": "yes | no",
+        "overstayed_visa_any_country": "yes | no",
+        "outstanding_debts_to_australian_government_or_public_authority": "yes | no"
+      },
+      "details_if_any_yes": ""
+    },
+    "part_g_employment_status": {
+      "employment_status": "employed_self_employed | retired | student | other | unemployed",
+      "employed_or_self_employed_details": {
+        "employer_or_business_name": "",
+        "address": "",
+        "postcode": "",
+        "telephone_number": "",
+        "position_held": "",
+        "length_employed_with_employer_or_business": ""
+      },
+      "retired_details": {
+        "year_of_retirement": ""
+      },
+      "student_details": {
+        "current_course": "",
+        "educational_institution_name": "",
+        "length_studying_at_institution": ""
+      },
+      "other_details": "",
+      "unemployed_details": {
+        "explanation_and_last_employment_details": ""
+      }
+    },
+    "part_h_funding_for_stay": {
+      "financial_support_details": ""
+    },
+    "sponsorship_support": {
+      "has_sponsor_or_other_support": "yes | no",
+      "supporters": [
+        {
+          "full_name": "",
+          "date_of_birth": "",
+          "relationship_to_you": "",
+          "their_address_while_you_are_in_australia": "",
+          "type_of_support_provided": "financial | accommodation | other"
+        }
+      ],
+      "attached_details": ""
+    },
+    "part_i_previous_applications": {
+      "previous_non_compliance_or_refusal_or_cancellation": {
+        "non_compliance_or_overstay_in_australia": "yes | no",
+        "refused_entry_or_further_stay_or_visa_cancelled": "yes | no",
+        "details_if_yes": ""
+      }
+    },
+    "part_j_assistance_with_form": {
+      "received_assistance_completing_form": "yes | no",
+      "assistant_details": {
+        "family_name": "",
+        "given_names": "",
+        "title": "mr | mrs | miss | ms | other",
+        "address": "",
+        "postcode": "",
+        "telephone_or_daytime_contact": "",
+        "office_hours": "",
+        "mobile_or_cell": ""
+      },
+      "assistant_is_mara_registered_agent": "yes | no",
+      "assistant_in_australia": "yes | no",
+      "paid_or_gave_gift_for_assistance": "yes | no"
+    },
+    "part_k_receiving_written_communications": {
+      "communications_recipient": "myself | authorised_recipient | migration_agent | exempt_person"
+    },
+    "part_l_payment_details": {
+      "visa_subclass_applying_for": "",
+      "base_application_charge": "",
+      "non_internet_application_charge": "",
+      "additional_applicant_charge_18_or_over_amount": "",
+      "additional_applicants_18_or_over_count": "",
+      "additional_applicant_charge_under_18_amount": "",
+      "additional_applicants_under_18_count": "",
+      "subsequent_temporary_application_charge_amount": "",
+      "applicants_count_for_subsequent_charge": "",
+      "total_amount_payable": "",
+      "payment_method": "bank_cheque | money_order | debit_card | credit_card",
+      "credit_card_payment": {
+        "card_type": "mastercard | american_express | visa | diners_club | jcb",
+        "amount_aud": "",
+        "credit_card_number": "",
+        "expiry_month": "",
+        "expiry_year": "",
+        "cardholder_name": "",
+        "cardholder_address": "",
+        "postcode": "",
+        "cardholder_signature": "",
+        "telephone_number": ""
+      }
+    },
+    "part_n_signatures": {
+      "biometrics_declaration_signature": "",
+      "biometrics_declaration_date": "",
+      "general_declaration_signature": "",
+      "general_declaration_date": ""
+    },
+    "part_o_additional_information": [
+      {
+        "question_number": "",
+        "additional_information": ""
+      }
+    ]
+  }
+}

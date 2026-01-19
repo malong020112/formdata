@@ -1,0 +1,215 @@
+{
+  "name": "Application for admission to German university (international applicants with foreign academic qualification)",
+  "fields": {
+    "application_term_and_university": {
+      "term": "winter_semester | summer_semester",
+      "winter_semester_year_from": "",
+      "winter_semester_year_to": "",
+      "summer_semester_year": "",
+      "university_name": ""
+    },
+    "desired_degree_programme": {
+      "first_choice": {
+        "entry_level_semester_applying_for": "",
+        "major_or_core_subject": "",
+        "second_major_or_minor": "",
+        "second_minor": "",
+        "desired_degree": "bachelor | master | doctorate | state_examination | diplom | magister | no_formal_degree | other_degree_or_qualification | teacher_certification_lehramt",
+        "teacher_certification_type_of_school": "",
+        "other_degree_or_qualification_details": ""
+      },
+      "second_choice": {
+        "entry_level_semester_applying_for": "",
+        "major_or_core_subject": "",
+        "second_major_or_minor": "",
+        "second_minor": "",
+        "desired_degree": "bachelor | master | doctorate | state_examination | diplom | magister | no_formal_degree | other_degree_or_qualification | teacher_certification_lehramt",
+        "teacher_certification_type_of_school": "",
+        "other_degree_or_qualification_details": ""
+      }
+    },
+    "personal_details": {
+      "surname_family_name": "",
+      "first_given_names": "",
+      "sex": "male | female",
+      "date_of_birth": {
+        "day": "",
+        "month": "",
+        "year": ""
+      },
+      "place_of_birth": "",
+      "nationality_nationalities": ""
+    },
+    "postal_address": {
+      "care_of": "",
+      "house_number_street": "",
+      "room_number": "",
+      "postal_code": "",
+      "town_or_city": "",
+      "country": "",
+      "email_address": "",
+      "telephone_number": ""
+    },
+    "educational_background": {
+      "schooling_for_university_study": [
+        {
+          "from": "",
+          "to": "",
+          "details": ""
+        }
+      ],
+      "duration_of_schooling_primary_to_end_of_secondary": [
+        {
+          "from": "",
+          "to": "",
+          "details": ""
+        }
+      ],
+      "school_leaving_certificate": {
+        "date": "",
+        "original_name_of_certificate": "",
+        "country": ""
+      },
+      "university_entrance_examination_in_schooling_country": {
+        "has_taken": "yes | no",
+        "if_yes_date": "",
+        "if_yes_name_and_result_of_exam": ""
+      },
+      "university_preparatory_foundation_course_studienkolleg_or_feststellungspruefung": [
+        {
+          "from": "",
+          "to": "",
+          "details": ""
+        }
+      ],
+      "prior_university_study_advanced_education_internships_vocational_training": [
+        {
+          "from": "",
+          "to": "",
+          "details": ""
+        }
+      ],
+      "other_activities_up_to_date_of_application": [
+        {
+          "from": "",
+          "to": "",
+          "details": ""
+        }
+      ]
+    },
+    "language_proficiency": {
+      "german_language_proficiency": {
+        "have_you_learnt_german": "yes | no",
+        "if_yes_where": "",
+        "which_level": "",
+        "how_many_hours": "",
+        "full_name_of_institution": "",
+        "full_name_of_certificates_awarded": "",
+        "place_awarded": "",
+        "date_awarded": "",
+        "skills_reading": "",
+        "skills_comprehension": "",
+        "skills_writing": "",
+        "skills_speaking": "",
+        "testdaf_taken": "yes | no",
+        "testdaf_levels_reading": "",
+        "testdaf_levels_comprehension": "",
+        "testdaf_levels_writing": "",
+        "testdaf_levels_speaking": "",
+        "dsh_exam_taken": "yes | no",
+        "dsh_level": "DSH1 | DSH2 | DSH3",
+        "goethe_zertifikat_c2_taken": "yes | no",
+        "other_listed_examinations": "DSDI | DSDII | ZOP | ZMP | KSD | GSD",
+        "other_certificates": {
+          "has_other_certificates": "yes | no",
+          "exact_name": "",
+          "grade_level": ""
+        },
+        "currently_attending_german_language_course": "yes | no",
+        "if_yes_institution_full_name": ""
+      },
+      "english_language_proficiency": {
+        "cambridge_certificate_taken": "yes | no",
+        "cambridge_type": "CAE | FCE | CPE",
+        "cambridge_grade_level": "",
+        "cambridge_remarks": "",
+        "toefl_taken": "yes | no",
+        "toefl_type": "IBT | CBT | PBT",
+        "toefl_total_score": "",
+        "ielts_academics_taken": "yes | no",
+        "ielts_reading": "",
+        "ielts_comprehension": "",
+        "ielts_writing": "",
+        "ielts_speaking": "",
+        "ielts_overall_band_score": "",
+        "other_english_certificates": {
+          "has_other_certificates": "yes | no",
+          "exact_name": "",
+          "grade_level": ""
+        }
+      },
+      "other_languages_relevant_for_admission": [
+        {
+          "language": "",
+          "certificates_held": "",
+          "grade_level": ""
+        }
+      ]
+    },
+    "other_admission_relevant_questions": {
+      "financial_aid": {
+        "scholarship_or_grant_awarded": "yes | no",
+        "name_of_institution": "",
+        "other_sources_of_funding": ""
+      },
+      "asylum_in_germany": {
+        "granted_asylum": "yes | no"
+      },
+      "programme_studiable_in_home_country": "yes | no",
+      "german_speaking_minority_abroad": {
+        "is_member": "yes | no",
+        "which_one": ""
+      },
+      "exchange_programme_with_university": {
+        "is_participating": "yes | no",
+        "which_programme": "",
+        "home_university": ""
+      }
+    },
+    "testas": {
+      "has_taken_testas": "yes | no",
+      "core_test_standard_value": "",
+      "core_test_percentile": "",
+      "subject_module_completed": "",
+      "subject_module_standard_value": "",
+      "subject_module_percentile": "",
+      "other_assessment_examinations_relevant_for_admission": [
+        {
+          "name": "",
+          "location": "",
+          "date": ""
+        }
+      ]
+    },
+    "other_applications": {
+      "applied_to_this_university_before": "no | yes_winter_semester | yes_summer_semester",
+      "if_yes_winter_semester_year_from": "",
+      "if_yes_winter_semester_year_to": "",
+      "if_yes_summer_semester_year": "",
+      "degree_programme": "",
+      "other_german_universities_applied_or_will_apply": [
+        {
+          "university_name": ""
+        }
+      ]
+    },
+    "special_reasons": {
+      "special_reasons_for_choice_of_university": ""
+    },
+    "declaration_and_signature": {
+      "place": "",
+      "date": "",
+      "signature": ""
+    }
+  }
+}

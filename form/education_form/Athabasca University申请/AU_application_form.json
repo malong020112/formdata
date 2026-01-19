@@ -1,0 +1,104 @@
+{
+  "name": "Athabasca University Undergraduate General Application Form",
+  "fields": {
+    "general_information": {
+      "legal_name": {
+        "last_name": "",
+        "first_name": "",
+        "middle_name": ""
+      },
+      "affirmed_or_preferred_name": "",
+      "former_name": {
+        "last_name": "",
+        "first_name": "",
+        "middle_name": ""
+      }
+    },
+
+    "contact_information": {
+      "mailing_address": {
+        "street_address": "",
+        "city_or_town": "",
+        "province_or_state": "",
+        "country": "",
+        "postal_or_zip_code": ""
+      },
+      "phone_number": "",
+      "email_address": "",
+      "alberta_student_number_asn": ""
+    },
+
+    "personal_background": {
+      "student_with_disability": "yes | no",
+      "indigenous_ancestry": {
+        "declared": "yes | no",
+        "ancestry_type": [
+          "status_indian_first_nation",
+          "metis",
+          "non_status_indian_first_nation",
+          "inuit"
+        ]
+      },
+      "gender": "male | female | nonbinary | prefer_not_to_say",
+      "date_of_birth": "DD/MM/YYYY",
+      "citizenship": {
+        "citizenship_country": "canada | other",
+        "other_country_name": "",
+        "immigration_status_if_in_canada": "permanent_resident | study_authorization_permit | other",
+        "other_immigration_status_details": ""
+      },
+      "english_language_proficiency": "yes | no",
+      "first_language": "",
+      "secure_environment_student": "yes | no"
+    },
+
+    "education_and_admission_status": {
+      "post_secondary_education_completed": [
+        "college_vocational_technical",
+        "rn_diploma",
+        "some_university",
+        "university_degree"
+      ],
+      "applying_as_visiting_student": {
+        "is_visiting_student": "yes | no",
+        "home_institution_name": ""
+      },
+      "enrolling_in_athabasca_program": {
+        "is_enrolling": "yes | no",
+        "program_name": "",
+        "convert_three_year_degree_to_four_year": "yes | no"
+      },
+      "partner_institution_name": ""
+    },
+
+    "program_admission": {
+      "program_of_study_details": ""
+    },
+
+    "educational_history_evaluation": {
+      "request_evaluation_of_previous_post_secondary": "yes | no",
+      "student_status": "new_student | changing_program_or_inactive_student",
+      "post_secondary_institutions": [
+        {
+          "institution_name": "",
+          "location": "",
+          "dates_attended": "",
+          "degree_or_credential_received": ""
+        }
+      ]
+    },
+
+    "declaration": {
+      "applicant_signature": "",
+      "date": ""
+    },
+
+    "fees_and_payment": {
+      "payment_method": "e_transfer | credit_card | other",
+      "e_transfer_details": {
+        "name_on_account": "",
+        "date_of_transfer": ""
+      }
+    }
+  }
+}

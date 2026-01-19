@@ -1,0 +1,197 @@
+{
+  "name": "Georgia Southwestern State University Undergraduate Admission Application",
+  "fields": {
+    "personal_information": {
+      "full_legal_name": {
+        "last_name": "",
+        "first_name": "",
+        "middle_name": ""
+      },
+      "name_on_transcript_if_different": "",
+      "social_security_number": "",
+      "date_of_birth": "MM/DD/YYYY",
+      "gender": "male | female",
+      "hispanic_or_latino": "yes | no",
+      "race": [
+        "american_indian_or_alaska_native",
+        "asian",
+        "black_or_african_american",
+        "native_hawaiian_or_other_pacific_islander",
+        "white",
+        "other"
+      ]
+    },
+
+    "contact_information": {
+      "mailing_address": {
+        "street_or_po_box": "",
+        "city": "",
+        "state": "",
+        "county": "",
+        "zip_code": ""
+      },
+      "home_phone": "",
+      "cell_phone": "",
+      "permanent_address_same_as_mailing": "yes | no",
+      "permanent_address": {
+        "street_or_po_box": "",
+        "city": "",
+        "state": "",
+        "county": "",
+        "zip_code": ""
+      },
+      "work_phone": "",
+      "student_email_address": "",
+      "parent_email_address": ""
+    },
+
+    "emergency_contact": {
+      "name": "",
+      "relationship": "parent | guardian | spouse | other",
+      "address": {
+        "street_or_po_box": "",
+        "city": "",
+        "state": "",
+        "county": "",
+        "zip_code": ""
+      },
+      "home_phone": "",
+      "work_phone": ""
+    },
+
+    "background_questions": {
+      "criminal_conviction_other_than_minor_traffic": "yes | no",
+      "criminal_conviction_explanation": "",
+      "disciplinary_action_at_school_or_college": "yes | no",
+      "disciplinary_explanation": "",
+      "family_member_alumni_of_gsw": "yes | no",
+      "alumni_names_and_relationship": "",
+      "father_highest_education_completed": "",
+      "mother_highest_education_completed": ""
+    },
+
+    "enrollment_information": {
+      "applying_as": [
+        "beginning_freshman",
+        "transfer",
+        "non_traditional_freshman",
+        "transient",
+        "second_degree_or_post_baccalaureate",
+        "dual_enrollment",
+        "personal_development"
+      ]
+    },
+
+    "academic_program_information": {
+      "academic_major_of_interest": "",
+      "undecided_major": "yes | no",
+      "site": "on_campus | online",
+      "term_of_entry": "fall | spring | summer",
+      "year_of_entry": ""
+    },
+
+    "education_history": {
+      "high_schools_attended": [
+        {
+          "school_name": "",
+          "city_state": "",
+          "years_attended_from": "",
+          "years_attended_to": "",
+          "graduation_month_year": "",
+          "degree_earned": ""
+        }
+      ],
+      "colleges_attended": [
+        {
+          "college_name": "",
+          "city_state": "",
+          "years_attended_from": "",
+          "years_attended_to": "",
+          "degree_earned": "",
+          "currently_enrolled": "yes | no"
+        }
+      ]
+    },
+
+    "standardized_testing": {
+      "sat": {
+        "taken": "yes | no",
+        "date_taken": "",
+        "critical_reading_score": "",
+        "math_score": "",
+        "writing_score": ""
+      },
+      "act": {
+        "taken": "yes | no",
+        "date_taken": "",
+        "composite_score": "",
+        "math_score": "",
+        "english_score": ""
+      }
+    },
+
+    "current_courses": {
+      "courses_currently_taking": [
+        ""
+      ]
+    },
+
+    "prior_application_history": {
+      "applied_to_gsw_before": "yes | no",
+      "applied_date_if_yes": "",
+      "attended_gsw_before": "yes | no",
+      "attendance_date_if_yes": ""
+    },
+
+    "recruitment_source": {
+      "how_did_you_learn_about_gsw": ""
+    },
+
+    "tuition_classification": {
+      "citizenship_status": [
+        "us_citizen_by_birth",
+        "us_citizen_by_naturalization",
+        "alien_non_resident",
+        "permanent_resident"
+      ],
+      "country_of_citizenship_if_not_us": "",
+      "place_of_birth": "",
+      "applying_for_in_state_tuition": "yes | no",
+      "years_in_georgia": "",
+      "months_in_georgia": "",
+      "years_in_usa": "",
+      "months_in_usa": "",
+      "county_of_residence": "",
+      "international_student_needing_i20": "yes | no",
+      "legal_residency_in_georgia_12_months": "yes | no",
+      "parent_or_guardian_georgia_residency_12_months_if_under_24": "yes | no",
+      "ever_lived_outside_georgia": "yes | no",
+      "years_outside_georgia": "",
+      "months_outside_georgia": "",
+      "graduated_from_georgia_high_school": "yes | no",
+      "filed_state_income_tax_last_year": "yes | no",
+      "state_tax_filed_in": "",
+      "drivers_license_state": "",
+      "vehicle_registration_state": "",
+      "voter_registration_state": ""
+    },
+
+    "military_information": {
+      "is_military_or_veteran": "yes | no",
+      "branch_of_service": "",
+      "service_status": "active_duty | veteran",
+      "home_state_of_record": "",
+      "stationed_in_georgia": "yes | no",
+      "dependent_of_military_member_under_24": "yes | no",
+      "military_member_status": "",
+      "military_member_branch": "",
+      "military_member_home_state": "",
+      "military_member_stationed_in_georgia": "yes | no"
+    },
+
+    "declaration": {
+      "applicant_signature": "",
+      "date": "MM/DD/YYYY"
+    }
+  }
+}

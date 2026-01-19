@@ -1,0 +1,81 @@
+{
+  "name": "HealthPartners Hospital Admission/Discharge Form (Updated January 2026)",
+  "fields": {
+    "sender_caller_information": {
+      "sender_caller_type": "patient | hospital | provider",
+      "name": "",
+      "phone": "",
+      "fax": "",
+      "patient_has_other_insurance": "no | yes",
+      "todays_date": "MM/DD/YYYY",
+      "time": ""
+    },
+    "patient_information": {
+      "patient_name": {
+        "last": "",
+        "first": ""
+      },
+      "healthpartners_member_id": "",
+      "date_of_birth": "MM/DD/YYYY",
+      "sex": "male | female"
+    },
+    "provider_information": {
+      "facility_name": "",
+      "facility_phone": "",
+      "facility_street": "",
+      "facility_tax_id": "",
+      "facility_city": "",
+      "facility_state": "",
+      "facility_zip": "",
+      "ur_phone": "",
+      "ur_fax": "",
+      "attending_physician_name": {
+        "last": "",
+        "first": ""
+      },
+      "attending_physician_phone": "",
+      "attending_physician_fax": "",
+      "attending_physician_street": "",
+      "attending_physician_city": "",
+      "attending_physician_state": "",
+      "attending_physician_zip": "",
+      "physician_federal_tax_id_or_npi": ""
+    },
+    "admission_information": {
+      "admission_date": "MM/DD/YYYY",
+      "discharge_date": "MM/DD/YYYY",
+      "disposition": "home | expired | nursing_home_transfer | other_hospital_transfer",
+      "admission_source": "er_ed | direct | scheduled | direct_transferred_from",
+      "admission_type_bed_unit_mark_all_that_apply": "med_surg | pediatric | icu_ccu | mental_health | ch | detox | maternity",
+      "maternity_delivery_dob": "MM/DD/YYYY",
+      "multiple_birth": "twins | triplets",
+      "nursery": "normal | level_ii | level_iii_nicu",
+      "baby_1": {
+        "sex": "boy | girl",
+        "name": {
+          "last": "",
+          "first": ""
+        },
+        "hospital_mrn": ""
+      },
+      "baby_2": {
+        "sex": "boy | girl",
+        "name": {
+          "last": "",
+          "first": ""
+        },
+        "hospital_mrn": ""
+      },
+      "baby_3": {
+        "sex": "boy | girl",
+        "name": {
+          "last": "",
+          "first": ""
+        },
+        "hospital_mrn": ""
+      },
+      "icd_10_diagnosis_code": "",
+      "icd_10_procedure_code_inpatient": ""
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "name": "Singapore Entry Visa Application (Form 14A / IMM 14A)",
+  "fields": {
+    "part_i_particulars_of_applicant": {
+      "name_full_as_in_travel_document": "",
+      "alias": "",
+      "date_of_birth": "DD MM YYYY",
+      "sex": "male | female",
+      "marital_status": "single | married | separated | divorced | widowed | cohabited | customary",
+      "nationality_citizenship_of_spouse": {
+        "status": "singapore_citizen | singapore_permanent_resident | others",
+        "spouse_nric_number": "",
+        "others_specify": ""
+      },
+      "country_place_of_birth": "",
+      "state_province_of_birth": "",
+      "race": "",
+      "nationality_citizenship": "",
+      "type_of_travel_document_held": "international_passport | diplomatic_passport | official_passport | service_passport | document_of_identity | certificate_of_identity | others",
+      "type_of_travel_document_held_other_specify": "",
+      "travel_document_number": "",
+      "travel_document_issued_date": "DD MM YYYY",
+      "travel_document_expiry_date": "DD MM YYYY",
+      "country_place_of_issue": "",
+      "for_chinese_nationals_only_prc_id_number": ""
+    },
+
+    "address_in_country_place_of_origin_residence": {
+      "country_place_of_origin_residence": "",
+      "division_state_province_of_origin_residence": "",
+      "prefecture_of_origin_residence": "",
+      "county_district_of_origin_residence": "",
+      "address": ""
+    },
+
+    "part_ii_other_details": {
+      "email_address": "",
+      "contact_number": "",
+      "occupation": "",
+      "highest_academic_professional_qualifications_attained": "no_formal_education | primary | secondary | pre_university | diploma | university | post_graduate",
+      "annual_income_sgd": "",
+      "religion": "",
+      "expected_date_of_arrival_in_singapore": "DD MM YYYY",
+      "type_of_visa": "single_journey | double_journey | triple_journey | multiple_journey",
+      "purpose_of_visit": "social | business",
+      "details_of_purpose": "",
+      "intended_length_of_stay": "less_than_30_days | more_than_30_days",
+      "if_more_than_30_days_reason_and_duration": ""
+    },
+
+    "address_in_singapore": {
+      "where_will_you_be_staying_in_singapore": "next_of_kins_place | relatives_place | friends_place | hotel | others",
+      "where_will_you_be_staying_other_specify": "",
+      "block_house_number": "",
+      "floor_number": "",
+      "unit_number": "",
+      "postal_code": "",
+      "street_name": "",
+      "contact_number": "",
+      "building_name": ""
+    },
+
+    "residence_history_last_5_years": {
+      "resided_other_countries_places_for_one_year_or_more": "yes | no",
+      "details": [
+        {
+          "country_place": "",
+          "address": "",
+          "period_of_stay_from": "",
+          "period_of_stay_to": ""
+        }
+      ]
+    },
+
+    "travelling_companion_details_for_applicant_12_or_less": {
+      "relationship_to_applicant": "",
+      "name": "",
+      "date_of_birth": "DD MM YYYY",
+      "sex": "male | female",
+      "nationality_citizenship": "",
+      "travel_document_number": ""
+    },
+
+    "part_iii_particulars_of_local_contact": {
+      "local_contact_company_hotel_name": "",
+      "relationship_to_applicant": "",
+      "contact_number": "",
+      "email_address": ""
+    },
+
+    "part_iv_antecedent_of_applicant": {
+      "refused_entry_or_deported_from_any_country_including_singapore": "yes | no",
+      "convicted_in_court_any_country_including_singapore": "yes | no",
+      "prohibited_from_entering_singapore": "yes | no",
+      "entered_singapore_using_different_passport_or_name": "yes | no",
+      "details_if_any_yes": ""
+    },
+
+    "part_v_applicant_declaration_signature": {
+      "date": "",
+      "signature_of_applicant": ""
+    }
+  }
+}

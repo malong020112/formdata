@@ -1,0 +1,113 @@
+{
+  "name": "Guangdong University of Technology International Student Application (Degree Program)",
+  "fields": {
+    "personal_information": {
+      "name": {
+        "chinese_name": "",
+        "english_name": {
+          "family_name": "",
+          "given_name": ""
+        }
+      },
+      "nationality": "",
+      "passport_number": "",
+      "date_of_birth": "",
+      "place_of_birth": "",
+      "sex": "male | female",
+      "marital_status": "married | unmarried",
+      "religion": ""
+    },
+
+    "language_proficiency": {
+      "chinese_proficiency": "none | fair | good",
+      "english_proficiency": "",
+      "native_language": ""
+    },
+
+    "education_and_work_background": {
+      "highest_education_level": "",
+      "previous_school_or_company": ""
+    },
+
+    "study_plan": {
+      "intended_school_and_major": "",
+      "student_status": "",
+      "study_duration": {
+        "from_year": "",
+        "from_month": "",
+        "to_year": "",
+        "to_month": ""
+      }
+    },
+
+    "contact_information_overseas": {
+      "street_and_number": "",
+      "city": "",
+      "country": "",
+      "postal_code": "",
+      "telephone": ""
+    },
+
+    "contact_information_in_china": {
+      "street_and_number": "",
+      "city": "",
+      "province": "",
+      "postal_code": "",
+      "telephone": ""
+    },
+
+    "email_contact": {
+      "email": ""
+    },
+
+    "financial_information": {
+      "source_of_funding": "self_supporting | other",
+      "funded_by": ""
+    },
+
+    "guarantor_information": {
+      "guarantor_name": "",
+      "guarantor_telephone": "",
+      "guarantor_occupation": "",
+      "guarantor_email": "",
+      "guarantor_organization": "",
+      "guarantor_address": ""
+    },
+
+    "recommendation_information": {
+      "recommended_by_name_or_organization": "",
+      "recommended_by_telephone": ""
+    },
+
+    "family_members": {
+      "father": {
+        "name": "",
+        "id_number": "",
+        "occupation": "",
+        "telephone": ""
+      },
+      "mother": {
+        "name": "",
+        "id_number": "",
+        "occupation": "",
+        "telephone": ""
+      },
+      "spouse": {
+        "name": "",
+        "id_number": "",
+        "occupation": "",
+        "telephone": ""
+      }
+    },
+
+    "declaration": {
+      "applicant_signature": "",
+      "signature_date": ""
+    },
+
+    "visa_and_residence_information": {
+      "visa_or_residence_type": "",
+      "valid_period": ""
+    }
+  }
+}

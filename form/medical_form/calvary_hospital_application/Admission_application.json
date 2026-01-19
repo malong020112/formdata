@@ -1,0 +1,134 @@
+{
+  "name": "Calvary Hospital - Community Outreach Services Admission Application",
+  "fields": {
+    "application_request": {
+      "application_for": "acute_inpatient_admission | calvary_at_home_hospice_at_home | calvary_at_home_home_care | calvary_at_home_dawn_greene_hospice | ambulatory_services_outpatient_services",
+      "campus": "bronx_campus | brooklyn_campus",
+      "tentative_discharge_date": "MM/DD/YYYY"
+    },
+    "admission_request": {
+      "admission_timing": "today | tomorrow | hold_backup",
+      "service_type": "rehab | antibiotic_tx | wound_care_service",
+      "interim_home_services": "yes | no",
+      "copy_of_advance_directives_provided": "yes | no",
+      "dnr_copy_attached": "yes | no",
+      "hcp_copy_attached": "yes | no"
+    },
+    "section_a_patient_information": {
+      "patient_name": {
+        "first_name": "",
+        "last_name": ""
+      },
+      "preferred_language": "",
+      "address": {
+        "street_address": "",
+        "apt_number": "",
+        "city": "",
+        "state": "",
+        "zip": ""
+      },
+      "phone": "",
+      "age": "",
+      "birth_date": "MM/DD/YYYY",
+      "sex": "",
+      "race": "",
+      "rel": "",
+      "marital_status": "",
+      "ssn": "",
+      "medicare": "",
+      "medicaid": "",
+      "insurance_company": "",
+      "policy_number": "",
+      "other_insurance_information": "",
+      "medicaid_office_phone_number": ""
+    },
+    "section_b_contacts_and_referral_information": {
+      "contact_1": {
+        "contact_name": {
+          "first_name": "",
+          "last_name": ""
+        },
+        "relationship": "",
+        "authorization": "hcp | poa | advance_directives",
+        "address": {
+          "street_address": "",
+          "apt_number": "",
+          "city": "",
+          "state": "",
+          "zip": ""
+        },
+        "home_phone": "",
+        "cell_phone": "",
+        "email": ""
+      },
+      "contact_2": {
+        "contact_name": {
+          "first_name": "",
+          "last_name": ""
+        },
+        "relationship": "",
+        "authorization": "hcp | poa | advance_directives",
+        "home_phone": "",
+        "cell_phone": "",
+        "email": ""
+      },
+      "physician": {
+        "physician_name": "",
+        "physician_agrees_with_transfer_to_calvary_hospital": "yes | no",
+        "physician_address": {
+          "street_address": "",
+          "city": "",
+          "state": "",
+          "zip": ""
+        },
+        "phone": "",
+        "fax": "",
+        "beeper": "",
+        "cell": ""
+      },
+      "sw_cm_dcp": {
+        "name": "",
+        "beeper": "",
+        "number": "",
+        "phone": "",
+        "ext": "",
+        "fax": "",
+        "nursing_unit_phone": ""
+      },
+      "facility_program": "",
+      "patient_admit_date": "MM/DD/YYYY",
+      "completed_by": {
+        "signature": "",
+        "print_name": "",
+        "date_time": ""
+      }
+    },
+    "section_c_clinical_information": {
+      "icd_10_code_number": "",
+      "primary_diagnosis": "",
+      "allergies": "",
+      "mets": "lung | liver | brain | bone | other",
+      "mets_other_specify": "",
+      "udnr_copy_attached": "yes | no",
+      "current_medical_issues_intensity_of_service": "pca | cord_compression | drains_tubes_central_lines_port | oxygen | shortness_of_breath | hemorrhage_bleeding | anxiety | agitation | confusion | bipap | infection | complex_wound_care | fistula | nausea_vomiting | isolation | endocrine_disorders | diarrhea | constipation | cardiac_arrhythmias | inadequate_po_iv_fluids_therapy | restraints | psychiatric_dx | fluid_and_electrolyte_disorder | seizure | history_of_wandering | chemo_radiation_therapy_current_past | pathological_fracture | history_of_falls | radiation_implant_current_past | tpn_ppn | pain_control | active_curative_treatment",
+      "bipap_settings": "",
+      "infection_type": "",
+      "isolation_type": "",
+      "other_current_medical_issues": "",
+      "reason_for_hold_backup": ""
+    },
+    "section_d_additional_information": {
+      "patient_and_or_family_agrees_with_scope_of_care": "yes | no",
+      "if_no_indicate_reason": "",
+      "dnr_copy_provided": "yes | no",
+      "hcp_copy_provided": "yes | no",
+      "family_issues": "",
+      "patient_lives_with": "",
+      "application_completed_by": {
+        "signature": "",
+        "print_name": "",
+        "date_time": ""
+      }
+    }
+  }
+}

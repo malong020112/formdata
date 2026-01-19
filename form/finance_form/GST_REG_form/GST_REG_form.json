@@ -1,0 +1,299 @@
+{
+  "name": "Form GST REG-01 - Application for Registration",
+  "fields": {
+    "part_a": {
+      "state_ut": "",
+      "district": "",
+      "legal_name_of_the_business_as_per_pan": "",
+      "permanent_account_number_pan": "",
+      "email_address": "",
+      "mobile_number": ""
+    },
+    "part_b": {
+      "trade_name_if_any": "",
+      "constitution_of_business": "proprietorship | partnership | hindu_undivided_family | private_limited_company | public_limited_company | society_club_trust_association_of_persons | government_department | public_sector_undertaking | unlimited_company | limited_liability_partnership | local_authority | statutory_body | foreign_limited_liability_partnership | foreign_company_registered_in_india | others_specify",
+      "constitution_of_business_others_specify": "",
+      "name_of_state": "",
+      "district": "",
+      "jurisdiction_state": "",
+      "jurisdiction_centre": "",
+      "jurisdiction_sector_circle_ward_unit_etc_others_specify": "",
+      "option_for_composition": "yes | no",
+      "composition_declaration": "",
+      "composition_category_of_registered_person": "manufacturers_other_than_notified_goods | suppliers_making_supplies_referred_to_in_clause_b_of_paragraph_6_of_schedule_ii | any_other_supplier_eligible_for_composition_levy",
+      "date_of_commencement_of_business": "DD/MM/YYYY",
+      "date_on_which_liability_to_register_arises": "DD/MM/YYYY",
+      "applying_as_casual_taxable_person": "yes | no",
+      "casual_taxable_person_registration_required_period": {
+        "from_date": "DD/MM/YYYY",
+        "to_date": "DD/MM/YYYY"
+      },
+      "casual_taxable_person_estimated_supplies_and_net_tax_liability": {
+        "integrated_tax": {
+          "turnover_rs": "",
+          "net_tax_liability_rs": ""
+        },
+        "central_tax": {
+          "turnover_rs": "",
+          "net_tax_liability_rs": ""
+        },
+        "state_tax": {
+          "turnover_rs": "",
+          "net_tax_liability_rs": ""
+        },
+        "ut_tax": {
+          "turnover_rs": "",
+          "net_tax_liability_rs": ""
+        },
+        "cess": {
+          "turnover_rs": "",
+          "net_tax_liability_rs": ""
+        },
+        "total": {
+          "turnover_rs": "",
+          "net_tax_liability_rs": ""
+        },
+        "payment_details": {
+          "challan_identification_number": "",
+          "date": "",
+          "amount": ""
+        }
+      },
+      "applying_as_sez_unit": "yes | no",
+      "sez_unit_details": {
+        "select_name_of_sez": "",
+        "approval_order_number_and_date_of_order": "",
+        "designation_of_approving_authority": ""
+      },
+      "applying_as_sez_developer": "yes | no",
+      "sez_developer_details": {
+        "select_name_of_sez_developer": "",
+        "approval_order_number_and_date_of_order": "",
+        "designation_of_approving_authority": ""
+      },
+      "reason_to_obtain_registration": "crossing_the_threshold | inter_state_supply | liability_to_pay_tax_as_recipient_u_s_9_3_or_9_4 | transfer_of_business_change_in_ownership_if_transferee_not_registered | death_of_the_proprietor_if_successor_not_registered | de_merger | change_in_constitution_of_business | merger_amalgamation_of_two_or_more_registered_persons | input_service_distributor | person_liable_to_pay_tax_u_s_9_5 | taxable_person_supplying_through_e_commerce_portal | voluntary_basis | persons_supplying_on_behalf_of_other_taxable_persons | others_not_covered_above_specify",
+      "reason_to_obtain_registration_others_specify": "",
+      "existing_registrations_wherever_applicable": {
+        "registration_number_under_value_added_tax": "",
+        "central_sales_tax_registration_number": "",
+        "entry_tax_registration_number": "",
+        "entertainment_tax_registration_number": "",
+        "hotel_and_luxury_tax_registration_number": "",
+        "central_excise_registration_number": "",
+        "service_tax_registration_number": "",
+        "corporate_identity_number_foreign_company_registration_number": "",
+        "limited_liability_partnership_identification_number_foreign_llp_identification_number": "",
+        "importer_exporter_code_number": "",
+        "registration_number_under_medicinal_and_toilet_preparations_excise_duties_act": "",
+        "registration_number_under_shops_and_establishment_act": "",
+        "temporary_id_if_any": "",
+        "others_please_specify": ""
+      },
+      "principal_place_of_business": {
+        "building_no_flat_no": "",
+        "floor_no": "",
+        "name_of_the_premises_building": "",
+        "road_street": "",
+        "city_town_locality_village": "",
+        "district": "",
+        "taluka_block": "",
+        "state": "",
+        "pin_code": "",
+        "latitude": "",
+        "longitude": "",
+        "contact_information": {
+          "office_email_address": "",
+          "office_telephone_number": "",
+          "office_telephone_std": "",
+          "mobile_number": "",
+          "office_fax_number": "",
+          "office_fax_std": ""
+        },
+        "nature_of_premises": "own | leased | rented | consent | shared | others_specify",
+        "nature_of_premises_others_specify": "",
+        "nature_of_business_activity_at_premises": "factory_manufacturing | wholesale_business | retail_business | warehouse_depot | bonded_warehouse | supplier_of_services | office_sale_office | leasing_business | recipient_of_goods_or_services | eou_stp_ehtp | works_contract | export | import | others_specify",
+        "nature_of_business_activity_others_specify": ""
+      },
+      "bank_accounts": {
+        "total_number_of_bank_accounts_maintained_for_business": "",
+        "bank_account_1": {
+          "account_number": "",
+          "type_of_account": "",
+          "ifsc": "",
+          "bank_name": "",
+          "branch_address": ""
+        }
+      },
+      "goods_supplied_by_the_business_top_5": {
+        "goods_1": {
+          "description_of_goods": "",
+          "hsn_code_four_digit": ""
+        },
+        "goods_2": {
+          "description_of_goods": "",
+          "hsn_code_four_digit": ""
+        },
+        "goods_3": {
+          "description_of_goods": "",
+          "hsn_code_four_digit": ""
+        },
+        "goods_4": {
+          "description_of_goods": "",
+          "hsn_code_four_digit": ""
+        },
+        "goods_5": {
+          "description_of_goods": "",
+          "hsn_code_four_digit": ""
+        }
+      },
+      "services_supplied_by_the_business_top_5": {
+        "service_1": {
+          "description_of_services": "",
+          "hsn_code_four_digit": ""
+        },
+        "service_2": {
+          "description_of_services": "",
+          "hsn_code_four_digit": ""
+        },
+        "service_3": {
+          "description_of_services": "",
+          "hsn_code_four_digit": ""
+        },
+        "service_4": {
+          "description_of_services": "",
+          "hsn_code_four_digit": ""
+        },
+        "service_5": {
+          "description_of_services": "",
+          "hsn_code_four_digit": ""
+        }
+      },
+      "additional_places_of_business": {
+        "number_of_additional_places": "",
+        "premises_1": {
+          "building_no_flat_no": "",
+          "floor_no": "",
+          "name_of_the_premises_building": "",
+          "road_street": "",
+          "city_town_locality_village": "",
+          "district": "",
+          "block_taluka": "",
+          "state": "",
+          "pin_code": "",
+          "latitude": "",
+          "longitude": "",
+          "contact_information": {
+            "office_email_address": "",
+            "office_telephone_number": "",
+            "office_telephone_std": "",
+            "mobile_number": "",
+            "office_fax_number": "",
+            "office_fax_std": ""
+          },
+          "nature_of_premises": "own | leased | rented | consent | shared | others_specify",
+          "nature_of_premises_others_specify": "",
+          "nature_of_business_activity_at_premises": "factory_manufacturing | wholesale_business | retail_business | warehouse_depot | bonded_warehouse | supplier_of_services | office_sale_office | leasing_business | recipient_of_goods_or_services | eou_stp_ehtp | works_contract | export | import | others_specify",
+          "nature_of_business_activity_others_specify": ""
+        }
+      },
+      "proprietor_partners_karta_managing_directors_trustees_etc_details": {
+        "name": {
+          "first_name": "",
+          "middle_name": "",
+          "last_name": ""
+        },
+        "name_of_father": "",
+        "date_of_birth": "DD/MM/YYYY",
+        "gender": "male | female | other",
+        "mobile_number": "",
+        "email_address": "",
+        "telephone_no_with_std": "",
+        "designation_status": "",
+        "director_identification_number_if_any": "",
+        "permanent_account_number_pan": "",
+        "aadhaar_number": "",
+        "citizen_of_india": "yes | no",
+        "passport_no_if_foreigner": "",
+        "residential_address": {
+          "building_no_flat_no": "",
+          "floor_no": "",
+          "name_of_the_premises_building": "",
+          "road_street": "",
+          "city_town_locality_village": "",
+          "district": "",
+          "block_taluka": "",
+          "state": "",
+          "pin_code": "",
+          "country_if_foreigner_only": "",
+          "zip_code": ""
+        }
+      },
+      "authorised_signatory_details": {
+        "is_primary_authorised_signatory": "yes | no",
+        "signatory_1": {
+          "name": {
+            "first_name": "",
+            "middle_name": "",
+            "last_name": ""
+          },
+          "name_of_father": "",
+          "date_of_birth": "DD/MM/YYYY",
+          "gender": "male | female | other",
+          "mobile_number": "",
+          "email_address": "",
+          "telephone_no_with_std": "",
+          "designation_status": "",
+          "director_identification_number_if_any": "",
+          "permanent_account_number_pan": "",
+          "aadhaar_number": "",
+          "citizen_of_india": "yes | no",
+          "passport_no_if_foreigner": "",
+          "residential_address_in_india": {
+            "building_no_flat_no": "",
+            "floor_no": "",
+            "name_of_the_premises_building": "",
+            "road_street": "",
+            "block_taluka": "",
+            "city_town_locality_village": "",
+            "district": "",
+            "state": "",
+            "pin_code": ""
+          }
+        }
+      },
+      "authorised_representative_details_optional": {
+        "enrolment_id_if_available": "",
+        "permanent_account_number_pan_if_enrolment_id_not_available": "",
+        "aadhaar_if_pan_not_available": "",
+        "name_of_person": {
+          "first_name": "",
+          "middle_name": "",
+          "last_name": ""
+        },
+        "designation_status": "",
+        "mobile_number": "",
+        "email_address": "",
+        "telephone_no_with_std": "",
+        "fax_no_with_std": ""
+      },
+      "state_specific_information": {
+        "profession_tax_enrolment_code_ec_no": "",
+        "profession_tax_registration_certificate_rc_no": "",
+        "state_excise_license_no_and_name_of_person": "",
+        "field_1": "",
+        "field_2": "",
+        "field_n": ""
+      },
+      "consent": {
+        "aadhaar_number_holder_consent": ""
+      },
+      "verification_by_authorised_signatory": {
+        "signature": "",
+        "place": "",
+        "name_of_authorised_signatory": "",
+        "date": "",
+        "designation_status": ""
+      }
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "name": "West Liberty University Undergraduate Application",
+  "fields": {
+    "applicant_name": {
+      "legal_last_name": "",
+      "legal_first_name": "",
+      "legal_middle_name": "",
+      "suffix": "",
+      "preferred_first_name": "",
+      "former_last_names": ""
+    },
+
+    "permanent_home_address": {
+      "street_or_po_box": "",
+      "apartment_number": "",
+      "city_or_town": "",
+      "state": "",
+      "zip_code": "",
+      "county": ""
+    },
+
+    "contact_information": {
+      "permanent_home_phone": "",
+      "mobile_phone": "",
+      "text_opt_in": "yes | no",
+      "email_address": "",
+      "social_security_number": ""
+    },
+
+    "personal_information": {
+      "birth_date": "MM/DD/YYYY",
+      "gender": "female | male | prefer_not_to_answer | other",
+      "gender_specify_if_other": "",
+      "citizenship_status": "us_citizen | permanent_resident_with_alien_card | non_resident_alien",
+      "nation_of_citizenship_if_non_us": "",
+      "hispanic_or_latino": "yes | no",
+      "ethnic_status": "american_indian_or_alaskan | native_hawaiian_or_pacific_islander | asian | white | black_or_african_american | prefer_not_to_respond"
+    },
+
+    "mailing_address": {
+      "mailing_address_different_from_permanent": "yes | no",
+      "street_or_po_box": "",
+      "apartment_number": "",
+      "city_or_town": "",
+      "state": "",
+      "zip_code": ""
+    },
+
+    "emergency_contact_1": {
+      "full_name": "",
+      "address_if_different": "",
+      "city": "",
+      "state": "",
+      "zip_code": "",
+      "preferred_phone": "",
+      "email_address": ""
+    },
+
+    "emergency_contact_2": {
+      "full_name": "",
+      "address_if_different": "",
+      "city": "",
+      "state": "",
+      "zip_code": "",
+      "preferred_phone": "",
+      "email_address": ""
+    },
+
+    "family_background": {
+      "parents_graduated_four_year_college": "yes | no",
+      "relatives_graduated_from_wlu": "yes | no",
+      "relationship_to_wlu_alumni": "aunt | uncle | parent | mother | father | sibling | brother | sister | cousin | grandparent | spouse | child_or_stepchild | other",
+      "marital_status": "single | married | divorced | widowed | separated"
+    },
+
+    "admissions_influence": {
+      "primary_influence": "athletics | college_fair | college_mailing | college_publication | campus_visit | friend | guidance_counselor | location | media_advertisement | relative | social_media | website | wlu_alumnus | wlu_faculty_or_staff | wlu_admissions_counselor | other",
+      "wlu_admissions_counselor_name": "",
+      "other_influence_description": ""
+    },
+
+    "residency_and_enrollment": {
+      "residency_classification": "in_state | out_of_state",
+      "applying_as_west_virginia_resident": "yes | no",
+      "length_of_residency_in_state": "",
+      "parents_or_guardians_state_residents_if_minor": "yes | no"
+    },
+
+    "academic_intent": {
+      "intended_major": "",
+      "concentration_or_track": "",
+      "term_of_entry": "fall | spring | summer_i | summer_ii",
+      "year_of_entry": "",
+      "student_status": "full_time | part_time"
+    },
+
+    "health_and_immunization": {
+      "received_mmr_two_doses": "yes | no"
+    },
+
+    "high_school_information": {
+      "high_school_name": "",
+      "high_school_city_state": "",
+      "graduation_date": "MM/DD/YYYY"
+    },
+
+    "standardized_testing": {
+      "taken_or_planned_tests": "act | sat | none",
+      "act_taken": "yes | no",
+      "act_date": "",
+      "sat_taken": "yes | no",
+      "sat_date": ""
+    },
+
+    "college_history": {
+      "previous_colleges_attended": "yes | no",
+      "college_name": "",
+      "college_location": "",
+      "dates_attended": "",
+      "hours_or_degree_earned": ""
+    },
+
+    "prior_enrollment_questions": {
+      "previously_attended_wlu": "yes | no",
+      "currently_or_previously_enrolled_other_college": "yes | no",
+      "eligible_to_return_to_previous_college": "yes | no",
+      "suspended_or_disciplined_from_college": "yes | no",
+      "convicted_of_felony_last_5_years": "yes | no",
+      "ged_or_tasc_if_no_high_school_diploma": "yes | no",
+      "explanation_if_yes": ""
+    },
+
+    "application_type": {
+      "student_type": "first_time_freshman | early_entrance_dual_credit | teacher_certification | transfer_student | transfer_former_wlu_student | special_non_degree | transient_student | former_wlu_student | wlu_graduate",
+      "current_institution_if_transient": "",
+      "dates_of_previous_wlu_attendance": "",
+      "wlu_graduation_date": ""
+    },
+
+    "military_information": {
+      "current_or_prior_military_service": "yes | no",
+      "applying_for_military_education_benefits": "yes | no"
+    },
+
+    "declaration": {
+      "applicant_signature": "",
+      "signature_date": "MM/DD/YYYY",
+      "parent_or_guardian_signature_if_under_18": "",
+      "parent_or_guardian_signature_date": "MM/DD/YYYY"
+    }
+  }
+}

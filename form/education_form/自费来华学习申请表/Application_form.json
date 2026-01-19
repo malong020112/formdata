@@ -1,0 +1,145 @@
+{
+  "name": "Application Form for Self-Financed Study in China (CSC)",
+  "fields": {
+    "personal_information": {
+      "passport_name": {
+        "family_name": "",
+        "given_name": ""
+      },
+      "nationality": "",
+      "passport_number": "",
+      "date_of_birth": {
+        "year": "",
+        "month": "",
+        "day": ""
+      },
+      "place_of_birth": {
+        "country": "",
+        "city": ""
+      },
+      "sex": "male | female",
+      "marital_status": "married | single | other",
+      "native_language": "",
+      "religion": "",
+      "present_address": "",
+      "telephone": "",
+      "fax": "",
+      "email": "",
+      "permanent_address": ""
+    },
+
+    "education_background": {
+      "education_records": [
+        {
+          "institution": "",
+          "years_attended_from_to": "",
+          "field_of_study": "",
+          "certificates_obtained_or_to_obtain": ""
+        }
+      ]
+    },
+
+    "employment_record": {
+      "employment_records": [
+        {
+          "employer": "",
+          "time_from_to": "",
+          "work_engaged": "",
+          "posts_held": ""
+        }
+      ]
+    },
+
+    "language_proficiency": {
+      "chinese_level": "excellent | good | fair | poor | none",
+      "chinese_test_hsk_or_other_certificate": "",
+      "english_level": "excellent | good | fair | poor | none",
+      "can_be_taught_in_english": "yes | no",
+      "other_languages": ""
+    },
+
+    "proposed_study_in_china": {
+      "study_category": "bachelors_degree_candidate | masters_degree_candidate | doctors_degree_candidate | research_scholar | chinese_language_student | general_scholar | senior_scholar",
+      "subject_or_field_of_study_in_china": "",
+      "preferred_institutions_in_china": {
+        "preference_1": "",
+        "preference_2": "",
+        "preference_3": ""
+      },
+      "duration_of_specialized_study": {
+        "from_year": "",
+        "from_month": "",
+        "to_year": "",
+        "to_month": ""
+      },
+      "need_elementary_chinese_study_prior": "yes | no",
+      "elementary_chinese_study_duration_if_yes": {
+        "from_year": "",
+        "from_month": "",
+        "to_year": "",
+        "to_month": ""
+      }
+    },
+
+    "study_or_research_plan_details": {
+      "details": ""
+    },
+
+    "academic_papers_writing_artworks_published": {
+      "details": ""
+    },
+
+    "source_of_financial_support": {
+      "support_type": "organization | family | individual"
+    },
+
+    "recommending_organization_or_person": {
+      "name_or_organization": ""
+    },
+
+    "guarantor_in_china": {
+      "name": "",
+      "telephone": "",
+      "fax": "",
+      "address": ""
+    },
+
+    "previous_study_or_work_in_china": {
+      "has_studied_or_worked_in_china": "yes | no",
+      "institution_or_employer_if_yes": "",
+      "time_in_china_if_yes": {
+        "from_year": "",
+        "from_month": "",
+        "to_year": "",
+        "to_month": ""
+      }
+    },
+
+    "family_members": {
+      "spouse": {
+        "name": "",
+        "age": "",
+        "employment": ""
+      },
+      "father": {
+        "name": "",
+        "age": "",
+        "employment": ""
+      },
+      "mother": {
+        "name": "",
+        "age": "",
+        "employment": ""
+      }
+    },
+
+    "other_attachments_list_if_any": {
+      "details": ""
+    },
+
+    "applicant_declaration": {
+      "signature_of_applicant": "",
+      "date": ""
+    }
+  }
+}

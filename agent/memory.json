@@ -1,0 +1,171 @@
+[
+  {
+    "user_id": "1",
+    "information": [
+      {
+        "key": "personal_information.surname_as_shown_in_passport",
+        "value": "Zhang"
+      },
+      {
+        "key": "personal_information.given_and_middle_names_as_shown_in_passport",
+        "value": "Min"
+      },
+      {
+        "key": "personal_information.sex",
+        "value": "Female"
+      },
+      {
+        "key": "personal_information.date_of_birth",
+        "value": "1972-04-18"
+      },
+      {
+        "key": "personal_information.place_of_birth",
+        "value": "Nanjing, China"
+      },
+      {
+        "key": "personal_information.marital_status",
+        "value": "Married"
+      },
+      {
+        "key": "passport_information.passport_no",
+        "value": "EJ5274931"
+      },
+      {
+        "key": "passport_information.date_of_issue",
+        "value": "2021-09-22"
+      },
+      {
+        "key": "passport_information.date_of_expiry",
+        "value": "2031-09-21"
+      },
+      {
+        "key": "passport_information.nationality_or_citizenship",
+        "value": "China"
+      },
+      {
+        "key": "passport_information.passport_type",
+        "value": "Ordinary"
+      },
+      {
+        "key": "passport_information.issuing_authority",
+        "value": "National Immigration Administration, PRC"
+      },
+      {
+        "key": "passport_information.place_of_issue",
+        "value": "Nanjing, China"
+      },
+      {
+        "key": "passport_information.id_no_issued_by_government",
+        "value": "320102197204182626"
+      },
+      {
+        "key": "contact_information.mobile_no",
+        "value": "+86 138 5172 9046"
+      },
+      {
+        "key": "contact_information.tel",
+        "value": "+86 25 8451 6632"
+      },
+      {
+        "key": "contact_information.e_mail",
+        "value": "zhang.min1972@outlook.com"
+      },
+      {
+        "key": "contact_information.address",
+        "value": "Room 1202, Building 8, No. 168 Zhongshan East Road, Qinhuai District, Nanjing, Jiangsu 210001, China"
+      },
+      {
+        "key": "employment_information.current_profession_or_occupation_and_position",
+        "value": "Community health clinic administrator"
+      },
+      {
+        "key": "employment_information.name_and_address_of_employer",
+        "value": "Qinhuai Community Health Service Center, Qinhuai District, Nanjing, China"
+      },
+      {
+        "key": "employment_information.employer_tel",
+        "value": "+86 25 8451 6632"
+      },
+      {
+        "key": "applicant.surname",
+        "value": "Zhang"
+      },
+      {
+        "key": "applicant.given_names",
+        "value": "Min"
+      },
+      {
+        "key": "applicant.sex",
+        "value": "Female"
+      },
+      {
+        "key": "applicant.date_of_birth",
+        "value": "1972-04-18"
+      },
+      {
+        "key": "applicant.place_of_birth",
+        "value": "Nanjing"
+      },
+      {
+        "key": "applicant.country_of_birth",
+        "value": "China"
+      },
+      {
+        "key": "applicant.nationality.current",
+        "value": "China"
+      },
+      {
+        "key": "contact_information.email",
+        "value": "zhang.min1972@outlook.com"
+      },
+      {
+        "key": "contact_information.telephone",
+        "value": "+86 138 5172 9046"
+      },
+      {
+        "key": "contact_information.home_address",
+        "value": "Qinhuai District, Nanjing, China"
+      },
+      {
+        "key": "occupation.current_occupation",
+        "value": "Community health clinic administrator"
+      },
+      {
+        "key": "occupation.employer_or_educational_establishment.name",
+        "value": "Qinhuai Community Health Service Center"
+      },
+      {
+        "key": "identity.national_identity_number",
+        "value": "320102197204182626"
+      },
+      {
+        "key": "identity.travel_document.type",
+        "value": "Ordinary passport"
+      },
+      {
+        "key": "identity.travel_document.number",
+        "value": "EJ5274931"
+      },
+      {
+        "key": "identity.travel_document.date_of_issue",
+        "value": "2021-09-22"
+      },
+      {
+        "key": "identity.travel_document.valid_until",
+        "value": "2031-09-21"
+      },
+      {
+        "key": "identity.travel_document.issued_by_country",
+        "value": "China"
+      },
+      {
+        "key": "applicant.civil_status",
+        "value": "Married"
+      },
+      {
+        "key": "contact_information.name",
+        "value": "Zhang Min"
+      }
+    ]
+  }
+]

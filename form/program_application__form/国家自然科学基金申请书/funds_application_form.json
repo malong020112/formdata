@@ -1,0 +1,156 @@
+{
+  "name": "国家自然科学基金申请书（2024版）",
+  "fields": {
+    "cover_page": {
+      "application_code_4_digits": "",
+      "funding_category": "",
+      "sub_category_description": "",
+      "notes_description": "",
+      "project_title": "",
+      "applicant_name": "",
+      "brid": "",
+      "office_phone": "",
+      "host_institution": "",
+      "mailing_address": "",
+      "postal_code": "",
+      "institution_phone": "",
+      "email": ""
+    },
+    "basic_information": {
+      "applicant_information": {
+        "name": "",
+        "sex": "",
+        "birth_year_month": "YYYY-MM",
+        "ethnicity": "",
+        "degree": "",
+        "professional_title": "",
+        "postdoctoral_status": "yes | no",
+        "email": "",
+        "office_phone": "",
+        "country_or_region": "",
+        "applicant_category": "",
+        "work_unit": "",
+        "main_research_area": ""
+      },
+      "host_institution_information": {
+        "institution_name": "",
+        "contact_person": "",
+        "contact_email": "",
+        "contact_phone": "",
+        "website": ""
+      },
+      "cooperating_research_institution_information": {
+        "institution_name": ""
+      },
+      "project_basic_information": {
+        "project_title_cn": "",
+        "project_title_en": "",
+        "funding_category": "",
+        "sub_category_description": "",
+        "notes_description": "",
+        "application_code": "",
+        "project_duration": {
+          "start_date": "YYYY-MM-DD",
+          "end_date": "YYYY-MM-DD"
+        },
+        "research_direction": "",
+        "direct_costs_amount_10k_rmb": "",
+        "research_nature": "",
+        "keywords_cn": "",
+        "keywords_en": ""
+      }
+    },
+    "abstract": {
+      "abstract_cn": "",
+      "abstract_en": ""
+    },
+    "main_participants": {
+      "participants": [
+        {
+          "name": "",
+          "birth_date": "YYYY-MM-DD",
+          "sex": "",
+          "professional_title": "",
+          "degree": "",
+          "work_unit": "",
+          "project_role": "",
+          "office_phone": "",
+          "id_number": ""
+        }
+      ],
+      "total_people_statistics": {
+        "total_number": "",
+        "senior_title_count": "",
+        "mid_title_count": "",
+        "junior_title_count": "",
+        "postdoc_count": "",
+        "phd_student_count": "",
+        "master_student_count": "",
+        "undergraduate_and_other_students_count": "",
+        "others_count": ""
+      }
+    },
+    "budget": {
+      "project_application_number": "",
+      "project_leader": "",
+      "direct_cost_total_10k_rmb": "",
+      "equipment_cost_10k_rmb": "",
+      "equipment_purchase_cost_10k_rmb": "",
+      "business_cost_10k_rmb": "",
+      "labor_cost_10k_rmb": "",
+      "other_source_funds_10k_rmb": "",
+      "total_10k_rmb": ""
+    },
+    "budget_justification": {
+      "budget_justification_text": ""
+    },
+    "proposal_body": {
+      "innovation_ideas_and_key_research_clues_statement_optional": "",
+      "project_basis_and_research_content": {
+        "project_rationale": "",
+        "research_content_and_objectives": "",
+        "key_scientific_problems": "",
+        "research_plan_and_feasibility": "",
+        "features_and_innovations": "",
+        "annual_research_plan_and_expected_results": ""
+      },
+      "research_foundation_and_work_conditions": {
+        "research_foundation": "",
+        "work_conditions": "",
+        "ongoing_related_projects": "",
+        "completion_status_of_previous_nsfc_projects": ""
+      },
+      "other_explanations": {
+        "other_nsfc_applications_same_year": "",
+        "unit_inconsistency_same_year_application_or_participation": "",
+        "unit_inconsistency_with_ongoing_nsfc_projects": "",
+        "other_notes": ""
+      }
+    },
+    "attachments_information": {
+      "attachments": [
+        {
+          "attachment_name": "",
+          "remarks": "",
+          "attachment_type": ""
+        }
+      ]
+    },
+    "commitment_by_applicant_and_participants": {
+      "applicant_signature": "",
+      "participants_signature_list": [
+        {
+          "participant_name": "",
+          "work_unit_name": "",
+          "id_number": "",
+          "signature": ""
+        }
+      ]
+    },
+    "commitment_by_applicant_institution": {
+      "host_institution_date": "YYYY-MM-DD",
+      "cooperating_institution_date_1": "YYYY-MM-DD",
+      "cooperating_institution_date_2": "YYYY-MM-DD"
+    }
+  }
+}

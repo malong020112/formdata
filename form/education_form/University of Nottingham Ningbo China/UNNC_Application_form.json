@@ -1,0 +1,131 @@
+{
+  "name": "University of Nottingham Ningbo China International/HMT Undergraduate Application Form",
+  "fields": {
+    "programme_details": {
+      "undergraduate_degree_or_course_applied_for": {
+        "first_choice": "",
+        "second_choice": ""
+      },
+      "last_two_years_in_uk_option": "yes | no"
+    },
+
+    "personal_details": {
+      "surname": "",
+      "given_name": "",
+      "gender": "male | female",
+      "marital_status": "single | married",
+      "date_of_birth": "DD/MM/YY",
+      "country_or_region": "",
+      "passport_or_identification_number": ""
+    },
+
+    "contact_information": {
+      "correspondence_address": {
+        "building": "",
+        "street": "",
+        "city_or_town": "",
+        "country": "",
+        "postcode": ""
+      },
+      "telephone_number": "",
+      "mobile_phone_number": "",
+      "email_address": ""
+    },
+
+    "emergency_contact": {
+      "name": "",
+      "mobile_number": "",
+      "mailing_address": ""
+    },
+
+    "qualifications_academic_records": {
+      "records": [
+        {
+          "name_of_institution_and_qualification": "",
+          "date_of_attendance_from": "",
+          "date_of_attendance_to": "",
+          "date_results_expected_if_applicable": ""
+        }
+      ]
+    },
+
+    "english_language_qualifications": {
+      "english_is_first_language": "yes | no",
+      "tests": {
+        "ielts": {
+          "score": "",
+          "date_obtained": "MM/YY"
+        },
+        "toefl": {
+          "score": "",
+          "date_obtained": "MM/YY"
+        },
+        "o_level_or_gcse": {
+          "score": "",
+          "date_obtained": "MM/YY"
+        },
+        "other_test": {
+          "test_name": "",
+          "score": "",
+          "date_obtained": "MM/YY"
+        }
+      }
+    },
+
+    "reference_information": {
+      "referee_name": "",
+      "referee_address": "",
+      "referee_position": "",
+      "referee_phone_number": "",
+      "referee_email_address": ""
+    },
+
+    "personal_statement": {
+      "personal_statement_summary": ""
+    },
+
+    "disability_or_medical_condition": {
+      "has_disability_or_long_term_medical_condition": "yes | no",
+      "details_if_yes": ""
+    },
+
+    "additional_information": {
+      "previously_visited_or_lived_in_china": "yes | no",
+      "is_unnc_staff": "yes | no",
+      "previously_studied_at_university_of_nottingham": "yes | no",
+      "family_member_currently_registered_at_university_of_nottingham": "yes | no",
+      "criminal_convictions": "yes | no",
+      "religion": {
+        "has_religion": "yes | no",
+        "religion_details": ""
+      }
+    },
+
+    "how_did_you_learn_about_unnc": {
+      "education_platforms": [],
+      "social_media": [],
+      "search_engines": [],
+      "recommendations_or_events": [],
+      "agent_specify": "",
+      "other_specify": ""
+    },
+
+    "application_checklist_confirmation": {
+      "transcript_of_studies": "yes | no",
+      "high_school_certificate": "yes | no",
+      "recommendation_letter": "yes | no",
+      "english_language_test_report": "yes | no",
+      "personal_statement": "yes | no",
+      "identification_document": "yes | no",
+      "passport_copy_international_students": "yes | no",
+      "hk_identity_and_travel_permit": "yes | no",
+      "macao_identity_and_travel_permit": "yes | no",
+      "taiwan_travel_permit": "yes | no"
+    },
+
+    "declaration": {
+      "signature": "",
+      "date": ""
+    }
+  }
+}

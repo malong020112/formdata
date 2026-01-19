@@ -1,0 +1,137 @@
+{
+  "name": "San Diego Mesa College International Student Program Student Application (Spring 2026)",
+  "fields": {
+    "term_information": {
+      "semester": "fall_semester | spring_semester",
+      "year": ""
+    },
+
+    "applicant_name_as_on_passport": {
+      "surname_primary_last_name": "",
+      "given_first_name": "",
+      "middle_name": ""
+    },
+
+    "current_us_contact_information_if_available": {
+      "street_number": "",
+      "street_name": "",
+      "city": "",
+      "state": "",
+      "zip_code": "",
+      "country": "",
+      "us_phone_number": {
+        "area_code": "",
+        "number": ""
+      }
+    },
+
+    "email_address": "",
+
+    "english_proficiency": {
+      "language_of_instruction": "english | not_english",
+      "english_test": {
+        "test_type": "toefl | ielts | us_english_composition_course",
+        "score_or_grade": "",
+        "date_completed": ""
+      }
+    },
+
+    "educational_goal": {
+      "major": "",
+      "goal": "associate_degree | associate_degree_and_transfer_for_bachelors_degree | transfer_only_for_bachelors_degree",
+      "transfer_institutions_considering": ""
+    },
+
+    "biographical_information": {
+      "date_of_birth": "MM/DD/YYYY",
+      "city_of_birth": "",
+      "country_of_birth": "",
+      "country_of_citizenship": "",
+      "gender": "female | male",
+      "passport_number": "",
+      "home_country_phone": "",
+      "complete_home_country_address": {
+        "street_number": "",
+        "street_name": "",
+        "city": "",
+        "province_or_state": "",
+        "postal_or_zip_code": "",
+        "country": ""
+      },
+      "marital_status": "single | married",
+      "dependents_traveling_with_you": [
+        {
+          "name": "",
+          "relationship": "spouse | child",
+          "country_of_birth": "",
+          "country_of_citizenship": ""
+        }
+      ]
+    },
+
+    "f1_visa_information": {
+      "method_of_obtaining_f1_visa": "transfer_sevis_record | initial_f1_visa_abroad | change_status_through_uscis | other",
+      "other_method_details": "",
+      "date_of_last_us_entry": "MM/DD/YYYY",
+      "current_visa_status": "",
+      "i94_expiration_date": "MM/DD/YYYY"
+    },
+
+    "preferred_name": "",
+
+    "previous_schools_and_colleges_attended": {
+      "high_school": {
+        "transcript_included": "yes | no",
+        "attendance_from": "MM/YYYY",
+        "attendance_to": "MM/YYYY",
+        "school_name": "",
+        "country": "",
+        "currently_attending": "yes | no",
+        "diploma_or_certificate_earned": "",
+        "grades_or_gpa": ""
+      },
+      "us_college_or_university": {
+        "transcript_included": "yes | no",
+        "attendance_from": "MM/YYYY",
+        "attendance_to": "MM/YYYY",
+        "school_name": "",
+        "study_load": "full_time | part_time",
+        "visa_type": "f1 | other",
+        "other_visa_details": "",
+        "currently_attending": "yes | no",
+        "degree_or_certificate_earned": "",
+        "grades_or_gpa": ""
+      },
+      "other_college_university_or_language_school": {
+        "transcript_included": "yes | no",
+        "attendance_from": "MM/YYYY",
+        "attendance_to": "MM/YYYY",
+        "school_name": "",
+        "country": "",
+        "currently_attending": "yes | no",
+        "degree_or_certificate_earned": "",
+        "grades_or_gpa": ""
+      }
+    },
+
+    "emergency_contacts": [
+      {
+        "name_last_first": "",
+        "relationship": "",
+        "phone_number": ""
+      },
+      {
+        "name_last_first": "",
+        "relationship": "",
+        "phone_number": ""
+      }
+    ],
+
+    "acknowledgement_and_signature": {
+      "mandatory_orientation_acknowledgement": "yes | no",
+      "applicant_name_printed": "",
+      "applicant_signature": "",
+      "date": ""
+    }
+  }
+}

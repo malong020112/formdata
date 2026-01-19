@@ -1,0 +1,492 @@
+import argparse
+import concurrent.futures
+import json
+import os
+import re
+import time
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
+
+from openai import OpenAI
+
+# Base config
+API_KEY = os.getenv("OPENAI_API_KEY", "sk-tEbmy3HeMVHfwSfw5a2BXZMOzc76PXd4OzoMkLUj6hYowDqE")
+BASE_URL = os.getenv("OPENAI_BASE_URL", "https://zjuapi.com/v1")
+MODEL_NAME = os.getenv("OPENAI_MODEL", "gpt-5.2")
+
+DEFAULT_RECORD_COUNT = int(os.getenv("SCHENGEN_USER_COUNT", "300"))
+
+SCHENGEN_COUNTRIES = {
+    "austria",
+    "belgium",
+    "croatia",
+    "czech republic",
+    "denmark",
+    "estonia",
+    "finland",
+    "france",
+    "germany",
+    "greece",
+    "hungary",
+    "iceland",
+    "italy",
+    "latvia",
+    "liechtenstein",
+    "lithuania",
+    "luxembourg",
+    "malta",
+    "netherlands",
+    "norway",
+    "poland",
+    "portugal",
+    "slovakia",
+    "slovenia",
+    "spain",
+    "sweden",
+    "switzerland",
+}
+
+VISA_COUNTRY_MAP = {
+    "india": {"india"},
+    "japan": {"japan"},
+    "korea": {"korea", "south korea", "republic of korea"},
+    "schengen": SCHENGEN_COUNTRIES,
+}
+
+SYSTEM_PROMPT = """
+You are a visa data generation engine.
+
+Task: Generate ONE realistic, internally consistent applicant filling ONE visa form.
+Return ONLY valid JSON with root keys:
+- "type": visa key (string, matches the provided template key)
+- "data": the filled visa form object (must follow the provided template exactly)
+
+CORE RULES:
+1) Keep all personal/identity/contact/passport data consistent with any existing visa forms for the same applicant.
+2) Avoid conflicts across trips: do not overlap travel dates with existing visa itineraries; keep passport validity coherent.
+3) Use realistic, human-like values. The information provided should be as close to reality as possible.Dates: birth in past; passport issue < expiry; trips in future; arrival < departure.
+4) Do not add, remove, or rename any fields included in the provided template. Every field in the template must be fully completed; for fields that are not applicable, fill in N/A.
+5) Respect field-specific hints (enums, expected formats). Prefer ISO-style dates unless the template shows another format.
+6) Output must be pure JSON with no comments or markdown.
+"""
+
+
+LLM = OpenAI(api_key=API_KEY, base_url=BASE_URL)
+
+
+def _extract_json_from_text(content: str) -> Any:
+    """Extract a JSON value (object) from the model response."""
+    if not content:
+        raise ValueError("Empty response from model")
+
+    content = content.strip()
+
+    fence_match = re.search(r"```(?:json)?\s*([\s\S]*?)\s*```", content, re.DOTALL)
+    if fence_match:
+        content = fence_match.group(1).strip()
+
+    first_curly = content.find("{")
+    if first_curly != -1:
+        last_curly = content.rfind("}")
+        if last_curly > first_curly:
+            content = content[first_curly : last_curly + 1]
+
+    return json.loads(content)
+
+
+def load_visa_templates(root: Path) -> Dict[str, Dict[str, Any]]:
+    """Load all *_visa_form.json templates under the visa_form directory."""
+    if not root.exists():
+        raise FileNotFoundError(f"Visa form root not found: {root}")
+
+    templates: Dict[str, Dict[str, Any]] = {}
+    for json_path in sorted(root.rglob("*_visa_form.json")):
+        try:
+            data = json.loads(json_path.read_text(encoding="utf-8"))
+        except Exception as exc:  # noqa: BLE001
+            print(f"[warn] failed to load template {json_path}: {exc}")
+            continue
+
+        visa_key = json_path.stem.replace("_visa_form", "").lower()
+        templates[visa_key] = data
+
+    if not templates:
+        raise ValueError(f"No visa templates found under: {root}")
+
+    return templates
+
+
+def load_single_visa_template(visa_path: Path) -> Dict[str, Dict[str, Any]]:
+    """Load one visa template from a path and return {visa_key: template}."""
+    if not visa_path.exists():
+        raise FileNotFoundError(f"Visa template not found: {visa_path}")
+    data = json.loads(visa_path.read_text(encoding="utf-8"))
+    visa_key = visa_path.stem.replace("_visa_form", "").lower()
+    return {visa_key: data}
+
+
+def load_user_profiles(profile_path: Path) -> List[Dict[str, Any]]:
+    """Load user profiles from a JSON array or newline-delimited JSON file and align fields."""
+    if not profile_path.exists():
+        raise FileNotFoundError(f"Profile file not found: {profile_path}")
+
+    raw = profile_path.read_text(encoding="utf-8").strip()
+    if not raw:
+        raise ValueError(f"Profile file is empty: {profile_path}")
+
+    if raw.startswith("["):
+        data = json.loads(raw)
+        if not isinstance(data, list):
+            raise ValueError("Profile file must contain a JSON array of objects")
+        profiles = data
+    else:
+        profiles = []
+        for line in raw.splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            profiles.append(json.loads(line))
+
+    if not profiles:
+        raise ValueError(f"No profiles loaded from: {profile_path}")
+
+    return profiles
+
+
+def load_existing_user_data(data_path: Path) -> List[Dict[str, Any]]:
+    """Load existing user_data records (newline-delimited JSON)."""
+    if not data_path.exists():
+        return []
+    records: List[Dict[str, Any]] = []
+    with data_path.open("r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                obj = json.loads(line)
+                records.append(obj)
+            except Exception:
+                continue
+    return records
+
+
+def save_user_data(records: List[Dict[str, Any]], data_path: Path) -> None:
+    """Write all user_data records as newline-delimited JSON."""
+    data_path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = data_path.with_suffix(".tmp")
+    with tmp_path.open("w", encoding="utf-8") as f:
+        for idx, record in enumerate(records):
+            if idx:
+                f.write("\n")
+            f.write(json.dumps(record, ensure_ascii=False))
+    tmp_path.replace(data_path)
+
+
+def extract_travel_windows(visa_list: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Extract minimal travel windows from existing visa entries."""
+    windows: List[Dict[str, Any]] = []
+    for visa in visa_list:
+        if not isinstance(visa, dict):
+            continue
+        data = visa.get("data") or {}
+        visit_plan = data.get("visit_plan") or {}
+        intended = visit_plan.get("intended_visit_dates") or {}
+        start = intended.get("from_date")
+        end = intended.get("to_date")
+        if start or end:
+            windows.append(
+                {
+                    "destination": visa.get("type"),
+                    "start_date": start,
+                    "end_date": end,
+                }
+            )
+    return windows
+
+
+def generate_user_data(
+    profile: Optional[Dict[str, Any]],
+    visa_templates: Dict[str, Dict[str, Any]],
+    selected_key: str,
+    travel_windows: Optional[List[Dict[str, Any]]] = None,
+    max_retries: int = 3,
+    retry_delay: float = 1.5,
+) -> Dict[str, Any]:
+    """Call the LLM to generate one visa form (type + data) for a persona."""
+    last_error: Optional[Exception] = None
+    persona = profile or {}
+
+    template = visa_templates.get(selected_key)
+    if not template:
+        raise ValueError(f"Visa template not found: {selected_key}")
+    template_fields = template.get("fields") if isinstance(template, dict) else None
+    template_for_prompt = template_fields if isinstance(template_fields, dict) else template
+
+    persona_lines: List[str] = []
+    full_name = persona.get("name")
+    if full_name:
+        persona_lines.append(f"Full name (can be adapted): {full_name}.")
+    nationality = persona.get("nationality")
+    residence = persona.get("current_residence_country")
+    if nationality:
+        persona_lines.append(f"Nationality: {nationality}.")
+    if residence:
+        persona_lines.append(f"Current residence country: {residence}.")
+    age = persona.get("age")
+    if age:
+        persona_lines.append(f"Age: about {age} years old; choose date_of_birth accordingly (in the past).")
+    sex = persona.get("sex")
+    if sex:
+        persona_lines.append(f"Sex: {sex}.")
+    occupation = persona.get("occupation")
+    if occupation:
+        persona_lines.append(f"Occupation: {occupation}.")
+    education_level = persona.get("education_level")
+    if education_level:
+        persona_lines.append(f"Education level: {education_level}.")
+    brief_background = persona.get("brief_background")
+    if brief_background:
+        persona_lines.append(f"Background context: {brief_background}")
+
+    template_prompt = json.dumps(template_for_prompt, ensure_ascii=False, indent=2)
+
+    user_prompt = (
+        f"Generate the JSON object now for visa key `{selected_key}`. "
+        f"This visa is for region/country: {selected_key}. "
+        'The output must be {"type": "<visa_key>", "data": <filled form>} with the exact fields from the template.'
+    )
+    if persona_lines:
+        user_prompt += "\nPersona constraints:\n" + "\n".join(f"- {line}" for line in persona_lines)
+    if travel_windows:
+        existing_block = json.dumps(travel_windows, ensure_ascii=False, indent=2)
+        user_prompt += (
+            "\n\nExisting travel windows for this applicant (avoid date conflicts with these trips):\n"
+            f"{existing_block}"
+        )
+    user_prompt += f"\n\nVisa form template ({selected_key}):\n{template_prompt}"
+
+    # Strict response schema: enforce {"type": str, "data": object} only.
+    text_format = {
+        "type": "json_schema",
+        "name": "filled_form",
+        "strict": False,
+        "schema": {
+            "type": "object",
+            "properties": {
+                "type": {"type": "string"},
+                "data": {"type": "object", "additionalProperties": True},
+            },
+            "required": ["type", "data"],
+            "additionalProperties": False,
+        },
+    }
+
+    for attempt in range(1, max_retries + 1):
+        try:
+            response = LLM.responses.create(
+                model=MODEL_NAME,
+                input=[
+                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "user", "content": user_prompt},
+                ],
+                temperature=0.8,
+                text={"format": text_format},
+            )
+            # Extract text output from the Responses API
+            message_content = ""
+            output_items = getattr(response, "output", None) or []
+            for item in output_items:
+                for c in getattr(item, "content", []) or []:
+                    if getattr(c, "type", "") == "output_text":
+                        message_content += c.text or ""
+            if not message_content:
+                message_content = getattr(response, "output_text", "") or ""
+            parsed = _extract_json_from_text(message_content or "")
+            if not isinstance(parsed, dict):
+                raise ValueError("Model response is not a JSON object")
+            return parsed
+        except Exception as exc:  # noqa: BLE001
+            last_error = exc
+            if attempt < max_retries and retry_delay > 0:
+                time.sleep(retry_delay)
+
+    raise RuntimeError(f"Failed to generate user data after {max_retries} attempts: {last_error}")
+
+
+def is_schengen_profile(profile: Dict[str, Any]) -> bool:
+    """Return True if nationality or residence is within the Schengen area."""
+    nat = str(profile.get("nationality", "")).strip().lower()
+    res = str(profile.get("current_residence_country", "")).strip().lower()
+    return nat in SCHENGEN_COUNTRIES or res in SCHENGEN_COUNTRIES
+
+
+def is_applying_own_country(profile: Dict[str, Any], visa_key: str) -> bool:
+    """Check if applicant is trying to apply for their own country's visa."""
+    nat = str(profile.get("nationality", "")).strip().lower()
+    res = str(profile.get("current_residence_country", "")).strip().lower()
+    target_countries = VISA_COUNTRY_MAP.get(visa_key, set())
+    return nat in target_countries or res in target_countries
+
+
+def main() -> None:
+    base_dir = Path(__file__).resolve().parent
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--form-path",
+        dest="form_path",
+        type=str,
+        default=r"E:\project\主动提问\formdata\form\visa_form\Australian\Australian_visa_form.json",
+        help="Path to a single form template JSON (e.g. form/India/India_visa_form.json).",
+    )
+    parser.add_argument(
+        "--form-root",
+        dest="form_root",
+        type=str,
+        default=os.getenv("VISA_FORM_ROOT", ""),
+        help="Root directory containing form templates; used when --form-path is not provided.",
+    )
+    parser.add_argument(
+        "--profile-path",
+        dest="profile_path",
+        type=str,
+        default=r"E:\project\主动提问\formdata\data\visa_data\userprofile.json",
+        help="User profile file path (JSON array or NDJSON). Default: ./data/userprofile.json",
+    )
+    parser.add_argument(
+        "--user-data-path",
+        dest="user_data_path",
+        type=str,
+        default=r"E:\project\主动提问\formdata\data\visa_data\user_data.json",
+        help="Output path for generated user data (NDJSON). Default: ./data/user_data.json",
+    )
+    parser.add_argument(
+        "--start-profile-index",
+        dest="start_profile_index",
+        type=int,
+        default=int(os.getenv("SCHENGEN_PROFILE_START", "0")),
+        help="Start index for iterating profiles (default 0).",
+    )
+    args = parser.parse_args()
+
+    profile_path = Path(args.profile_path) if args.profile_path else base_dir / "data" / "userprofile.json"
+    user_data_path = Path(args.user_data_path) if args.user_data_path else base_dir / "data" / "user_data.json"
+    form_root = Path(args.form_root) if args.form_root else base_dir / "visa_form"
+
+    profiles = load_user_profiles(profile_path)
+
+    if args.form_path:
+        form_path = Path(args.form_path)
+        if not form_path.is_absolute():
+            form_path = base_dir / form_path
+        visa_templates = load_single_visa_template(form_path)
+    else:
+        visa_templates = load_visa_templates(form_root)
+
+    if not visa_templates:
+        raise ValueError("No templates loaded; please provide --form-path or ensure --form-root contains templates.")
+
+    visa_key_fixed = list(visa_templates.keys())[0]
+
+    existing_records = load_existing_user_data(user_data_path)
+
+    # Build uid -> record map
+    uid_map: Dict[int, Dict[str, Any]] = {}
+    other_records: List[Dict[str, Any]] = []
+    for rec in existing_records:
+        try:
+            uid_val = int(rec.get("uid", 0))
+            if uid_val > 0:
+                uid_map[uid_val] = rec
+            else:
+                other_records.append(rec)
+        except Exception:
+            other_records.append(rec)
+
+    profile_count = len(profiles)
+    requested_count = DEFAULT_RECORD_COUNT
+    total_slots = min(requested_count, profile_count)
+
+    start_profile_index = int(args.start_profile_index) % profile_count
+    ordered_indices = list(range(start_profile_index, profile_count)) + list(range(0, start_profile_index))
+
+    # Build work items first to avoid duplicate generation and to preserve order.
+    work_items: List[Tuple[int, int, Dict[str, Any], List[Dict[str, Any]]]] = []
+    for idx in ordered_indices[:total_slots]:
+        profile = profiles[idx]
+
+        # Skip if applicant nationality or residence matches target region
+        if is_applying_own_country(profile, visa_key_fixed):
+            print(
+                f"[skip] profile_index {idx} applicant is from target region ({visa_key_fixed}): "
+                f"{profile.get('nationality')} / {profile.get('current_residence_country')}"
+            )
+            continue
+
+        uid = int(profile.get("uid") or idx + 1)
+        existing = uid_map.get(uid, {"uid": uid, "visa": []})
+        visa_list = existing.get("visa")
+        if not isinstance(visa_list, list):
+            visa_list = []
+
+        existing_visas = visa_list if isinstance(visa_list, list) else []
+        if any(isinstance(v, dict) and v.get("type") == visa_key_fixed for v in existing_visas):
+            print(f"[skip] profile_index {idx} duplicate visa type {visa_key_fixed} for uid {uid}")
+            continue
+        existing_windows = existing.get("travel_windows")
+        if not isinstance(existing_windows, list):
+            existing_windows = extract_travel_windows(existing_visas)
+
+        work_items.append((idx, uid, profile, list(existing_windows)))
+
+    results: List[Tuple[int, int, Dict[str, Any]]] = []
+    total_appended = 0
+
+    if work_items:
+        max_workers = min(16, len(work_items))
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            future_map = {
+                executor.submit(
+                    generate_user_data,
+                    profile=item[2],
+                    visa_templates=visa_templates,
+                    selected_key=visa_key_fixed,
+                    travel_windows=item[3],
+                ): (item[0], item[1])
+                for item in work_items
+            }
+            for future in concurrent.futures.as_completed(future_map):
+                idx, uid = future_map[future]
+                record = future.result()
+                if not isinstance(record, dict) or "type" not in record or "data" not in record:
+                    raise ValueError("Model response must contain 'type' and 'data'")
+                results.append((idx, uid, record))
+                # Progress signal for concurrent runs (write order preserved later).
+                print(f"[progress] completed profile_index {idx}, uid {uid}")
+
+        # Apply results in index order to keep deterministic data sequence.
+        for idx, uid, record in sorted(results, key=lambda x: x[0]):
+            existing = uid_map.get(uid, {"uid": uid, "visa": []})
+            visa_list = existing.get("visa")
+            if not isinstance(visa_list, list):
+                visa_list = []
+            visa_list.append(record)
+            existing["visa"] = visa_list
+            uid_map[uid] = existing
+            total_appended += 1
+            print(f"[ok] {total_appended}/{len(results)} processed (profile_index: {idx}, uid: {uid}, visa: {visa_key_fixed})")
+
+        # Persist once after batch generation to avoid interleaving writes.
+        merged_records = [uid_map[k] for k in sorted(uid_map)]
+        merged_records.extend(other_records)
+        save_user_data(merged_records, user_data_path)
+
+    if total_appended == 0:
+        raise RuntimeError("No non-Schengen user profiles available for generation")
+
+    print(f"[done] total processed: {total_appended} -> {user_data_path}")
+
+
+if __name__ == "__main__":
+    main()

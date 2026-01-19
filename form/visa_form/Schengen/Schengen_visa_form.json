@@ -1,0 +1,143 @@
+{
+  "name": "Schengen Visa Form",
+  "fields": {
+    "applicant": {
+      "surname": "",
+      "surname_at_birth": "",
+      "given_names": "",
+      "date_of_birth": "",
+      "place_of_birth": "",
+      "country_of_birth": "",
+      "nationality": {
+        "current": "",
+        "at_birth_if_different": "",
+        "other_nationalities": []
+      },
+      "sex": "male | female",
+      "civil_status": "single | married | registered_partnership | separated | divorced | widowed | other"
+    },
+  
+    "legal_guardian": {
+      "surname": "",
+      "given_names": "",
+      "address": "",
+      "telephone": "",
+      "email": "",
+      "nationality": ""
+    },
+  
+    "identity": {
+      "national_identity_number": "",
+      "travel_document": {
+        "type": "ordinary_passport | diplomatic_passport | service_passport | official_passport | special_passport | other",
+        "number": "",
+        "date_of_issue": "",
+        "valid_until": "",
+        "issued_by_country": ""
+      }
+    },
+  
+    "eu_family_member": {
+      "surname": "",
+      "given_names": "",
+      "date_of_birth": "",
+      "nationality": "",
+      "travel_document_or_id_number": "",
+      "relationship": "spouse | child | grandchild | dependent_ascendant | registered_partnership | other"
+    },
+  
+    "contact_information": {
+      "home_address": "",
+      "email": "",
+      "telephone": ""
+    },
+  
+    "residence_in_other_country": {
+      "has_residence_in_other_country": "yes | no",
+      "residence_permit_or_equivalent": "",
+      "permit_number": "",
+      "valid_until": ""
+    },
+  
+    "occupation": {
+      "current_occupation": "",
+      "employer_or_educational_establishment": {
+        "name": "",
+        "address": "",
+        "telephone": ""
+      }
+    },
+  
+    "travel_information": {
+      "purpose_of_journey": [
+        "tourism | business | visiting_family_or_friends | cultural | sports | official_visit | medical_reasons | study | airport_transit | other"
+      ],
+      "additional_information_on_purpose_of_stay": "",
+      "member_state_of_main_destination": "",
+      "other_member_states_of_destination": [],
+      "member_state_of_first_entry": "",
+      "number_of_entries_requested": "single | two | multiple",
+      "intended_date_of_arrival": "",
+      "intended_date_of_departure": ""
+    },
+  
+    "biometrics": {
+      "fingerprints_collected_previously": "yes | no",
+      "collection_date": "",
+      "visa_sticker_number": ""
+    },
+  
+    "entry_permit_final_destination": {
+      "issued_by": "",
+      "valid_from": "",
+      "valid_until": ""
+    },
+  
+    "inviting_person_or_accommodation": {
+      "name": "",
+      "address": "",
+      "email": "",
+      "telephone": ""
+    },
+  
+    "inviting_company_or_organisation": {
+      "name": "",
+      "address": "",
+      "contact_person": {
+        "surname": "",
+        "given_names": "",
+        "address": "",
+        "telephone": "",
+        "email": ""
+      },
+      "organisation_telephone": ""
+    },
+  
+    "financial_support": {
+      "covered_by": "applicant | sponsor",
+      "applicant_means": [
+        "cash | travellers_cheques | credit_card | prepaid_accommodation | prepaid_transport | other"
+      ],
+      "sponsor": {
+        "type": "host | company | organisation | other",
+        "means_of_support": [
+          "cash | accommodation_provided | all_expenses_covered | prepaid_transport | other"
+        ]
+      }
+    },
+  
+    "form_filler": {
+      "surname": "",
+      "given_names": "",
+      "address": "",
+      "email": "",
+      "telephone": ""
+    },
+  
+    "declaration": {
+      "place": "",
+      "date": "YYYY-MM-DD",
+      "signature": ""
+    }
+  }
+}

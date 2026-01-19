@@ -1,0 +1,70 @@
+{
+  "name": "A06558《企业所得税年度纳税申报基础信息表》（A000000）",
+  "fields": {
+    "basic_operating_information_required": {
+      "101_tax_return_enterprise_type_code": "",
+      "102_branch_local_tax_payment_ratio_percent": "",
+      "103_total_assets_annual_quarter_average_10k_rmb": "",
+      "104_number_of_employees_annual_quarter_average": "",
+      "105_national_economic_industry_code": "",
+      "106_engaged_in_state_restricted_or_prohibited_industries": "yes | no",
+      "107_applicable_accounting_standards_or_system_code": "",
+      "108_use_general_enterprise_financial_statements_format_2018": "yes | no",
+      "109_small_low_profit_enterprise": "yes | no",
+      "110_listed_company": "domestic | overseas | domestic_and_overseas | no"
+    },
+    "tax_related_matters_conditional_required": {
+      "201_engaged_in_equity_investment_business": "yes | no",
+      "202_has_overseas_related_party_transactions": "yes | no",
+      "203_overseas_income_tax_credit_method": "by_country_region_not_itemized | not_by_country_region_not_itemized",
+      "204_corporate_partner_in_limited_partnership_venture_capital_fund": "yes | no",
+      "205_venture_capital_enterprise": "yes | no",
+      "206_advanced_technology_service_enterprise_type_code": "",
+      "207_non_profit_organization": "yes | no",
+      "208_software_or_integrated_circuit_enterprise_type_code": "",
+      "209_integrated_circuit_production_project_type": "130nm | 65nm",
+      "210_technology_based_sme": {
+        "210_1_filing_number_for_tax_year": "",
+        "210_2_filing_time_for_tax_year": "",
+        "210_3_filing_number_for_next_tax_year": "",
+        "210_4_filing_time_for_next_tax_year": ""
+      },
+      "211_high_tech_enterprise_valid_certificates_for_tax_year": {
+        "211_1_certificate_number_1": "",
+        "211_2_issue_date_1": "",
+        "211_3_certificate_number_2": "",
+        "211_4_issue_date_2": ""
+      },
+      "212_restructuring_tax_treatment_method": "general | special",
+      "213_restructuring_transaction_type_code": "",
+      "214_restructuring_party_type_code": "",
+      "215_policy_based_relocation_start_time": {
+        "year": "",
+        "month": ""
+      },
+      "216_policy_based_relocation_stopped_production_no_income_year": "yes | no",
+      "217_policy_based_relocation_loss_installment_deduction_year": "yes | no",
+      "218_non_monetary_assets_investment_tax_deferral_event_occurred": "yes | no",
+      "219_non_monetary_assets_investment_transfer_income_tax_deferral_year": "yes | no",
+      "220_tech_achievement_investment_for_equity_tax_deferral_event_occurred": "yes | no",
+      "221_tech_achievement_investment_for_equity_tax_deferral_year": "yes | no",
+      "222_asset_equity_transfer_special_tax_treatment_event_occurred": "yes | no",
+      "223_debt_restructuring_income_tax_deferral_year": "yes | no"
+    },
+    "major_shareholders_and_dividend_distribution_required": {
+      "shareholders_top_10": [
+        {
+          "shareholder_name": "",
+          "id_document_type": "",
+          "id_document_number": "",
+          "investment_ratio_percent": "",
+          "dividends_profit_distribution_amount_for_year": "",
+          "nationality_or_registered_address": ""
+        }
+      ],
+      "other_shareholders_total": {
+        "dividends_profit_distribution_amount_for_year": ""
+      }
+    }
+  }
+}

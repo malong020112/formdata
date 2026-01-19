@@ -1,0 +1,97 @@
+{
+  "name": "Cascadia College International Student Application (Form 5-24)",
+  "fields": {
+    "personal_information": {
+      "last_name": "",
+      "first_name": "",
+      "date_of_birth": "MM/DD/YYYY",
+      "age": "",
+      "city_of_birth": "",
+      "sex": "male | female",
+      "country_of_birth": "",
+      "citizenship": "",
+      "student_email_address": ""
+    },
+    "contact_information": {
+      "home_country_mailing_address": {
+        "address": "",
+        "city": "",
+        "state": "",
+        "postal_code": "",
+        "tel": ""
+      }
+    },
+    "immigration_information": {
+      "currently_residing_in_us": "yes | no",
+      "immigration_status_if_yes": "f-1 | other",
+      "immigration_status_other_specify": "",
+      "family_members_accompany_on_f2_dependent_visa": "yes | no"
+    },
+    "previous_education": {
+      "completed_secondary_high_school": "yes | no",
+      "currently_studying_in_us_school": "yes | no",
+      "plan_to_leave_us_before_starting_program_if_currently_in_us_school": "yes | no | n/a",
+      "last_school_attended": {
+        "name": "",
+        "city": "",
+        "country": "",
+        "dates_of_attendance": {
+          "from_month": "MM",
+          "from_year": "YYYY",
+          "to_month": "MM",
+          "to_year": "YYYY"
+        },
+        "graduated": "yes | no",
+        "type": "secondary_high_school | college_university | english_as_a_second_language_esl"
+      }
+    },
+    "program_information": {
+      "previously_attended_cascadia": "yes | no",
+      "previously_attended_cascadia_if_yes_date": "",
+      "desired_start_year": "YYYY",
+      "desired_start_quarter": "fall_september | winter_january | spring_march | summer_july",
+      "intended_major": "",
+      "intended_major_undecided": "yes | no",
+      "programs_to_complete": "english_foundations_ef | high_school_completion_hsc | two_year_associate_degree_university_transfer | four_year_bachelor_of_applied_science_sustainable_practices | four_year_bachelor_of_applied_science_mobile_application_development"
+    },
+    "english_proficiency": {
+      "has_required_english_proficiency_proof": "yes | no",
+      "proof_type": "toefl_ibt_70 | toefl_essential_7_5 | step_eiken_pre_1 | duolingo_95 | ielts_6_0 | itep_4_0 | pearson_pte_48 | sat_480_erw_section | english_101_or_equivalent_at",
+      "english_101_or_equivalent_institution": "",
+      "test_score": "",
+      "date_taken": ""
+    },
+    "financial_responsibility_agreement": {
+      "sponsor_name": "",
+      "amount_us_dollars": "",
+      "sponsor_signature": "",
+      "relationship_to_student": ""
+    },
+    "how_did_you_hear_about_cascadia_college": {
+      "source": "online_search_google_bing_etc | fair | friend_or_family | social_media | agency | other",
+      "agency_contact": "",
+      "agency_email": ""
+    },
+    "university_pathways_and_partners": {
+      "consent_to_share_info_with_selected_university": "yes | no",
+      "partner_universities_interested_in": "city_university_of_seattle | portland_state_university | troy_university | university_of_washington_bothell | indiana_university_purdue_university | regis_college | university_of_maine | washington_state_university | johnson_wales_university | seattle_pacific_university | university_of_new_mexico | western_washington_university | kansas_state_university | san_francisco_state_university | university_of_oregon | wichita_state_university | northern_arizona_university | seattle_university | university_of_iowa | university_of_massachusetts_dartmouth"
+    },
+    "underage_student_housing_policy_waiver_parent_guardian": {
+      "parent_guardian_signature": "",
+      "date": ""
+    },
+    "underage_student_acknowledgement_student": {
+      "student_signature": "",
+      "date": ""
+    },
+    "underage_form_student_name_last_first": {
+      "student_name_last_first": ""
+    },
+    "medical_care_and_treatment_consent_parent_guardian": {
+      "parent_guardian_print_name": "",
+      "parent_guardian_signature": "",
+      "parent_guardian_email_address": "",
+      "parent_guardian_emergency_phone": ""
+    }
+  }
+}

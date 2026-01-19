@@ -1,0 +1,175 @@
+{
+  "name": "New Patient Health History Form",
+  "fields": {
+    "patient_information": {
+      "name_last_first_mi": "",
+      "sex": "m | f",
+      "dob": "",
+      "marital_status": "single | partnered | married | separated | divorced | widowed",
+      "contact_phone": "",
+      "address": "",
+      "email": "",
+      "previous_or_referring_doctor": "",
+      "date_of_last_physical_exam": ""
+    },
+    "personal_health_history": {
+      "childhood_illness": "measles | mumps | rubella | chickenpox | rheumatic_fever | polio",
+      "immunizations_and_dates": "tetanus | pneumonia | hepatitis | chickenpox | influenza | mmr_measles_mumps_rubella",
+      "medical_problems_diagnosed_by_other_doctors": "",
+      "surgeries": [
+        {
+          "year": "",
+          "reason": "",
+          "hospital": ""
+        }
+      ],
+      "other_hospitalizations": [
+        {
+          "year": "",
+          "reason": "",
+          "hospital": ""
+        }
+      ],
+      "blood_transfusion_ever": "yes | no"
+    },
+    "medications_and_allergies": {
+      "prescribed_and_over_the_counter_drugs": [
+        {
+          "drug_name": "",
+          "strength": "",
+          "frequency_taken": ""
+        }
+      ],
+      "allergies_to_medications": [
+        {
+          "drug_name": "",
+          "reaction": ""
+        }
+      ]
+    },
+    "health_habits_and_personal_safety": {
+      "exercise": "sedentary_no_exercise | mild_exercise | occasional_vigorous_exercise | regular_vigorous_exercise",
+      "dieting": "yes | no",
+      "physician_prescribed_medical_diet_if_dieting": "yes | no",
+      "meals_per_day_average": "",
+      "salt_intake_rank": "hi | med | low",
+      "fat_intake_rank": "hi | med | low",
+      "caffeine_type": "none | coffee | tea | cola",
+      "caffeine_cups_cans_per_day": "",
+      "drink_alcohol": "yes | no",
+      "alcohol_kind_if_yes": "",
+      "alcohol_drinks_per_week": "",
+      "concerned_about_amount_drink": "yes | no",
+      "considered_stopping": "yes | no",
+      "experienced_blackouts": "yes | no",
+      "prone_to_binge_drinking": "yes | no",
+      "drive_after_drinking": "yes | no",
+      "use_tobacco": "yes | no",
+      "tobacco_type_and_amount": "cigarettes_packs_per_day | chew_number_per_day | pipe_number_per_day | cigars_number_per_day",
+      "tobacco_years_used": "",
+      "tobacco_year_quit": "",
+      "use_recreational_or_street_drugs_currently": "yes | no",
+      "ever_used_street_drugs_with_needle": "yes | no"
+    },
+    "sexual_health": {
+      "sexually_active": "yes | no",
+      "trying_for_pregnancy_if_yes": "yes | no",
+      "contraceptive_or_barrier_method_if_not_trying": "",
+      "discomfort_with_intercourse": "yes | no",
+      "want_to_speak_with_provider_about_hiv_risk": "yes | no"
+    },
+    "personal_safety": {
+      "live_alone": "yes | no",
+      "frequent_falls": "yes | no",
+      "vision_or_hearing_loss": "yes | no",
+      "has_advance_directive_or_living_will": "yes | no",
+      "want_information_on_preparation_of_advance_directive_or_living_will": "yes | no",
+      "want_to_discuss_physical_or_mental_abuse_with_provider": "yes | no"
+    },
+    "family_health_history": {
+      "father": {
+        "age": "",
+        "significant_health_problems": ""
+      },
+      "mother": {
+        "age": "",
+        "significant_health_problems": ""
+      },
+      "siblings": [
+        {
+          "sex": "m | f",
+          "age": "",
+          "significant_health_problems": ""
+        }
+      ],
+      "children": [
+        {
+          "sex": "m | f",
+          "age": "",
+          "significant_health_problems": ""
+        }
+      ],
+      "grandmother_maternal": {
+        "age": "",
+        "significant_health_problems": ""
+      },
+      "grandfather_maternal": {
+        "age": "",
+        "significant_health_problems": ""
+      },
+      "grandmother_paternal": {
+        "age": "",
+        "significant_health_problems": ""
+      },
+      "grandfather_paternal": {
+        "age": "",
+        "significant_health_problems": ""
+      }
+    },
+    "mental_health": {
+      "stress_major_problem": "yes | no",
+      "feel_depressed": "yes | no",
+      "panic_when_stressed": "yes | no",
+      "problems_with_eating_or_appetite": "yes | no",
+      "cry_frequently": "yes | no",
+      "ever_attempted_suicide": "yes | no",
+      "ever_seriously_thought_about_hurting_yourself": "yes | no",
+      "trouble_sleeping": "yes | no",
+      "ever_been_to_a_counselor": "yes | no"
+    },
+    "women_only": {
+      "age_at_onset_of_menstruation": "",
+      "date_of_last_menstruation": "",
+      "period_every_days": "",
+      "heavy_periods_irregularity_spotting_pain_or_discharge": "yes | no",
+      "number_of_pregnancies": "",
+      "number_of_live_births": "",
+      "pregnant_or_breastfeeding": "yes | no",
+      "had_dc_hysterectomy_or_cesarean": "yes | no",
+      "urinary_tract_bladder_or_kidney_infections_within_last_year": "yes | no",
+      "blood_in_urine_within_last_year": "yes | no",
+      "problems_with_control_of_urination": "yes | no",
+      "hot_flashes_or_sweating_at_night": "yes | no",
+      "menstrual_tension_pain_bloating_irritability_or_other_symptoms_around_period": "yes | no",
+      "recent_breast_tenderness_lumps_or_nipple_discharge": "yes | no",
+      "date_of_last_pap_and_rectal_exam": ""
+    },
+    "men_only": {
+      "usually_get_up_to_urinate_during_night": "yes | no",
+      "if_yes_number_of_times": "",
+      "pain_or_burning_with_urination": "yes | no",
+      "blood_in_urine": "yes | no",
+      "burning_discharge_from_penis": "yes | no",
+      "force_of_urination_decreased": "yes | no",
+      "kidney_bladder_or_prostate_infections_within_last_12_months": "yes | no",
+      "problems_emptying_bladder_completely": "yes | no",
+      "difficulty_with_erection_or_ejaculation": "yes | no",
+      "testicle_pain_or_swelling": "yes | no",
+      "date_of_last_prostate_and_rectal_exam": ""
+    },
+    "other_problems_symptoms_checklist": {
+      "symptom_areas_check_if_significant_and_briefly_explain": "skin | head_neck | ears | nose | throat | lungs | chest_heart | back | intestinal | bladder | bowel | circulation | recent_changes_weight | recent_changes_energy_level | recent_changes_ability_to_sleep | other_pain_discomfort",
+      "brief_explanation": ""
+    }
+  }
+}

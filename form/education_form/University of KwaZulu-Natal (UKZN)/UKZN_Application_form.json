@@ -1,0 +1,205 @@
+{
+  "name": "University of KwaZulu-Natal Undergraduate Admission Application (International)",
+  "fields": {
+    "office_use_only": {
+      "name": "",
+      "student_number": "",
+      "degree_or_diploma": "",
+      "local_or_international": ""
+    },
+
+    "term_of_entry_and_programme_choice": {
+      "year_of_entry": "",
+      "entry_term": {
+        "semester": "1 | 2"
+      },
+      "year_of_study_for_programme": "",
+      "programme_choices": [
+        {
+          "choice_order": "1 | 2 | 3 | 4",
+          "campus": "",
+          "degree_or_diploma_name": "",
+          "majors": "",
+          "study_mode": "full_time | part_time"
+        }
+      ]
+    },
+
+    "personal_details": {
+      "title": "mr | mrs | miss | ms | other",
+      "surname": "",
+      "first_names": "",
+      "maiden_name": "",
+      "id_number_south_african_only": "",
+      "persal_number_teachers_only": "",
+      "date_of_birth": {
+        "day": "",
+        "month": "",
+        "year": ""
+      },
+      "marital_status": "married | single | divorced | widowed",
+      "race": "african | coloured | indian | white | other",
+      "race_other_details": "",
+      "gender": "male | female",
+      "home_language": "",
+      "nationality": "",
+      "religion_optional": ""
+    },
+
+    "residency_information": {
+      "is_permanent_resident_of_south_africa": "yes | no",
+      "country_of_permanent_residence_if_not_sa": "",
+      "passport_number": "",
+      "passport_expiry_date": {
+        "day": "",
+        "month": "",
+        "year": ""
+      },
+      "residence_permit_number_if_any": "",
+      "residence_permit_expiry_date": {
+        "day": "",
+        "month": "",
+        "year": ""
+      },
+      "previous_registration_at_ukzn_or_predecessors": {
+        "has_registered_before": "yes | no",
+        "previous_student_number": ""
+      }
+    },
+
+    "post_school_activity": {
+      "current_activity": "university_student | teachers_training_college | technikon_student | college_of_nursing | technical_college | employed | grade_12_learner | other",
+      "other_activity_details": "",
+      "employer_or_institution_name": "",
+      "employer_or_institution_address": "",
+      "postal_code": "",
+      "work_telephone": "",
+      "fee_account_to_employer": "yes | no"
+    },
+
+    "address_and_contact_details": {
+      "postal_address": {
+        "address_lines": "",
+        "city": "",
+        "country": "",
+        "postal_code": ""
+      },
+      "physical_address": {
+        "address_lines": "",
+        "city": "",
+        "country": "",
+        "postal_code": ""
+      },
+      "telephone_numbers": {
+        "cell_phone": "",
+        "work_phone": "",
+        "home_phone": ""
+      },
+      "email_address": "",
+      "fax_number": ""
+    },
+
+    "guardian_or_next_of_kin": {
+      "relationship": "father | mother | spouse | brother | sister | grandparent | child | guardian | other",
+      "name": "",
+      "address": "",
+      "postal_code": ""
+    },
+
+    "high_school_details": {
+      "year_of_last_school_leaving_certificate": "",
+      "name_of_school_certificate_or_diploma": "",
+      "examination_number": "",
+      "type_of_matriculation_exemption": "full | ordinary_conditional | mature_age | foreign | immigrants | other_senior_certificate | ntc3_n3_nsc | standard_10_practical | other | discretionary_provision",
+      "high_school_records": [
+        {
+          "school_name": "",
+          "year_from": "",
+          "year_to": "",
+          "examination_authority": "",
+          "grades_or_forms_passed": ""
+        }
+      ],
+      "high_school_subjects": [
+        {
+          "subject": "",
+          "final_grade": "",
+          "trial_or_mock_grade": "",
+          "matric_or_a_level_grade": ""
+        }
+      ]
+    },
+
+    "previous_studies": {
+      "previous_institutions": [
+        {
+          "institution_name": "",
+          "qualification_name": "",
+          "completed": "yes | no",
+          "award_date": "",
+          "years_attended_from": "",
+          "years_attended_to": ""
+        }
+      ],
+      "previous_student_numbers": "",
+      "refused_or_expelled_from_institution": {
+        "has_been_refused_or_expelled": "yes | no",
+        "details": ""
+      },
+      "refused_or_expelled_from_residence": {
+        "has_been_refused_or_expelled": "yes | no",
+        "details": ""
+      },
+      "outstanding_fees_at_other_institution": {
+        "has_outstanding_fees": "yes | no",
+        "details": ""
+      }
+    },
+
+    "disability_information": {
+      "has_disability_requiring_support": "yes | no",
+      "disability_types": {
+        "visual_impairment": "blind | partially_sighted",
+        "hearing_impairment": "partially_deaf | mild_to_moderately_deaf",
+        "physical_impairment": "wheelchair | crutches_or_callipers | paralysis",
+        "medical_conditions": "diabetes | epilepsy | cerebral_palsy | intellectual_or_psychological | chronic_ailments",
+        "other_details": ""
+      }
+    },
+
+    "residence_application": {
+      "apply_for_university_residence": "yes | no",
+      "preferred_campus": "howard_college | pietermaritzburg | edgewood | medical_school | westville",
+      "alternative_accommodation_if_unsuccessful": ""
+    },
+
+    "general_information": {
+      "consent_to_processing_personal_information": "yes | no",
+      "request_confidentiality_of_information": "yes | no",
+      "immediate_family_studied_at_ukzn": {
+        "has_family_studied": "yes | no",
+        "relationship": ""
+      }
+    },
+
+    "english_proficiency": {
+      "english_proficiency_met": "yes | no",
+      "name_of_proof_document": ""
+    },
+
+    "declaration_and_undertaking": {
+      "student_signature": "",
+      "student_signature_date": "",
+      "parent_or_guardian_signature": "",
+      "parent_or_guardian_signature_date": ""
+    },
+
+    "suretyship_if_minor": {
+      "surety_full_name": "",
+      "surety_identity_number": "",
+      "surety_address": "",
+      "surety_signature": "",
+      "surety_signature_date": ""
+    }
+  }
+}

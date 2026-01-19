@@ -1,0 +1,66 @@
+{
+  "name": "UnitedHealthcare Medical Claim Form (Out-of-Network Claims)",
+  "fields": {
+    "member_and_group": {
+      "member_id": "",
+      "group_number": ""
+    },
+    "patient_information": {
+      "name_last_first_mi": "",
+      "home_address": "",
+      "city": "",
+      "state": "",
+      "zip_code": "",
+      "phone_number": "",
+      "date_of_birth": "MM/DD/YYYY",
+      "gender": "m | f",
+      "relationship_to_subscriber_policyholder": "subscriber_policyholder | spouse_partner | child | other_dependent",
+      "new_address": "yes | no"
+    },
+    "policyholder_information_if_different_than_patient": {
+      "employee_name_last_first_mi": "",
+      "home_address": "",
+      "city": "",
+      "state": "",
+      "zip_code": "",
+      "phone_number": "",
+      "date_of_birth": "MM/DD/YYYY",
+      "new_address": "yes | no"
+    },
+    "provider_information": {
+      "provider_or_rendering_provider_name": "",
+      "provider_tax_identification_number": "",
+      "npi_number": "",
+      "group_facility_name": "",
+      "provider_address": "",
+      "address_where_services_were_rendered": "",
+      "city": "",
+      "state": "",
+      "zip_code": "",
+      "phone_number": ""
+    },
+    "accident_information_if_applicable": {
+      "date_of_accident": "MM/DD/YYYY",
+      "type_of_accident": "work | auto | other",
+      "how_did_the_accident_happen": ""
+    },
+    "other_insurance": {
+      "covered_by_another_insurance_plan": "yes | no",
+      "name_of_person_carrying_other_insurance_last_first_mi": "",
+      "date_of_birth_of_person_carrying_other_insurance": "MM/DD/YYYY",
+      "name_of_other_insurance_carrier": "",
+      "policy_number": "",
+      "employer_name": "",
+      "effective_date_of_other_insurance": "MM/DD/YYYY",
+      "cancellation_date_of_other_insurance_if_applicable": "MM/DD/YYYY",
+      "attached_eob_from_medicare_or_other_insurance": "yes | no"
+    },
+    "assignment_of_benefits": {
+      "pay_benefits_directly_to_doctor_provider": "yes | no"
+    },
+    "certification": {
+      "signature": "",
+      "date": "MM/DD/YYYY"
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "name": "Shanghai Lixin University of Accounting & Finance - Application Form for International Student Enrollment (Degree Program)",
+  "fields": {
+    "personal_information": {
+      "name_in_chinese_if_have": "",
+      "name_in_english_as_on_passport": {
+        "family_name": "",
+        "given_name": ""
+      },
+      "nationality": "",
+      "gender": "male | female",
+      "passport_number": "",
+      "marital_status": "single | married | others",
+      "marital_status_others_details": "",
+      "passport_validity_date": "",
+      "date_of_birth": "",
+      "place_of_birth": "",
+      "religion": "",
+      "occupation": "",
+      "highest_academic_degree_obtained": "high_school | others",
+      "highest_academic_degree_obtained_others_details": "",
+      "contact_tel_or_cell": "",
+      "email": ""
+    },
+
+    "address_in_china": {
+      "street": "",
+      "post_code": "",
+      "city": "",
+      "country": "",
+      "home_tel": ""
+    },
+
+    "permanent_address_overseas": {
+      "street": "",
+      "post_code": "",
+      "city": "",
+      "country": "",
+      "home_tel": ""
+    },
+
+    "three_recent_visa_records_to_china": {
+      "records": [
+        {
+          "entries": "",
+          "duration_months_or_period": "",
+          "category": "",
+          "reason": ""
+        },
+        {
+          "entries": "",
+          "duration_months_or_period": "",
+          "category": "",
+          "reason": ""
+        },
+        {
+          "entries": "",
+          "duration_months_or_period": "",
+          "category": "",
+          "reason": ""
+        }
+      ]
+    },
+
+    "contact_person_in_china": {
+      "name": "",
+      "address": "",
+      "telephone": "",
+      "email": ""
+    },
+
+    "illegal_or_criminal_record": {
+      "has_illegal_or_criminal_record": "none | yes",
+      "details_if_yes": ""
+    },
+
+    "family_members": {
+      "father": {
+        "name": "",
+        "occupation": "",
+        "date_of_birth": "",
+        "id_number": "",
+        "contact_number": ""
+      },
+      "mother": {
+        "name": "",
+        "occupation": "",
+        "date_of_birth": "",
+        "id_number": "",
+        "contact_number": ""
+      },
+      "spouse": {
+        "name": "",
+        "occupation": "",
+        "date_of_birth": "",
+        "id_number": "",
+        "contact_number": ""
+      }
+    },
+
+    "language_proficiency": {
+      "chinese": "native | none | hsk1 | hsk2 | hsk3 | hsk4 | hsk5 | hsk6",
+      "english": {
+        "level": "native | none | other",
+        "toefl_score": "",
+        "ielts_score": "",
+        "other_details": ""
+      }
+    },
+
+    "education_background_from_high_school": {
+      "records": [
+        {
+          "institution": "",
+          "years_attended_from_to": "",
+          "major": "",
+          "diploma_received": ""
+        }
+      ]
+    },
+
+    "study_plan": {
+      "program": "undergraduate_program",
+      "major_of_study": "",
+      "teaching_language": "chinese | english",
+      "accept_other_majors_or_not": "yes | no",
+      "duration_of_study": {
+        "from_year": "",
+        "from_month": "",
+        "to_year": "",
+        "to_month": ""
+      },
+      "study_objective": "",
+      "plans_after_study": "",
+      "financial_support": "self_support | scholarship | other",
+      "financial_support_other_details": ""
+    },
+
+    "declaration": {
+      "applicants_signature": "",
+      "date": ""
+    }
+  }
+}

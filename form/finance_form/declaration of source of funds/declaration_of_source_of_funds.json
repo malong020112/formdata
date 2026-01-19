@@ -1,0 +1,46 @@
+{
+  "name": "BMO Life Assurance Company - Declaration of Source of Funds (568E 2024/12/01)",
+  "fields": {
+    "declaration_of_source_of_funds": {
+      "date_dd_mmm_yyyy": "",
+      "application_no_or_policy_no": "",
+      "amount": "",
+      "currency": "",
+      "individual_name": {
+        "first_name": "",
+        "middle_initial": "",
+        "last_name": ""
+      },
+      "individual_address": {
+        "number": "",
+        "street": "",
+        "apt_rr": "",
+        "city": "",
+        "province": ""
+      },
+      "postal_code": "",
+      "telephone_no": "",
+      "occupation": "",
+      "drivers_license_number": "",
+      "drivers_license_expiry_date": "",
+      "passport_number": "",
+      "passport_expiry_date": "",
+      "name_of_corporation": "",
+      "corporation_address": {
+        "number": "",
+        "street": "",
+        "apt_rr": "",
+        "city": "",
+        "province": ""
+      },
+      "corporation_postal_code": "",
+      "corporation_telephone_no": "",
+      "jurisdiction_of_incorporation": "",
+      "registration_number": "",
+      "source_of_payment_select_all_that_apply": "self_employment_income | employment_income | retirement_income_pension_income | grants_scholarships | insurance_claim_payments | corporate_investment_income_savings | sale_of_assets | trust_inheritance | gift | loan | lottery_winnings | proceeds_from_a_legal_case_or_action | other",
+      "source_of_payment_other_details": "",
+      "advisor_signature": "",
+      "policy_owner_signature": ""
+    }
+  }
+}

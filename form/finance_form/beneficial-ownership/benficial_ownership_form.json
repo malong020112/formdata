@@ -1,0 +1,65 @@
+{
+  "name": "Company Ownership Information - Beneficial Ownership Form (Northwest Bank)",
+  "fields": {
+    "exempt_businesses_no_beneficial_owner_or_controller_information_required_check_applicable_box": "unincorporated_business_small_local_community_organization_youth_sports_etc | sole_proprietor | federal_state_or_local_government_agency | entity_with_common_stock_or_equity_of_interest_listed_on_the_new_york_stock_exchange_or_nasdaq | subsidiary_with_at_least_51_percent_of_common_stock_owned_by_a_listed_entity | other_please_describe",
+    "exempt_businesses_other_please_describe": "",
+    "controller_information_only_required_for_the_following_check_applicable_box": "no_individuals_own_directly_or_indirectly_25_percent_or_more_of_the_equity_interests_of_the_legal_entity_customer | nonprofit_corporation_or_similar_entity",
+    "beneficial_owners": {
+      "beneficial_owner_1": {
+        "individual_name": "",
+        "dob": "",
+        "ssn": "",
+        "street_address_line_1": "",
+        "street_address_line_2": "",
+        "city": "",
+        "state": "",
+        "zip": "",
+        "country": ""
+      },
+      "beneficial_owner_2": {
+        "individual_name": "",
+        "dob": "",
+        "ssn": "",
+        "street_address_line_1": "",
+        "street_address_line_2": "",
+        "city": "",
+        "state": "",
+        "zip": "",
+        "country": ""
+      },
+      "beneficial_owner_3": {
+        "individual_name": "",
+        "dob": "",
+        "ssn": "",
+        "street_address_line_1": "",
+        "street_address_line_2": "",
+        "city": "",
+        "state": "",
+        "zip": "",
+        "country": ""
+      },
+      "beneficial_owner_4": {
+        "individual_name": "",
+        "dob": "",
+        "ssn": "",
+        "street_address_line_1": "",
+        "street_address_line_2": "",
+        "city": "",
+        "state": "",
+        "zip": "",
+        "country": ""
+      }
+    },
+    "controller": {
+      "individual_name": "",
+      "dob": "",
+      "ssn": "",
+      "street_address_line_1": "",
+      "street_address_line_2": "",
+      "city": "",
+      "state": "",
+      "zip": "",
+      "country": ""
+    }
+  }
+}

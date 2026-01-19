@@ -1,0 +1,80 @@
+{
+  "name": "Thailand Visa Application Form",
+  "fields": {
+    "personal_information": {
+      "title": "mr | mrs | master | miss",
+      "full_name": {
+        "first_name": "",
+        "middle_name": "",
+        "last_name": ""
+      },
+      "former_name": "",
+      "nationality": "",
+      "nationality_at_birth": "",
+      "countries_travel_document_valid_for": "",
+      "place_of_birth": "",
+      "date_of_birth": "",
+      "marital_status": "",
+      "occupation": {
+        "position": "",
+        "employer_name": ""
+      }
+    },
+
+    "travel_document": {
+      "type_of_travel_document": "",
+      "document_number": "",
+      "place_of_issue": "",
+      "date_of_issue": "",
+      "expiry_date": ""
+    },
+
+    "contact_information": {
+      "current_address": "",
+      "permanent_address": "",
+      "telephone": "",
+      "email": ""
+    },
+
+    "minor_children_accompanying": {
+      "names_dates_places_of_birth": ""
+    },
+
+    "travel_information": {
+      "date_of_arrival_in_thailand": "",
+      "date_of_departure_from_thailand": "",
+      "duration_of_proposed_stay": "",
+      "traveling_by": "",
+      "flight_number_or_vessel_name": "",
+      "date_of_previous_visit_to_thailand": ""
+    },
+
+    "visit_details": {
+      "purpose_of_visit": "tourist | transit | business | diplomatic_or_official | other",
+      "other_purpose_details": "",
+      "proposed_address_in_thailand": ""
+    },
+
+    "guarantor_information": {
+      "local_guarantor_name_and_address": "",
+      "local_guarantor_telephone_fax": "",
+      "guarantor_in_thailand_name_and_address": "",
+      "guarantor_in_thailand_telephone_fax": ""
+    },
+
+    "visa_request": {
+      "type_of_visa_requested": "diplomatic | official | courtesy | non_immigrant | tourist | transit | smart",
+      "number_of_entries_requested": "single | double | multiple"
+    },
+
+    "declaration": {
+      "applicant_signature": "",
+      "signature_date": ""
+    },
+
+    "tourist_transit_declaration": {
+      "declaration_signature": "",
+      "declaration_date": ""
+    }
+  }
+}

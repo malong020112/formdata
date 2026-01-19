@@ -1,0 +1,122 @@
+{
+  "name": "U.S. Passport Application (DS-11 04-2025)",
+  "fields": {
+    "passport_request": {
+      "passport_type": "u.s_passport_book | u.s_passport_card | both",
+      "book_size": "regular_book_standard | large_book_non_standard"
+    },
+    "applicant_information": {
+      "name": {
+        "last_name": "",
+        "first_name": "",
+        "middle_name": ""
+      },
+      "date_of_birth": "MM/DD/YYYY",
+      "sex": "m | f",
+      "place_of_birth": "",
+      "social_security_number": "",
+      "uscis_registration_a_number": "",
+      "email_address": "",
+      "mailing_address": {
+        "address_line_1": "",
+        "address_line_2_in_care_of": "",
+        "city": "",
+        "state": "",
+        "zip_code": "",
+        "country_if_outside_us": ""
+      },
+      "primary_contact_phone_number": "",
+      "other_names_used": {
+        "name_a": "",
+        "name_b": ""
+      }
+    },
+    "parental_information": {
+      "parent_1": {
+        "first_middle_name_at_parents_birth": "",
+        "last_name_at_parents_birth": "",
+        "date_of_birth": "MM/DD/YYYY",
+        "place_of_birth": "",
+        "sex": "m | f",
+        "us_citizen": "yes | no"
+      },
+      "parent_2": {
+        "first_middle_name_at_parents_birth": "",
+        "last_name_at_parents_birth": "",
+        "date_of_birth": "MM/DD/YYYY",
+        "place_of_birth": "",
+        "sex": "m | f",
+        "us_citizen": "yes | no"
+      }
+    },
+    "marital_information": {
+      "ever_been_married": "yes | no",
+      "spouse_or_most_recent_spouse": {
+        "full_name_current_spouse_or_most_recent_spouse": "",
+        "date_of_birth": "MM/DD/YYYY",
+        "place_of_birth": ""
+      },
+      "spouse_us_citizen": "yes | no",
+      "date_of_marriage": "MM/DD/YYYY",
+      "ever_widowed_or_divorced": "yes | no",
+      "widow_divorce_date": "MM/DD/YYYY"
+    },
+    "additional_contact_and_work": {
+      "additional_contact_phone_number": {
+        "home": "",
+        "work": "",
+        "cell": ""
+      },
+      "occupation_if_age_16_or_older": "",
+      "employer_or_school_if_applicable": ""
+    },
+    "travel_information": {
+      "travel_plans": {
+        "departure_date": "MM/DD/YYYY",
+        "return_date": "MM/DD/YYYY",
+        "countries_to_be_visited": ""
+      }
+    },
+    "physical_description": {
+      "height": "",
+      "hair_color": "",
+      "eye_color": ""
+    },
+    "permanent_address": {
+      "street_rfd_or_urb": "",
+      "apartment_unit": "",
+      "city": "",
+      "state": "",
+      "zip_code": ""
+    },
+    "emergency_contact": {
+      "name": "",
+      "address": "",
+      "apartment_unit": "",
+      "city": "",
+      "state": "",
+      "zip_code": "",
+      "phone_number": "",
+      "relationship": ""
+    },
+    "previous_passport_information": {
+      "ever_applied_or_been_issued_us_passport_book_or_card": "yes | no",
+      "most_recent_passport_book": {
+        "name_printed_on_book": "",
+        "status_of_book": "submitting_with_application | stolen | lost | in_my_possession_if_expired"
+      },
+      "most_recent_passport_card": {
+        "name_printed_on_card": "",
+        "status_of_card": "submitting_with_application | stolen | lost | in_my_possession_if_expired"
+      },
+      "lost_or_stolen_explanation": {
+        "explanation_details": "",
+        "previous_book_card_number": "",
+        "date_of_loss_or_theft": "MM/DD/YYYY",
+        "location_of_loss_or_theft": ""
+      },
+      "police_report_filed": "yes | no",
+      "police_report_available_copy_submitted": "yes | no"
+    }
+  }
+}

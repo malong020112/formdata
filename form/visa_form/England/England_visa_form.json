@@ -1,0 +1,213 @@
+{
+  "name": "England_visa_form",
+  "fields": {
+    "application_overview": {
+      "main_purpose_of_visit": "",
+      "intended_length_of_stay": "",
+      "visitor_visa_type": "",
+      "visa_validity_requested": ""
+    },
+    "travel_dates": {
+      "intended_travel_date_to_uk": "",
+      "intended_departure_date_from_uk": ""
+    },
+    "personal_details": {
+      "given_names": "",
+      "family_name": "",
+      "other_names": "",
+      "sex": "male | female",
+      "marital_status": "single | married_civil_partner | unmarried_partner | divorced_dissolved | separated | widowed",
+      "date_of_birth": "",
+      "place_of_birth": "",
+      "country_of_birth": "",
+      "nationality": "",
+      "other_nationalities": {
+        "has_other_nationality": "yes | no",
+        "details": ""
+      }
+    },
+    "passport_information": {
+      "current_passport_number": "",
+      "place_of_issue": "",
+      "issuing_authority": "",
+      "date_of_issue": "",
+      "date_of_expiry": "",
+      "is_first_passport": "yes | no",
+      "previous_passports_details": ""
+    },
+    "contact_details": {
+      "residential_address": "",
+      "length_of_residence_at_address": "",
+      "home_telephone": "",
+      "mobile_telephone": "",
+      "email_address": "",
+      "alternative_contact_details": ""
+    },
+    "family_details": {
+      "father": {
+        "given_names": "",
+        "family_name": "",
+        "date_of_birth": "",
+        "place_and_country_of_birth": "",
+        "nationality": ""
+      },
+      "mother": {
+        "given_names": "",
+        "family_name": "",
+        "date_of_birth": "",
+        "place_and_country_of_birth": "",
+        "nationality": ""
+      },
+      "spouse_or_partner": {
+        "full_name": "",
+        "nationality": "",
+        "date_of_birth": "",
+        "currently_lives_with_applicant": "yes | no",
+        "will_travel_with_applicant": "yes | no",
+        "current_address_if_not_living_together": ""
+      },
+      "children": {
+        "has_children": "yes | no",
+        "children_live_with_applicant": "yes | no",
+        "children_travelling_with_applicant": "yes | no",
+        "other_children_travelling": "yes | no",
+        "children_details": ""
+      }
+    },
+    "employment_and_finances": {
+      "current_personal_circumstances": "employed_full_time | employed_part_time | self_employed | unemployed | student | retired | supported | other",
+      "occupation": "",
+      "employer_name": "",
+      "employment_start_date": "",
+      "work_address": "",
+      "employer_telephone": "",
+      "employer_email": "",
+      "additional_jobs_details": "",
+      "monthly_income_after_tax": "",
+      "other_income_sources": {
+        "has_other_income": "yes | no",
+        "details": ""
+      },
+      "monthly_living_costs": "",
+      "monthly_support_to_dependants": "",
+      "available_funds_for_trip": "",
+      "who_pays_for_travel": "",
+      "who_pays_for_expenses": "",
+      "personal_cost_of_stay": "",
+      "third_party_funding_details": "",
+      "savings_or_assets": {
+        "has_savings_or_assets": "yes | no",
+        "details": ""
+      }
+    },
+    "organisations_and_background": {
+      "worked_for_listed_organisations": {
+        "media": "yes | no",
+        "public_administration": "yes | no",
+        "security": "yes | no",
+        "armed_forces": "yes | no",
+        "government": "yes | no",
+        "judiciary": "yes | no",
+        "details": ""
+      }
+    },
+    "travel_history": {
+      "travelled_to_uk_last_10_years": {
+        "has_travelled": "yes | no",
+        "details": ""
+      },
+      "travelled_outside_residence_country_last_10_years": {
+        "has_travelled": "yes | no",
+        "details": ""
+      },
+      "previous_visa_refusals": {
+        "has_refusal": "yes | no",
+        "details": ""
+      },
+      "uk_visas_last_10_years": {
+        "has_uk_visa": "yes | no",
+        "details": ""
+      },
+      "refused_entry_to_uk": {
+        "has_refusal": "yes | no",
+        "details": ""
+      },
+      "deported_or_removed": {
+        "has_deportation": "yes | no",
+        "details": ""
+      },
+      "applied_to_remain_in_uk": {
+        "has_applied": "yes | no",
+        "details": ""
+      },
+      "uk_national_insurance_number": {
+        "has_number": "yes | no",
+        "number": "",
+        "reason": ""
+      }
+    },
+    "criminal_and_character": {
+      "criminal_convictions": {
+        "has_conviction": "yes | no",
+        "details": ""
+      },
+      "arrested_or_charged": {
+        "has_been_charged": "yes | no",
+        "details": ""
+      },
+      "civil_judgment_or_penalty": {
+        "has_judgment": "yes | no",
+        "details": ""
+      },
+      "terrorism_related_views": {
+        "has_expressed": "yes | no",
+        "details": ""
+      },
+      "other_character_concerns": {
+        "has_concerns": "yes | no",
+        "details": ""
+      }
+    },
+    "visit_details": {
+      "immigration_status_in_application_country": "",
+      "travelling_with_others": {
+        "is_travelling_with_others": "yes | no",
+        "companions_details": "",
+        "companions_have_uk_visa": "yes | no | not_required"
+      },
+      "intended_activities_in_uk": "",
+      "intends_to_work": "yes | no",
+      "intends_to_study": "yes | no",
+      "accommodation_in_uk": "",
+      "friends_in_uk": {
+        "has_friends": "yes | no",
+        "details": ""
+      },
+      "relatives_in_uk": {
+        "has_relatives": "yes | no",
+        "details": ""
+      },
+      "intends_to_visit_relatives": "yes | no"
+    },
+    "medical_information": {
+      "received_medical_treatment_in_uk": {
+        "has_received": "yes | no",
+        "paid_for_treatment": "yes | no",
+        "treatment_location": "",
+        "treatment_address": "",
+        "treatment_telephone": "",
+        "hospital_or_clinic_name": ""
+      }
+    },
+    "additional_information": {
+      "other_relevant_information": ""
+    },
+    "declaration": {
+      "applicant_signature": "",
+      "date": "",
+      "used_agent_or_representative": "yes | no",
+      "agent_details": "",
+      "communication_language_with_agent": ""
+    }
+  }
+}

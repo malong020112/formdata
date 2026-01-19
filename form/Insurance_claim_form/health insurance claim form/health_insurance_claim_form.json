@@ -1,0 +1,190 @@
+{
+  "name": "Irish Life Health - Health Insurance Application Form",
+  "fields": {
+    "health_scheme_details": {
+      "group_name_or_employer_if_applicable": "",
+      "intermediary_name_if_applicable": "",
+      "quote_number_if_applicable": ""
+    },
+    "personal_details": {
+      "title": "",
+      "first_names": "",
+      "surname": "",
+      "pps_number": "",
+      "gender": "",
+      "date_of_birth": "D M Y",
+      "address": "",
+      "telephone_numbers": {
+        "home": "",
+        "mobile": ""
+      },
+      "email": "",
+      "date_you_wish_to_commence_cover": "D M Y"
+    },
+    "previous_health_insurance_details_where_applicable": {
+      "previous_health_insurer": "",
+      "previous_level_of_cover": "",
+      "last_renewal_date": "D M Y",
+      "previous_policy_number": "",
+      "break_in_cover_more_than_13_weeks_in_last_10_years": "yes | no",
+      "break_in_cover_details_separate_sheet": ""
+    },
+    "plan_and_level_of_cover_required": {
+      "plan": "",
+      "level_of_cover": ""
+    },
+    "dependants": {
+      "dependant_1": {
+        "first_name": "",
+        "surname": "",
+        "date_of_birth": "D M Y",
+        "relationship": "",
+        "gender": "",
+        "pps_number": "",
+        "full_time_student_between_18_and_20": "yes | no",
+        "last_renewal_date": "D M Y",
+        "previous_insurer": "",
+        "previous_plan": "",
+        "previous_policy_number": ""
+      },
+      "dependant_2": {
+        "first_name": "",
+        "surname": "",
+        "date_of_birth": "D M Y",
+        "relationship": "",
+        "gender": "",
+        "pps_number": "",
+        "full_time_student_between_18_and_20": "yes | no",
+        "last_renewal_date": "D M Y",
+        "previous_insurer": "",
+        "previous_plan": "",
+        "previous_policy_number": ""
+      },
+      "dependant_3": {
+        "first_name": "",
+        "surname": "",
+        "date_of_birth": "D M Y",
+        "relationship": "",
+        "gender": "",
+        "pps_number": "",
+        "full_time_student_between_18_and_20": "yes | no",
+        "last_renewal_date": "D M Y",
+        "previous_insurer": "",
+        "previous_plan": "",
+        "previous_policy_number": ""
+      },
+      "dependant_4": {
+        "first_name": "",
+        "surname": "",
+        "date_of_birth": "D M Y",
+        "relationship": "",
+        "gender": "",
+        "pps_number": "",
+        "full_time_student_between_18_and_20": "yes | no",
+        "last_renewal_date": "D M Y",
+        "previous_insurer": "",
+        "previous_plan": "",
+        "previous_policy_number": ""
+      }
+    },
+    "lifetime_community_rating_if_age_35_or_older": {
+      "policyholder": {
+        "q1_continuous_cover_since_30_apr_2015": "yes | no",
+        "q2_insured_between_1_may_2009_and_30_apr_2015_continuously": "yes | no",
+        "q3_how_long_held_health_insurance": {
+          "years": "",
+          "months": ""
+        },
+        "q4_resident_in_ireland_on_1_may_2015": "yes | no",
+        "q5_date_became_resident_in_ireland": "",
+        "q6_from_1_jan_2008_in_receipt_of_social_welfare_or_financially_dependent": "yes | no",
+        "q7_how_long_dependent_on_social_welfare_payment": {
+          "years": "",
+          "months": ""
+        }
+      },
+      "dependant_1": {
+        "q1_continuous_cover_since_30_apr_2015": "yes | no",
+        "q2_insured_between_1_may_2009_and_30_apr_2015_continuously": "yes | no",
+        "q3_how_long_held_health_insurance": {
+          "years": "",
+          "months": ""
+        },
+        "q4_resident_in_ireland_on_1_may_2015": "yes | no",
+        "q5_date_became_resident_in_ireland": "",
+        "q6_from_1_jan_2008_in_receipt_of_social_welfare_or_financially_dependent": "yes | no",
+        "q7_how_long_dependent_on_social_welfare_payment": {
+          "years": "",
+          "months": ""
+        }
+      },
+      "dependant_2": {
+        "q1_continuous_cover_since_30_apr_2015": "yes | no",
+        "q2_insured_between_1_may_2009_and_30_apr_2015_continuously": "yes | no",
+        "q3_how_long_held_health_insurance": {
+          "years": "",
+          "months": ""
+        },
+        "q4_resident_in_ireland_on_1_may_2015": "yes | no",
+        "q5_date_became_resident_in_ireland": "",
+        "q6_from_1_jan_2008_in_receipt_of_social_welfare_or_financially_dependent": "yes | no",
+        "q7_how_long_dependent_on_social_welfare_payment": {
+          "years": "",
+          "months": ""
+        }
+      },
+      "dependant_3": {
+        "q1_continuous_cover_since_30_apr_2015": "yes | no",
+        "q2_insured_between_1_may_2009_and_30_apr_2015_continuously": "yes | no",
+        "q3_how_long_held_health_insurance": {
+          "years": "",
+          "months": ""
+        },
+        "q4_resident_in_ireland_on_1_may_2015": "yes | no",
+        "q5_date_became_resident_in_ireland": "",
+        "q6_from_1_jan_2008_in_receipt_of_social_welfare_or_financially_dependent": "yes | no",
+        "q7_how_long_dependent_on_social_welfare_payment": {
+          "years": "",
+          "months": ""
+        }
+      },
+      "dependant_4": {
+        "q1_continuous_cover_since_30_apr_2015": "yes | no",
+        "q2_insured_between_1_may_2009_and_30_apr_2015_continuously": "yes | no",
+        "q3_how_long_held_health_insurance": {
+          "years": "",
+          "months": ""
+        },
+        "q4_resident_in_ireland_on_1_may_2015": "yes | no",
+        "q5_date_became_resident_in_ireland": "",
+        "q6_from_1_jan_2008_in_receipt_of_social_welfare_or_financially_dependent": "yes | no",
+        "q7_how_long_dependent_on_social_welfare_payment": {
+          "years": "",
+          "months": ""
+        }
+      }
+    },
+    "method_of_payment_tick_one_only": {
+      "payment_method": "bank_cheque_annually | credit_card_annually | debit_card_annually | direct_debit_monthly"
+    },
+    "sepa_direct_debit_mandate": {
+      "your_name": "",
+      "name_of_debtor_s": "",
+      "city_postcode": "",
+      "country": "",
+      "account_number_iban": "",
+      "type_of_payment": "recurrent_payment | one_off_payment",
+      "signature_1": "",
+      "date_1": "",
+      "signature_2": "",
+      "date_2": "",
+      "date_you_would_like_money_to_be_debited_from_your_account_day_1_to_28": ""
+    },
+    "declaration_customer": {
+      "your_signature": "",
+      "date": "",
+      "print_name_in_block_capitals": "",
+      "agreement_to_be_bound_by_terms": "yes"
+    }
+  }
+}

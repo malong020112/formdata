@@ -1,0 +1,300 @@
+{
+  "name": "Common Application First-Year Application (2025–2026)",
+  "fields": {
+    "student_information": {
+      "legal_name": {
+        "first_given": "",
+        "middle": "",
+        "last_family": "",
+        "suffix": ""
+      },
+      "preferred_name": "",
+      "former_legal_names": "",
+      "date_of_birth": "MM/DD/YYYY"
+    },
+
+    "contact_information": {
+      "preferred_phone": {
+        "type": "home | mobile",
+        "number": ""
+      },
+      "alternate_phone": {
+        "type": "home | mobile",
+        "number": ""
+      },
+      "email_address": "",
+      "permanent_home_address": {
+        "number_and_street": "",
+        "apartment_number": "",
+        "city_town": "",
+        "county": "",
+        "state_province": "",
+        "country": "",
+        "zip_postal_code": ""
+      },
+      "alternate_mailing_address": {
+        "number_and_street": "",
+        "apartment_number": "",
+        "city_town": "",
+        "county": "",
+        "state_province": "",
+        "country": "",
+        "zip_postal_code": "",
+        "from_date": "MM/DD/YYYY",
+        "to_date": "MM/DD/YYYY"
+      }
+    },
+
+    "demographics": {
+      "gender": "female | male | nonbinary | another_gender",
+      "gender_other_description": "",
+      "legal_sex": "female | male | x_or_other",
+      "pronouns": "he_him | she_her | they_them | other",
+      "pronouns_other": "",
+      "citizenship_status": "us_citizen | us_dual_citizen | us_permanent_resident | us_resident | citizen_of_non_us_country",
+      "non_us_citizenships": [],
+      "currently_held_us_visa_type": "",
+      "visa_issue_date": "MM/DD/YYYY",
+      "birthplace": {
+        "country_region_territory": "",
+        "city": "",
+        "state_province": ""
+      },
+      "years_lived_in_us": "",
+      "language_proficiency": [
+        {
+          "language": "",
+          "first_language": true,
+          "speak": true,
+          "read": true,
+          "write": true,
+          "spoken_at_home": true
+        }
+      ]
+    },
+
+    "family_household": {
+      "living_with": "parent_1 | parent_2 | both_parents | legal_guardian | ward_of_state | other",
+      "other_living_situation_description": "",
+      "number_of_children": "",
+      "parents_marital_status": "married | separated | divorced | never_married | widowed | civil_union"
+    },
+
+    "parent_1_information": {
+      "relationship": "mother | father",
+      "is_living": "yes | no",
+      "date_deceased": "MM/YYYY",
+      "name": {
+        "first": "",
+        "middle": "",
+        "last": "",
+        "suffix": ""
+      },
+      "former_last_name": "",
+      "preferred_phone": "",
+      "preferred_email": "",
+      "occupation": "",
+      "employer": "",
+      "college_attended": [
+        {
+          "college_name": "",
+          "degree": "",
+          "year": ""
+        }
+      ]
+    },
+
+    "parent_2_information": {
+      "relationship": "mother | father | not_listed",
+      "is_living": "yes | no",
+      "date_deceased": "MM/YYYY",
+      "name": {
+        "first": "",
+        "middle": "",
+        "last": "",
+        "suffix": ""
+      },
+      "former_last_name": "",
+      "preferred_phone": "",
+      "preferred_email": "",
+      "occupation": "",
+      "employer": "",
+      "college_attended": [
+        {
+          "college_name": "",
+          "degree": "",
+          "year": ""
+        }
+      ]
+    },
+
+    "siblings": [
+      {
+        "first_name": "",
+        "last_name": "",
+        "age": ""
+      }
+    ],
+
+    "education_secondary": {
+      "current_or_most_recent_high_school": {
+        "school_name": "",
+        "ceeb_code": "",
+        "entry_date": "MM/YYYY",
+        "graduation_date": "MM/YYYY",
+        "address": {
+          "street": "",
+          "city": "",
+          "county": "",
+          "state_province": "",
+          "country": "",
+          "zip_postal_code": ""
+        }
+      },
+      "other_high_schools_attended": [
+        {
+          "school_name": "",
+          "location": "",
+          "dates_attended_from": "MM/YYYY",
+          "dates_attended_to": "MM/YYYY"
+        }
+      ],
+      "academic_progression_flags": {
+        "graduated_early": "yes | no",
+        "graduated_late": "yes | no",
+        "time_off": "yes | no",
+        "gap_year": "yes | no"
+      }
+    },
+
+    "post_secondary_education": {
+      "colleges_attended": [
+        {
+          "college_name": "",
+          "location": "",
+          "enrollment_type": "dual_enrollment | summer_program | credit_awarded",
+          "dates_attended_from": "MM/YYYY",
+          "dates_attended_to": "MM/YYYY",
+          "degree_earned": ""
+        }
+      ]
+    },
+
+    "legal_guardian_if_applicable": {
+      "name": {
+        "first": "",
+        "middle": "",
+        "last": "",
+        "suffix": ""
+      },
+      "former_last_name": "",
+      "relationship_to_student": "",
+      "preferred_phone": "",
+      "preferred_email": "",
+      "occupation": "",
+      "employer": "",
+      "college_attended": [
+        {
+          "college_name": "",
+          "degree": "",
+          "year": ""
+        }
+      ]
+    },
+
+    "honors": [
+      {
+        "grade_level": "9 | 10 | 11 | 12 | pg",
+        "honor_description": "",
+        "level_of_recognition": "school | state_regional | national | international"
+      }
+    ],
+
+    "future_plans": {
+      "career_interest": "",
+      "highest_degree_intended": ""
+    },
+
+    "standardized_testing": {
+      "act": {
+        "exam_dates": [],
+        "highest_scores": {
+          "composite": "",
+          "english": "",
+          "math": "",
+          "reading": "",
+          "science": ""
+        }
+      },
+      "sat": {
+        "exam_dates": [],
+        "highest_scores": {
+          "evidence_based_reading_writing": "",
+          "math": "",
+          "essay": ""
+        }
+      },
+      "ap_ib_other_subject_tests": [
+        {
+          "exam_type": "",
+          "subject": "",
+          "score": "",
+          "date": "MM/YYYY"
+        }
+      ],
+      "english_tests": {
+        "test_type": "toefl | ielts | pte | duolingo | cambridge",
+        "exam_dates": [],
+        "highest_score": ""
+      }
+    },
+
+    "current_courses_and_grades": {
+      "courses": {
+        "first_term": [],
+        "second_term": [],
+        "third_term_or_additional": []
+      },
+      "graduating_class_size": "",
+      "class_rank_reporting": "",
+      "gpa": "",
+      "gpa_weighting": "weighted | unweighted"
+    },
+
+    "activities": [
+      {
+        "position_or_leadership": "",
+        "organization_name": "",
+        "description": "",
+        "hours_per_week": "",
+        "weeks_per_year": "",
+        "timing": "school_year | school_break | all_year",
+        "grade_levels": ["9", "10", "11", "12", "pg"],
+        "plan_to_participate_in_college": "yes | no"
+      }
+    ],
+
+    "responsibilities_and_circumstances": {
+      "weekly_responsibilities": [],
+      "life_circumstances": []
+    },
+
+    "additional_information": {
+      "context_statement": ""
+    },
+
+    "writing": {
+      "personal_essay": {
+        "selected_prompt": "",
+        "essay_text": ""
+      }
+    },
+
+    "application_fee_and_signature": {
+      "application_fee_payment_method": "online | by_mail | fee_waiver_request",
+      "applicant_signature": "",
+      "signature_date": "MM/DD/YYYY",
+      "additional_details_optional": ""
+    }
+  }
+}

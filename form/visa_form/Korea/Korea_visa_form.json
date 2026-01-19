@@ -1,0 +1,233 @@
+{
+  "name": "Korea_visa_form",
+  "fields": {
+    "personal_details": {
+      "full_name_in_english_as_shown_in_passport": {
+        "family_name": "",
+        "given_names": ""
+      },
+      "name_in_chinese_characters": {
+        "chinese_characters_name": ""
+      },
+      "sex": "Male/Female",
+      "date_of_birth": "",
+      "nationality": "",
+      "country_of_birth": "",
+      "national_identity_no": "",
+      "has_the_applicant_ever_used_any_other_names_to_enter_or_depart_korea": {
+        "no": "",
+        "yes": "",
+        "if_yes_please_provide_details": {
+          "family_name": "",
+          "given_name": ""
+        }
+      },
+      "is_the_applicant_a_citizen_of_more_than_one_country": {
+        "no": "",
+        "yes": "",
+        "if_yes_please_write_the_countries": ""
+      }
+    },
+    "details_of_visa_application": {
+      "period_of_stay_long_short_term": {
+        "long_term_stay_over_90_days": "",
+        "short_term_stay_less_than_90_days": ""
+      }
+    },
+    "passport_information": {
+      "passport_type": {
+        "diplomatic": "",
+        "official": "",
+        "regular": "",
+        "other": "",
+        "if_other_please_provide_details": ""
+      },
+      "passport_no": "",
+      "country_of_passport": "",
+      "place_of_issue": "",
+      "date_of_issue": "",
+      "date_of_expiry": "",
+      "does_the_applicant_have_any_other_valid_passports": {
+        "no": "",
+        "yes": "",
+        "if_yes_please_provide_details": {
+          "passport_type": {
+            "diplomatic": "",
+            "official": "",
+            "regular": "",
+            "other": ""
+          },
+          "passport_no": "",
+          "country_of_passport": "",
+          "date_of_expiry": ""
+        }
+      }
+    },
+    "contact_information": {
+      "home_country_address_of_the_applicant": "",
+      "current_residential_address": "",
+      "cell_phone_no_or_telephone_no": "",
+      "e_mail": "",
+      "emergency_contact_information": {
+        "full_name_in_english": "",
+        "country_of_residence": "",
+        "telephone_no": "",
+        "relationship_to_the_applicant": ""
+      }
+    },
+    "marital_status_and_family_details": {
+      "current_marital_status": {
+        "married": "",
+        "divorced": "",
+        "single": ""
+      },
+      "personal_information_of_the_applicants_spouse_if_married": {
+        "family_name_in_english": "",
+        "given_names_in_english": "",
+        "date_of_birth": "",
+        "nationality": "",
+        "residential_address": "",
+        "contact_no": ""
+      },
+      "does_the_applicant_have_children": {
+        "no": "",
+        "yes": "",
+        "number_of_children": ""
+      }
+    },
+    "education": {
+      "highest_degree_or_level_of_education_completed": {
+        "masters_doctoral_degree": "",
+        "bachelors_degree": "",
+        "high_school_diploma": "",
+        "other": "",
+        "if_other_please_provide_details": ""
+      },
+      "name_of_school": "",
+      "location_of_school_city_province_country": ""
+    },
+    "employment": {
+      "current_personal_circumstances": {
+        "entrepreneur": "",
+        "self_employed": "",
+        "employed": "",
+        "civil_servant": "",
+        "student": "",
+        "retired": "",
+        "unemployed": "",
+        "other": "",
+        "if_other_please_provide_details": ""
+      },
+      "employment_details": {
+        "name_of_company_institute_school": "",
+        "position_course": "",
+        "address_of_company_institute_school": "",
+        "telephone_no": ""
+      }
+    },
+    "details_of_visit": {
+      "purpose_of_visit_to_korea": {
+        "tourism_transit": "",
+        "meeting_conference": "",
+        "medical_tourism": "",
+        "business_trip": "",
+        "study_training": "",
+        "work": "",
+        "trade_investment_intra_corporate_transferee": "",
+        "visiting_family_relatives_friends": "",
+        "marriage_migrant": "",
+        "diplomatic_official": "",
+        "other": "",
+        "if_other_please_provide_details": ""
+      },
+      "intended_period_of_stay": "",
+      "intended_date_of_entry": "",
+      "address_in_korea_including_hotels": "",
+      "contact_no_in_korea": "",
+      "has_the_applicant_travelled_to_korea_in_the_last_5_years": {
+        "no": "",
+        "yes": "",
+        "if_yes_please_provide_details_of_any_visits_to_korea": {
+          "times": "",
+          "purpose_of_visit": "",
+          "period_of_stay": ""
+        }
+      },
+      "has_the_applicant_travelled_outside_his_her_country_of_residence_excluding_to_korea_in_the_last_5_years": {
+        "no": "",
+        "yes": "",
+        "if_yes_please_provide_details_of_these_trips": [
+          {
+            "name_of_country_in_english": "",
+            "purpose_of_visit": "",
+            "period_of_stay": ""
+          }
+        ]
+      },
+      "does_the_applicant_have_any_family_members_staying_in_korea": {
+        "no": "",
+        "yes": "",
+        "if_yes_please_provide_details_of_the_family_members": [
+          {
+            "full_name_in_english": "",
+            "date_of_birth": "",
+            "nationality": "",
+            "relationship_to_the_applicant": ""
+          }
+        ]
+      },
+      "is_the_applicant_travelling_to_korea_with_any_family_members": {
+        "no": "",
+        "yes": "",
+        "if_yes_please_provide_details_of_the_family_members_the_applicant_is_travelling_with": [
+          {
+            "full_name_in_english": "",
+            "date_of_birth": "",
+            "nationality": "",
+            "relationship_to_the_applicant": ""
+          }
+        ]
+      }
+    },
+    "details_of_invitation": {
+      "is_there_anyone_inviting_the_applicant_for_the_visa": {
+        "no": "",
+        "yes": "",
+        "if_yes_please_provide_details": {
+          "name_of_inviting_person_organization": "",
+          "date_of_birth_business_registration_no": "",
+          "relationship_to_the_applicant": "",
+          "address": "",
+          "phone_no": ""
+        }
+      }
+    },
+    "funding_details": {
+      "estimated_travel_costs_in_us_dollars": "",
+      "who_will_pay_for_the_applicants_travel_related_expenses": {
+        "name_of_person_organization_company": "",
+        "relationship_to_the_applicant": "",
+        "type_of_support": "",
+        "contact_no": ""
+      }
+    },
+    "assistance_with_this_form": {
+      "did_the_applicant_receive_assistance_in_completing_this_form": {
+        "no": "",
+        "yes": "",
+        "if_yes_please_provide_details_of_the_person_who_assisted_the_applicant": {
+          "full_name": "",
+          "date_of_birth": "",
+          "telephone_no": "",
+          "relationship_to_the_applicant": ""
+        }
+      }
+    },
+    "declaration": {
+      "date_of_application": "",
+      "applicant_name": "",
+      "signature_of_applicant": "",
+      "signature_of_parent_or_legal_guardian_required_for_under_17": ""
+    }
+  }
+}

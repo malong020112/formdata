@@ -1,0 +1,170 @@
+{
+  "name": "Canada Visa Application",
+  "fields": {
+    "application": {
+      "language": "english | french"
+    },
+
+    "personal_details": {
+      "full_name": {
+        "family_name": "",
+        "given_names": ""
+      },
+      "used_other_names": {
+        "has_other_name": "yes | no",
+        "other_names": [
+          {
+            "family_name": "",
+            "given_names": ""
+          }
+        ]
+      },
+      "sex": "male | female | another_gender",
+      "date_of_birth": "YYYY-MM-DD",
+      "place_of_birth": {
+        "city_or_town": "",
+        "country_or_territory": ""
+      },
+      "citizenship": {
+        "current_country": "",
+        "other_countries": []
+      },
+      "current_country_of_residence": {
+        "country": "",
+        "status": "citizen | permanent_resident | visitor | worker | student | other",
+        "from_date": "",
+        "to_date": ""
+      },
+      "previous_country_of_residence": {
+        "has_previous_residence": "yes | no",
+        "details": [
+          {
+            "country": "",
+            "status": "",
+            "from_date": "",
+            "to_date": ""
+          }
+        ]
+      },
+      "marital_status": "single | married | common_law | divorced | separated | widowed",
+      "date_of_marriage": "",
+      "language": {
+        "native_language": "",
+        "english_ability": "yes | no",
+        "french_ability": "yes | no"
+      }
+    },
+
+    "passport": {
+      "passport_number": "",
+      "country_of_issue": "",
+      "issue_date": "",
+      "expiry_date": "",
+      "other_passports": {
+        "has_other_passport": "yes | no",
+        "details": [
+          {
+            "passport_number": "",
+            "country_of_issue": ""
+          }
+        ]
+      }
+    },
+
+    "national_identity_document": {
+      "has_national_id": "yes | no",
+      "id_number": "",
+      "country_of_issue": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+
+    "contact_information": {
+      "current_mailing_address": {
+        "address": "",
+        "city": "",
+        "province_or_state": "",
+        "country": "",
+        "postal_code": ""
+      },
+      "residential_address_same_as_mailing": "yes | no",
+      "residential_address": {
+        "address": "",
+        "city": "",
+        "province_or_state": "",
+        "country": "",
+        "postal_code": ""
+      },
+      "telephone": {
+        "home": "",
+        "mobile": "",
+        "work": ""
+      },
+      "email": ""
+    },
+
+    "visit_details": {
+      "purpose_of_travel": [
+        "tourism | visit_family_or_friends | business | study | work | transit | other"
+      ],
+      "other_purpose_details": "",
+      "intended_length_of_stay": {
+        "from_date": "",
+        "to_date": ""
+      },
+      "funds_available_cad": "",
+      "visited_canada_before": {
+        "has_visited": "yes | no",
+        "details": {
+          "year": "",
+          "type_of_status": ""
+        }
+      },
+      "us_visa": {
+        "has_us_visa": "yes | no"
+      },
+      "previous_refusal": {
+        "has_refusal": "yes | no",
+        "details": ""
+      }
+    },
+
+    "education": {
+      "has_post_secondary_education": "yes | no",
+      "details": [
+        {
+          "institution_name": "",
+          "city": "",
+          "country": "",
+          "field_of_study": "",
+          "from_date": "",
+          "to_date": ""
+        }
+      ]
+    },
+
+    "employment": {
+      "current_activity": "employed | self_employed | student | retired | unemployed",
+      "details": {
+        "occupation": "",
+        "employer_name": "",
+        "employer_address": "",
+        "from_date": "",
+        "to_date": ""
+      }
+    },
+
+    "background_information": {
+      "medical_condition": "yes | no",
+      "criminal_offence": "yes | no",
+      "refused_entry": "yes | no",
+      "details": ""
+    },
+
+    "declaration": {
+      "applicant_name": "",
+      "signature": "",
+      "date": "YYYY-MM-DD"
+    }
+  }
+}

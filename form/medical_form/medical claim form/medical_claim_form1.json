@@ -1,0 +1,82 @@
+{
+  "name": "Cigna Medical Claim Form (591692c Rev. 11/2023)",
+  "fields": {
+    "primary_customer_information": {
+      "primary_customers_name": {
+        "last_name": "",
+        "first_name": "",
+        "middle_initial": ""
+      },
+      "gender": "m | f",
+      "date_of_birth": "MM/DD/YYYY",
+      "primary_customers_mailing_address": {
+        "street_no_and_street": "",
+        "city": "",
+        "state": "",
+        "zip_code": ""
+      },
+      "daytime_telephone_number": "",
+      "is_this_a_change_of_address": "yes | no",
+      "cigna_id_number_or_primary_customer_social_security_number": "",
+      "account_number": "",
+      "employer_name": "",
+      "primary_customer_status": "employed | cobra | disabled | retired"
+    },
+    "patient_information_if_not_primary_customer": {
+      "patients_name": {
+        "last_name": "",
+        "first_name": "",
+        "middle_initial": ""
+      },
+      "relationship_to_primary_customer": "spouse | child | other",
+      "patients_date_of_birth": "MM/DD/YYYY",
+      "gender": "m | f",
+      "patients_address_if_different": {
+        "street_no_and_street": "",
+        "city": "",
+        "state": "",
+        "zip_code": ""
+      },
+      "at_time_service_provided_patient_was": "employed_full_time | student_full_time | n_a"
+    },
+    "accident_or_occupational_claim_information": {
+      "accident_or_illness_due_to_employment": "yes | no",
+      "injury_due_to_auto_accident": "yes | no",
+      "description_of_how_accident_or_work_related_illness_injury_occurred": "",
+      "date_of_accident_or_beginning_of_illness": "MM/DD/YYYY",
+      "filing_claim_or_lawsuit_against_third_party_to_recover_costs": "yes | no",
+      "third_party_name_if_yes": ""
+    },
+    "family_other_coverage_information": {
+      "spouse_employed": "yes | no",
+      "if_no_spouse_employed_during_last_12_months": "yes | no",
+      "name_of_spouse": {
+        "last_name": "",
+        "first_name": "",
+        "middle_initial": ""
+      },
+      "spouses_date_of_birth": "MM/DD/YYYY",
+      "name_of_spouses_employer": "",
+      "address_of_spouses_employer": {
+        "street_no_and_street": "",
+        "city": "",
+        "state": "",
+        "zip_code": ""
+      },
+      "spouses_employer_telephone_number": "",
+      "is_patient_covered_under_another_health_insurance_plan": "yes | no",
+      "other_health_insurance_company_name_if_yes": "",
+      "effective_date_of_coverage": "MM/DD/YYYY",
+      "policy_number": "",
+      "type_of_plan_if_known": "hmo | ppo",
+      "is_patient_covered_under_medicare": "yes | no"
+    },
+    "certification_and_payment_instructions": {
+      "primary_customers_signature_certification": "",
+      "certification_date": "MM/DD/YYYY",
+      "authorize_payment_directly_to_health_care_professional": "yes | no",
+      "primary_customers_signature_payment_instructions": "",
+      "payment_instructions_date": "MM/DD/YYYY"
+    }
+  }
+}

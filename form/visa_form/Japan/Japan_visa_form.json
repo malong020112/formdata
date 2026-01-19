@@ -1,0 +1,97 @@
+{
+  "name": "Japan Visa Form",
+  "fields": {
+    "passport_information": {
+      "issuing_authority": "",
+      "date_of_expiry": "(Day)/(Month)/(Year)",
+      "passport_no": "",
+      "nationality_or_citizenship": "",
+      "passport_type": "Diplomatic | Official | Ordinary | Other",
+      "place_of_issue": "",
+      "date_of_issue": "(Day)/(Month)/(Year)",
+      "id_no_issued_by_government": ""
+    },
+    "personal_information": {
+      "surname_as_shown_in_passport": "",
+      "given_and_middle_names_as_shown_in_passport": "",
+      "date_of_birth": "(Day)/(Month)/(Year)",
+      "place_of_birth": "",
+      "sex": "Male | Female",
+      "marital_status": "Single | Married | Widowed | Divorced",
+      "former_and_or_other_nationalities_or_citizenships": "",
+      "other_names_including_any_other_names_you_are_or_have_been_known_by": ""
+    },
+    "contact_information": {
+      "address": "",
+      "name": "",
+      "tel": "",
+      "mobile_no": "",
+      "e_mail": ""
+    },
+    "residential_address": {
+      "your_current_residential_address": "",
+      "additional_residential_addresses_if_any": []
+    },
+    "travel_information": {
+      "purpose_of_visit_to_japan_status_of_residence": "",
+      "date_of_arrival_in_japan": "(Day)/(Month)/(Year)",
+      "port_of_entry_into_japan": "",
+      "name_of_ship_or_airline": "",
+      "intended_length_of_stay_in_japan": "",
+      "certificate_of_eligibility_no": "",
+      "dates_and_duration_of_previous_stays_in_japan": ""
+    },
+    "stay_in_japan": {
+      "names_and_addresses_of_hotels_or_persons_with_whom_applicant_intends_to_stay": [
+        {
+          "name": "",
+          "address": "",
+          "tel": ""
+        }
+      ]
+    },
+    "employment_information": {
+      "current_profession_or_occupation_and_position": "",
+      "name_and_address_of_employer": "",
+      "employer_tel": ""
+    },
+    "guarantor_or_reference_in_japan": {
+      "name": "",
+      "address": "",
+      "tel": "",
+      "date_of_birth": "(Day)/(Month)/(Year)",
+      "sex": "Male | Female",
+      "relationship_to_applicant": "",
+      "profession_or_occupation_and_position": "",
+      "nationality_and_immigration_status": ""
+    },
+    "inviter_in_japan": {
+      "name": "",
+      "address": "",
+      "tel": "",
+      "date_of_birth": "(Day)/(Month)/(Year)",
+      "sex": "Male | Female",
+      "relationship_to_applicant": "",
+      "profession_or_occupation_and_position": "",
+      "nationality_and_immigration_status": "",
+      "same_as_above_if_same_as_guarantor": ""
+    },
+    "remarks": {
+      "remarks_special_circumstances_if_any": "",
+      "partners_profession_occupation_or_that_of_parents_if_applicant_is_a_minor_note_item_not_mandatory": ""
+    },
+    "criminal_and_immigration_history": {
+      "been_convicted_of_a_crime_or_offence_in_any_country": "Yes | No",
+      "been_sentenced_to_imprisonment_for_1_year_or_more_in_any_country": "Yes | No",
+      "been_convicted_and_sentenced_for_a_drug_offence_in_any_country": "Yes | No",
+      "engaged_in_prostitution_or_related_activities": "Yes | No",
+      "committed_trafficking_in_persons_or_incited_or_aided_another": "Yes | No",
+      "been_deported_or_removed_from_japan_or_any_country_for_overstaying_or_violating_law": "Yes | No",
+      "details_if_answered_yes_to_any_above_questions": ""
+    },
+    "application_signature": {
+      "date_of_application": "(Day)/(Month)/(Year)",
+      "signature_of_applicant": ""
+    }
+  }
+}

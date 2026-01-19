@@ -1,0 +1,124 @@
+{
+  "name": "St Augustine College of South Africa Undergraduate Degree Application Form 2024",
+  "fields": {
+    "applicant_personal_details": {
+      "title": "mr | miss | ms | mrs | other",
+      "surname": "",
+      "first_names": "",
+      "maiden_name": "",
+      "last_name_on_matric_certificate": "",
+      "south_african_identity_number": "",
+      "passport_country": "",
+      "passport_number": "",
+      "needs_study_permit": "yes | no",
+      "study_permit_granted": "yes | no",
+      "study_permit_valid_from": "",
+      "study_permit_valid_to": "",
+      "sex": "male | female",
+      "home_language": "",
+      "religious_affiliation": "",
+      "population_group": "",
+      "disability_if_any": "",
+      "how_did_you_learn_about_college": ""
+    },
+
+    "programme_of_study": {
+      "degree_applied_for": "ba | ba_extended | bth_full_time | bth_part_time",
+      "intake": "january | july",
+      "fees_payable_acknowledgement": ""
+    },
+
+    "applicant_contact_details": {
+      "home_street_address": "",
+      "home_postal_code": "",
+      "postal_address": "",
+      "postal_address_postal_code": "",
+      "mobile_or_phone_number": "",
+      "email_address": ""
+    },
+
+    "parent_or_guardian_details": {
+      "relationship_to_applicant": "",
+      "title": "mr | miss | ms | mrs | other",
+      "surname": "",
+      "first_names": "",
+      "south_african_identity_number": "",
+      "country_if_not_south_african": "",
+      "passport_number": "",
+      "home_street_address": "",
+      "home_postal_code": "",
+      "postal_address": "",
+      "postal_address_postal_code": "",
+      "mobile_or_phone_number": "",
+      "email_address": ""
+    },
+
+    "fee_payer_information": {
+      "relationship_to_applicant": "",
+      "title": "mr | miss | ms | mrs | other",
+      "surname": "",
+      "first_names": "",
+      "south_african_identity_number": "",
+      "country_if_not_south_african": "",
+      "passport_number": "",
+      "home_street_address": "",
+      "home_postal_code": "",
+      "postal_address": "",
+      "postal_address_postal_code": "",
+      "mobile_or_phone_number": "",
+      "email_address": ""
+    },
+
+    "secondary_school_leaving_examination": {
+      "has_written_matriculation_exam": "yes | no",
+      "matriculation_exam_year": "",
+      "school_name": "",
+      "school_address": "",
+      "examination_type": "nsc | ieb | other",
+      "subjects_and_marks": [
+        {
+          "subject": "",
+          "percentage": ""
+        }
+      ]
+    },
+
+    "tertiary_education_details": {
+      "records": [
+        {
+          "qualification": "",
+          "year_of_registration": "",
+          "tertiary_institution": "",
+          "year_of_completion": ""
+        }
+      ]
+    },
+
+    "motivation": {
+      "motivation_statement": ""
+    },
+
+    "applicant_declaration": {
+      "applicant_signature": "",
+      "date": ""
+    },
+
+    "parent_or_guardian_declaration_and_suretyship": {
+      "relationship_to_applicant": "",
+      "title": "mr | miss | ms | mrs | other",
+      "surname": "",
+      "first_names": "",
+      "south_african_identity_number": "",
+      "country_if_not_south_african": "",
+      "passport_number": "",
+      "home_street_address": "",
+      "home_postal_code": "",
+      "postal_address": "",
+      "postal_address_postal_code": "",
+      "mobile_or_phone_number": "",
+      "email_address": "",
+      "signature": "",
+      "date": ""
+    }
+  }
+}

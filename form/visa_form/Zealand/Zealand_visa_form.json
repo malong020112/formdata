@@ -1,0 +1,340 @@
+{
+  "name": "New Zealand Visitor Visa Application (INZ 1017, September 2025)",
+  "fields": {
+    "office_use_only": {
+      "client_number": "",
+      "date_received": "",
+      "application_number": ""
+    },
+    "returning_your_documents": {
+      "return_documents_to_address_option": "B1 | B2 | B3"
+    },
+    "visitor_visa_type_applied_for": "general_tourist | business | dependent_child | parent_or_grandparent | guardian_of_a_student | other",
+    "visitor_visa_type_other_details": "",
+    "section_a_principal_applicant_personal_details": {
+      "a1_name_as_shown_in_passport": {
+        "family_last_name": "",
+        "given_first_names": ""
+      },
+      "a2_preferred_title": "mr | mrs | ms | miss | dr | other",
+      "a2_preferred_title_other": "",
+      "a3_other_names_ever_known_by": "",
+      "a4_gender": "male | female",
+      "a5_date_of_birth": "DD MM YYYY",
+      "a6_birth_details": {
+        "town_city_of_birth": "",
+        "country_of_birth": ""
+      },
+      "a7_passport_details": {
+        "number": "",
+        "country": "",
+        "expiry_date": "DD MM YYYY"
+      },
+      "a8_other_citizenships_held": "",
+      "a9_partnership_status": "single | separated | partner_de_facto | divorced | married_in_civil_union | engaged | widowed"
+    },
+    "section_b_contact_details": {
+      "b1_current_residential_address": {
+        "address": "",
+        "telephone_landline": "",
+        "telephone_mobile": "",
+        "email": ""
+      },
+      "b2_most_recent_overseas_address_if_currently_in_nz": {
+        "address": ""
+      },
+      "b3_name_and_address_for_communication": {
+        "address_choice": "same_as_b1 | same_as_b2 | as_below",
+        "name_of_contact_person": "",
+        "organisation_name_and_address_if_applicable": "",
+        "new_zealand_business_number_if_applicable": "",
+        "telephone_daytime": "",
+        "telephone_evening": "",
+        "email": ""
+      },
+      "b4_authorise_person_at_b3_to_act_on_your_behalf": "yes | no",
+      "b5_authorise_other_licensed_advisers_in_b3_organisation": "yes | no",
+      "b6_received_immigration_advice_on_this_application": "yes | no",
+      "b7_friends_relatives_contacts_in_new_zealand": [
+        {
+          "name": "",
+          "address": "",
+          "relationship": "",
+          "date_of_birth_if_known": "DD MM YYYY"
+        },
+        {
+          "name": "",
+          "address": "",
+          "relationship": "",
+          "date_of_birth_if_known": "DD MM YYYY"
+        }
+      ],
+      "b8_all_periods_of_employment_including_self_employment": [
+        {
+          "date_from": "DD/MM/YY",
+          "date_to": "DD/MM/YY",
+          "name_of_employer": "",
+          "new_zealand_business_number": "",
+          "location": "",
+          "type_of_work_occupation_job_title": ""
+        }
+      ]
+    },
+    "section_c_partner_personal_details": {
+      "c1_partner_name_as_shown_in_passport": {
+        "family_last_name": "",
+        "given_first_names": ""
+      },
+      "c2_other_names_partner_ever_known_by": "",
+      "c3_partner_gender": "male | female",
+      "c4_partner_date_of_birth": "DD MM YYYY",
+      "c5_partner_birth_details": {
+        "town_city_of_birth": "",
+        "country_of_birth": ""
+      },
+      "c6_partner_passport_details": {
+        "number": "",
+        "country": "",
+        "expiry_date": "DD MM YYYY"
+      },
+      "c7_other_citizenships_partner_holds": "",
+      "c8_is_partner_included_in_this_application": "yes | no"
+    },
+    "section_d_dependent_children_personal_details": {
+      "dependent_child_one": {
+        "d1_name_as_shown_in_passport": {
+          "family_last_name": "",
+          "given_first_names": ""
+        },
+        "d2_gender": "male | female",
+        "d3_date_of_birth": "DD MM YYYY",
+        "d4_country_of_birth": "",
+        "d5_passport_details": {
+          "number": "",
+          "country": "",
+          "expiry_date": "DD MM YYYY"
+        },
+        "d6_other_citizenships_child_holds": ""
+      },
+      "dependent_child_two": {
+        "d7_name_as_shown_in_passport": {
+          "family_last_name": "",
+          "given_first_names": ""
+        },
+        "d8_gender": "male | female",
+        "d9_date_of_birth": "DD MM YYYY",
+        "d10_country_of_birth": "",
+        "d11_passport_details": {
+          "number": "",
+          "country": "",
+          "expiry_date": "DD MM YYYY"
+        },
+        "d12_other_citizenships_child_holds": ""
+      },
+      "dependent_child_three": {
+        "d13_name_as_shown_in_passport": {
+          "family_last_name": "",
+          "given_first_names": ""
+        },
+        "d14_gender": "male | female",
+        "d15_date_of_birth": "DD MM YYYY",
+        "d16_country_of_birth": "",
+        "d17_passport_details": {
+          "number": "",
+          "country": "",
+          "expiry_date": "DD MM YYYY"
+        },
+        "d18_other_citizenships_child_holds": ""
+      },
+      "dependent_child_four": {
+        "d19_name_as_shown_in_passport": {
+          "family_last_name": "",
+          "given_first_names": ""
+        },
+        "d20_gender": "male | female",
+        "d21_date_of_birth": "DD MM YYYY",
+        "d22_country_of_birth": "",
+        "d23_passport_details": {
+          "number": "",
+          "country": "",
+          "expiry_date": "DD MM YYYY"
+        },
+        "d24_other_citizenships_child_holds": ""
+      }
+    },
+    "section_e_health": {
+      "e1_tuberculosis_tb": "yes | no",
+      "e2_medical_condition_requires_services_during_stay": {
+        "renal_dialysis": "yes | no",
+        "hospital_care": "yes | no",
+        "residential_care": "yes | no"
+      },
+      "e3_severe_developmental_or_cognitive_impairments_requiring_support": "yes | no",
+      "e4_details_if_yes_to_e1_or_e3": "",
+      "e5_pregnant": {
+        "is_pregnant": "yes | no",
+        "due_date_if_yes": "DD MM YYYY"
+      },
+      "e6_if_pregnant_intends_to_give_birth_in_nz_payment_arrangements": {
+        "not_applicable_not_intend_to_give_birth_in_nz": "yes | no",
+        "eligible_for_publicly_funded_maternity_and_evidence_provided": "yes | no",
+        "will_cover_costs_and_has_at_least_nzd_9000_evidence_attached": "yes | no",
+        "sponsor_guarantees_costs_and_inz1025_attached": "yes | no"
+      },
+      "e7_dependent_child_of_essential_skills_visa_holder": "yes | no",
+      "e8_provided_medical_and_chest_xray_with_previous_application": "yes | no",
+      "e9_parent_grandparent_visitor_visa": "yes | no",
+      "e10_in_nz_more_than_six_months_total": "yes | no",
+      "e11_intended_stay_duration_category": "more_than_6_up_to_12_months | more_than_12_months",
+      "e12_dependent_child_of_nz_citizen_or_resident": "yes | no",
+      "e13_medical_certificate_requirement_option_selected": {
+        "both_chest_xray_and_general_or_limited_medical_required": "yes | no",
+        "only_chest_xray_required_reason": {
+          "staying_6_to_12_months_from_or_visited_non_low_tb_incidence_place": "yes | no",
+          "previous_chest_xray_more_than_36_months_ago": "yes | no",
+          "health_deteriorated_since_last_chest_xray": "yes | no",
+          "spent_6_consecutive_months_in_non_low_tb_incidence_place_since_last_chest_xray": "yes | no"
+        },
+        "pregnant_or_under_11_no_xray_provided_instead": {
+          "not_required_general_medical_at_this_stage": "yes | no",
+          "provided_only_general_or_limited_medical_certificate": "yes | no"
+        },
+        "general_or_limited_medical_required_reason": {
+          "previous_chest_xray_less_than_36_months_ago": "yes | no",
+          "previous_medical_more_than_36_months_ago": "yes | no",
+          "health_deteriorated_since_last_medical_certificate": "yes | no"
+        },
+        "no_chest_xray_or_medical_required_at_this_stage_due_to_recent_previous_certificates_and_no_changes": "yes | no"
+      },
+      "e14_emeds_submission": {
+        "physician_submitting_to_inz": "yes | no",
+        "physician_supplied_nzer_code": "yes | no",
+        "nzer_code_if_yes": "",
+        "clinic_name_if_no_nzer": ""
+      }
+    },
+    "section_f_character": {
+      "f1_convicted_of_any_offence_including_driving": "yes | no",
+      "f2_current_status_for_any_offence": {
+        "under_investigation": "yes | no",
+        "wanted_for_questioning": "yes | no",
+        "facing_charges": "yes | no"
+      },
+      "f3_excluded_refused_entry_removed_or_deported_from_any_country_excluding_nz": {
+        "excluded": "yes | no",
+        "refused_entry": "yes | no",
+        "removed_or_deported": "yes | no"
+      },
+      "f4_refused_visa_permit_to_visit_work_study_or_reside_any_country_excluding_nz": "yes | no",
+      "f5_member_of_or_adhered_to_any_terrorist_organisation": "yes | no",
+      "f6_association_with_entities_advocating_or_committing_war_crimes_or_gross_human_rights_abuses": "yes | no",
+      "character_details_if_any_yes": "",
+      "police_certificates_requirement_option": "f7_not_required | f8_required | f9_not_required"
+    },
+    "section_g_visa_type": {
+      "g1_outside_new_zealand": {
+        "is_outside_nz": "yes | no",
+        "estimated_arrival_date_if_yes": "DD MM YYYY",
+        "estimated_departure_date": "DD MM YYYY"
+      },
+      "g2_purpose_of_visit_to_new_zealand": "visiting_family_friends | holiday_vacation | conference_convention | short_term_study | sports_music_or_other_event | other",
+      "g2_other_purpose_explanation": "",
+      "g3_limited_visa_express_purpose_and_dates": {
+        "express_purpose_description": "",
+        "express_purpose_start_date": "DD MM YYYY",
+        "express_purpose_completion_date": "DD MM YYYY"
+      },
+      "g4_application_dependent_on_another_person_in_nz_or_holds_nz_visa": {
+        "is_dependent": "yes | no",
+        "relationship_category": "guardian_of_student_visa_holder | parent_or_grandparent_sponsored_by_nz_child_or_grandchild | dependent_child_of_nz_citizen_resident_or_temporary_visa_holder | other",
+        "relationship_category_other": "",
+        "other_person_details": {
+          "family_last_name": "",
+          "given_first_names": "",
+          "date_of_birth": "DD MM YYYY"
+        }
+      },
+      "g5_dependent_child_awaiting_family_residence_visa_outcome": "yes | no"
+    },
+    "section_h_financial_support_while_in_new_zealand": {
+      "h1_funding_method": "own_funds | sponsored"
+    },
+    "section_i_english_language_translations": {
+      "provided_english_translations_for_all_non_english_documents": "yes | no"
+    },
+    "section_j_declaration_by_applicant": {
+      "provided_all_documents_required_by_checklist": "yes | no",
+      "principal_applicant_signature": "",
+      "principal_applicant_signature_date": "DD MM YYYY",
+      "partner_signature": "",
+      "partner_signature_date": "DD MM YYYY",
+      "parent_or_guardian_signature_if_principal_under_18": "",
+      "parent_or_guardian_signature_date": "DD MM YYYY",
+      "accompanying_dependent_children_over_18_signatures": {
+        "child_one_signature": "",
+        "child_one_date": "DD MM YYYY",
+        "child_two_signature": "",
+        "child_two_date": "DD MM YYYY",
+        "child_three_signature": "",
+        "child_three_date": "DD MM YYYY",
+        "child_four_signature": "",
+        "child_four_date": "DD MM YYYY"
+      }
+    },
+    "section_k_immigration_adviser_details": {
+      "k1_licensed_adviser_licence_details": {
+        "licence_type": "full | provisional | limited",
+        "conditions_specified_in_register": "",
+        "licence_number": ""
+      },
+      "k2_exempt_from_licensing_reason": {
+        "informal_or_family_context_only_not_systematic_or_fee": "yes | no",
+        "work_exempts_from_licensing_and_reason": "",
+        "lawyer_with_nz_practising_certificate_or_employee_of_lawyer_or_law_firm": "yes | no",
+        "community_law_centre": "yes | no",
+        "citizens_advice_bureau": "yes | no",
+        "nz_member_of_parliament_or_staff": "yes | no",
+        "nz_public_servant": "yes | no",
+        "foreign_diplomatic_consular": "yes | no"
+      }
+    },
+    "section_l_declaration_by_person_assisting_applicant": {
+      "assistant_name_and_address": {
+        "same_as_b3_or_as_below": "same_as_b3 | as_below",
+        "family_last_name": "",
+        "given_first_names": "",
+        "organisation_name_and_address_if_applicable": "",
+        "new_zealand_business_number_if_applicable": "",
+        "telephone_daytime": "",
+        "telephone_evening": "",
+        "fax": "",
+        "email": ""
+      },
+      "assistance_type": {
+        "interpreter_translator": "yes | no",
+        "recording_information_on_form": "yes | no",
+        "assisted_in_another_way": "yes | no",
+        "another_way_specify": "",
+        "provided_immigration_advice_and_section_k_details_correct": "yes | no"
+      },
+      "assistant_signature": "",
+      "assistant_signature_date": "DD MM YYYY"
+    },
+    "section_m_paying_your_application_fee_and_levies": {
+      "application_fee_payment": {
+        "amount": "",
+        "currency": "",
+        "application_number_office_use_only": ""
+      },
+      "credit_debit_card_details": {
+        "card_type": "mastercard | visa",
+        "name_of_cardholder": "",
+        "card_number": "",
+        "cvc_cvv_number": "",
+        "expiry_date": "DD MM YYYY",
+        "cardholder_signature": "",
+        "cardholder_signature_date": "DD MM YYYY"
+      }
+    }
+  }
+}

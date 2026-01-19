@@ -1,0 +1,210 @@
+{
+  "name": "Adult General Passport Application (Canada) - PPTC 153 (12-2025)",
+  "fields": {
+    "personal_information": {
+      "surname_last_name_requested_in_passport": "",
+      "given_names_requested_in_passport": "",
+      "all_former_surnames_including_birth_surname": "",
+      "surname_of_parents_at_their_birth": "",
+      "anticipated_date_of_travel": {
+        "month": "",
+        "day": "",
+        "unknown": "yes | no"
+      },
+      "place_of_birth": {
+        "city": "",
+        "country_or_territory": "",
+        "prov_terr_state_if_applicable": ""
+      },
+      "date_of_birth": "YYYY-MM-DD",
+      "sex": "f_female | m_male | x_another_gender",
+      "natural_eye_colour": "",
+      "height": "",
+      "current_home_address": {
+        "number": "",
+        "street": "",
+        "apt": "",
+        "city": "",
+        "prov_terr_state": "",
+        "postal_zip_code": ""
+      },
+      "mailing_address_if_different": {
+        "number": "",
+        "street": "",
+        "apt": "",
+        "city": "",
+        "prov_terr_state": "",
+        "postal_zip_code": ""
+      },
+      "email_address": "",
+      "telephone_primary": "",
+      "telephone_other": "",
+      "applicant_signature": "",
+      "signature_date": "YYYY-MM-DD",
+      "signed_at": {
+        "city": "",
+        "prov_terr_state": ""
+      }
+    },
+    "declaration_of_guarantor": {
+      "guarantor_surname_last_name_in_passport": "",
+      "guarantor_given_names": "",
+      "guarantor_date_of_birth": "YYYY-MM-DD",
+      "guarantor_canadian_passport_number": "",
+      "guarantor_passport_date_of_issue": "YYYY-MM-DD",
+      "guarantor_passport_date_of_expiry": "YYYY-MM-DD",
+      "relationship_to_applicant": "",
+      "guarantor_telephone_primary": "",
+      "guarantor_telephone_other": "",
+      "guarantor_current_home_address": {
+        "number": "",
+        "street": "",
+        "apt": "",
+        "city": "",
+        "prov_terr_state": "",
+        "postal_zip_code": ""
+      },
+      "i_have_known_the_applicant_for_number_of_years": "",
+      "guarantor_signature": "",
+      "guarantor_date": "YYYY-MM-DD",
+      "guarantor_signed_at": {
+        "city": "",
+        "prov_terr_state": ""
+      }
+    },
+    "previous_canadian_travel_document": {
+      "has_canadian_travel_document_been_issued_in_current_or_other_name": "yes | no",
+      "previous_travel_document_number": "",
+      "previous_travel_document_date_of_issue": "YYYY-MM-DD",
+      "cancel_and_return_previous_passport_request": "yes | no"
+    },
+    "proof_of_canadian_citizenship": {
+      "born_in_canada_document_type": "canadian_provincial_or_territorial_birth_certificate | certificate_of_canadian_citizenship",
+      "born_in_canada_registration_number": "",
+      "born_in_canada_birth_certificate_date_of_issue": "",
+      "citizenship_certificate_number": "",
+      "citizenship_certificate_date_of_issue_or_effective_date": "",
+      "born_outside_canada_document_type": "certificate_of_canadian_citizenship | certificate_of_naturalization | certificate_of_registration_of_birth_abroad | certificate_of_retention_of_canadian_citizenship",
+      "born_outside_canada_certificate_number": "",
+      "born_outside_canada_date_of_issue_or_effective_date": ""
+    },
+    "documents_to_support_identity": {
+      "identity_document_1": {
+        "type_of_document": "",
+        "document_number": "",
+        "date_of_expiry_if_applicable": "YYYY-MM-DD",
+        "your_name_as_it_appears_on_the_document": ""
+      },
+      "identity_document_2": {
+        "type_of_document": "",
+        "document_number": "",
+        "date_of_expiry_if_applicable": "YYYY-MM-DD",
+        "your_name_as_it_appears_on_the_document": ""
+      },
+      "signature_of_applicant": "",
+      "date": "YYYY-MM-DD"
+    },
+    "period_of_validity": {
+      "validity_period": "5_year | 10_year"
+    },
+    "additional_personal_information": {
+      "addresses_in_last_two_years": {
+        "same_as_current_home_address": "yes | no",
+        "different_from_current_home_address": "yes | no",
+        "address_1": {
+          "number": "",
+          "street": "",
+          "apt": "",
+          "city": "",
+          "prov_terr_state": "",
+          "country": "",
+          "postal_zip_code": "",
+          "from": "YYYY-MM",
+          "to": "YYYY-MM"
+        },
+        "address_2": {
+          "number": "",
+          "street": "",
+          "apt": "",
+          "city": "",
+          "prov_terr_state": "",
+          "country": "",
+          "postal_zip_code": "",
+          "from": "YYYY-MM",
+          "to": "YYYY-MM"
+        }
+      },
+      "occupation_in_last_two_years": {
+        "i_was_employed_full_or_part_time": "yes | no",
+        "i_was_in_school_full_or_part_time": "yes | no",
+        "other_homemaker_unemployed_retired": "yes | no",
+        "details_last_two_years": [
+          {
+            "employer_school_or_other": "",
+            "address": "",
+            "telephone_primary": "",
+            "field_of_employment_or_studies": "",
+            "date_from": "",
+            "date_to": ""
+          }
+        ]
+      }
+    },
+    "references": {
+      "reference_1": {
+        "surname_last_name": "",
+        "given_names": "",
+        "relationship_to_applicant": "",
+        "address": {
+          "number": "",
+          "street": "",
+          "apt": "",
+          "city": "",
+          "prov_terr_state": "",
+          "country": "",
+          "postal_zip_code": ""
+        },
+        "telephone_primary": "",
+        "telephone_other": "",
+        "email_address": "",
+        "has_known_me_for_number_of_years": ""
+      },
+      "reference_2": {
+        "surname_last_name": "",
+        "given_names": "",
+        "relationship_to_applicant": "",
+        "address": {
+          "number": "",
+          "street": "",
+          "apt": "",
+          "city": "",
+          "prov_terr_state": "",
+          "country": "",
+          "postal_zip_code": ""
+        },
+        "telephone_primary": "",
+        "telephone_other": "",
+        "email_address": "",
+        "has_known_me_for_number_of_years": ""
+      }
+    },
+    "emergency_contact_information": {
+      "surname_last_name": "",
+      "given_names": "",
+      "relationship_to_applicant": "",
+      "telephone_primary": "",
+      "telephone_other": "",
+      "email_address": "",
+      "current_home_address": {
+        "number": "",
+        "street": "",
+        "apartment": "",
+        "city": "",
+        "prov_terr_state": "",
+        "postal_zip_code": ""
+      },
+      "signature_of_applicant": "",
+      "date": "YYYY-MM-DD"
+    }
+  }
+}
