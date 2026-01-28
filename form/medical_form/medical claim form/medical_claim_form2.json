@@ -1,5 +1,5 @@
 {
-  "name": "UnitedHealthcare Medical Claim Form (Out-of-Network Claims)",
+  "name": "Medical Claim Form (Out-of-Network Claims)",
   "fields": {
     "member_and_group": {
       "member_id": "",

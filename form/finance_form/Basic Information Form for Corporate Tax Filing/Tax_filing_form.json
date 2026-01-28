@@ -1,5 +1,5 @@
 {
-  "name": "A06558《企业所得税年度纳税申报基础信息表》（A000000）",
+  "name": "Corporate Income Tax Annual Return Basic Information Form",
   "fields": {
     "basic_operating_information_required": {
       "101_tax_return_enterprise_type_code": "",

@@ -1,5 +1,5 @@
 {
-  "name": "国家自然科学基金申请书（2024版）",
+  "name": "National Natural Science Foundation Grant Application",
   "fields": {
     "cover_page": {
       "application_code_4_digits": "",
@@ -43,8 +43,7 @@
         "institution_name": ""
       },
       "project_basic_information": {
-        "project_title_cn": "",
-        "project_title_en": "",
+        "project_title": "",
         "funding_category": "",
         "sub_category_description": "",
         "notes_description": "",
@@ -56,13 +55,11 @@
         "research_direction": "",
         "direct_costs_amount_10k_rmb": "",
         "research_nature": "",
-        "keywords_cn": "",
-        "keywords_en": ""
+        "keywords": ""
       }
     },
     "abstract": {
-      "abstract_cn": "",
-      "abstract_en": ""
+      "abstract": ""
     },
     "main_participants": {
       "participants": [

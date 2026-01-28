@@ -96,12 +96,12 @@ class SearchMemory(BaseTool):
 
         memory_records = self._load_memory()
         if not memory_records:
-            return {"response": "Memory is empty or unreadable.", "success": False}
+            return {"response": "Memory is empty", "success": False}
 
         # Search the user's memory; fall back to global memory with user_id '0' if needed.
         record = self._find_user_record(memory_records, user_id) or self._find_user_record(memory_records, "0")
         if record is None:
-            return {"response": f"No memory found for user_id {user_id}.", "success": False}
+            return {"response": f"No memory found for user_id.", "success": False}
 
         information = record.get("information", [])
         if not information:

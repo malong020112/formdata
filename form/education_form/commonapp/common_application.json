@@ -1,5 +1,5 @@
 {
-  "name": "Common Application First-Year Application (2025–2026)",
+  "name": "Common Application First-Year Application",
   "fields": {
     "student_information": {
       "legal_name": {
@@ -60,17 +60,7 @@
         "city": "",
         "state_province": ""
       },
-      "years_lived_in_us": "",
-      "language_proficiency": [
-        {
-          "language": "",
-          "first_language": true,
-          "speak": true,
-          "read": true,
-          "write": true,
-          "spoken_at_home": true
-        }
-      ]
+      "years_lived_in_US": ""
     },
 
     "family_household": {
@@ -281,13 +271,6 @@
 
     "additional_information": {
       "context_statement": ""
-    },
-
-    "writing": {
-      "personal_essay": {
-        "selected_prompt": "",
-        "essay_text": ""
-      }
     },
 
     "application_fee_and_signature": {

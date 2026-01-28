@@ -1,12 +1,11 @@
 {
-  "name": "Chinese Government Scholarship Application Form",
+  "name": "Scholarship Application Form",
   "fields": {
     "personal_data": {
       "agency_no": "",
       "agency_name": "",
       "last_name": "",
       "surname": "",
-      "chinese_name": "",
       "gender": "male | female",
       "date_of_birth": "YYYY-MM-DD",
       "marital_status": "single | married | divorced | widowed | other",
@@ -67,7 +66,7 @@
         "posts_held": ""
       }
     },
-    "language_proficiency_and_proposed_study_in_china": {
+    "language_proficiency_and_proposed_study": {
       "language_proficiency": {
         "chinese_proficiency": "",
         "level_of_hsk_test_or_other_certificates": "",
@@ -91,8 +90,7 @@
           "from_date": "YYYY-MM-DD",
           "to_date": "YYYY-MM-DD"
         },
-        "ever_studied_or_worked_in_china": "yes | no",
-        "studied_or_worked_in_china_details": {
+        "studied_or_worked_details": {
           "institution_or_employer": "",
           "time": {
             "from_date": "YYYY-MM-DD",

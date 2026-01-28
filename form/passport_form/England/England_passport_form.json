@@ -1,0 +1,97 @@
+{
+  "name": "United Kingdom Passport Application (Overseas) - OS Form",
+  "fields": {
+    "passport_application": {
+      "application_reason": "renewal_after_31_12_1993 | first_british_passport_or_renewal_before_31_12_1993 | replacement_lost_damaged_stolen | extension_to_full_validity | changes_to_existing_passport",
+      "applicant_age_group": "adult | child_under_16",
+      "change_reason_if_changes_to_existing_passport": "new_name | new_photo | change_british_national_status",
+      "request_48_page_passport": "yes | no",
+      "request_braille_sticker": "yes | no"
+    },
+    "applicant_details": {
+      "title": "mr | mrs | miss | ms | other",
+      "other_title": "",
+      "surname": "",
+      "first_and_middle_names": "",
+      "maiden_or_all_previous_names_surname_first": "",
+      "current_address_full": "",
+      "country": "",
+      "postcode": "",
+      "date_of_birth_dd_mm_yyyy": "",
+      "gender": "male | female",
+      "town_of_birth": "",
+      "country_of_birth_including_uk": "",
+      "mobile_phone_number": "",
+      "alternative_phone_number": "",
+      "email_address": ""
+    },
+    "previous_passports": {
+      "has_had_or_been_included_in_any_passport_before": "yes | no",
+      "uncancelled_passports_submitted_count": "",
+      "passport_numbers": {
+        "passport_number_1": "",
+        "passport_number_2": "",
+        "passport_number_3": ""
+      },
+      "lost_or_stolen_passport_details": {
+        "lost_or_stolen_passport_number": "",
+        "issued_at": "",
+        "issue_year": "",
+        "holders_surname_at_time_issued": "",
+        "first_and_middle_names": "",
+        "how_passport_was_lost_or_why_not_available": "",
+        "date_of_loss_dd_mm_yyyy": "",
+        "place_of_loss": ""
+      }
+    },
+    "parents_details": {
+      "mother_or_parent_1": {
+        "full_name_surname_first": "",
+        "town_and_country_of_birth": "",
+        "date_of_birth_dd_mm_yyyy": "",
+        "nationality_and_citizenship_at_time_of_applicants_birth": "",
+        "british_passport_number_if_any": "",
+        "british_passport_date_of_issue_dd_mm_yyyy": ""
+      },
+      "date_of_marriage_or_civil_partnership_to_father_or_second_parent_if_applicable": "",
+      "father_or_parent_2": {
+        "full_name_surname_first": "",
+        "town_and_country_of_birth": "",
+        "date_of_birth_dd_mm_yyyy": "",
+        "nationality_and_citizenship_at_time_of_applicants_birth": "",
+        "british_passport_number_if_any": "",
+        "british_passport_date_of_issue_dd_mm_yyyy": ""
+      }
+    },
+    "certificate_of_registration_or_naturalisation": {
+      "has_been_granted_certificate": "yes | no",
+      "certificate_number": "",
+      "place_of_issue": "",
+      "date_of_issue_dd_mm_yyyy": ""
+    },
+    "more_information_section_8": {
+      "additional_information": ""
+    },
+    "declaration_section_9": {
+      "name_if_signing_on_behalf_of_a_child_title_first_name_surname": "",
+      "relationship_to_child": "",
+      "date_dd_mm_yyyy": ""
+    },
+    "countersignatory_section_10": {
+      "title": "mr | mrs | miss | ms | other",
+      "other_title": "",
+      "first_and_middle_names": "",
+      "surname": "",
+      "person_known_name_section_2_or_adult_section_9": "",
+      "known_for_years": "",
+      "known_as_how": "",
+      "profession_professional_qualifications_or_position_in_the_community": "",
+      "employers_name_and_work_address_or_private_address": "",
+      "postcode": "",
+      "mobile_phone_number": "",
+      "alternative_phone_number": "",
+      "current_passport_number": "",
+      "date_dd_mm_yyyy": ""
+    }
+  }
+}

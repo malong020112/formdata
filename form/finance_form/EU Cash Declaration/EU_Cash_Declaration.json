@@ -1,0 +1,196 @@
+{
+  "name": "Cash Declaration (Article 3 of Regulation (EU) 2018/1672)",
+  "fields": {
+    "travel_direction": "entering_the_eu | leaving_the_eu",
+    "carrier_of_cash": {
+      "first_name_s": "",
+      "last_name_s": "",
+      "nationality": "",
+      "personal_identification_number": "",
+      "gender": "male | female | other",
+      "address": {
+        "street": "",
+        "number": "",
+        "town": "",
+        "postal_zip_code": "",
+        "country": ""
+      },
+      "date_of_birth": "",
+      "place_of_birth": {
+        "town": "",
+        "country": ""
+      },
+      "id_document_type": "passport | id_card | other",
+      "id_document_other_specify": "",
+      "id_document_number": "",
+      "country_of_issue": "",
+      "date_of_issue": "",
+      "telephone_number": "",
+      "email_address": ""
+    },
+    "transport_details": {
+      "country_of_first_departure": "",
+      "departure_date": "",
+      "country_of_final_destination": "",
+      "arrival_date": "",
+      "via_transit_country_ies": "",
+      "transit_date": "",
+      "means_of_transport": "air | sea_fluvial | rail | road | other",
+      "means_of_transport_air_type": "commercial_flight | private_jet | other",
+      "means_of_transport_sea_fluvial_type": "commercial_vessel | yacht | cruise | other",
+      "means_of_transport_road_type": "truck | bus | car | other",
+      "means_of_transport_other_specify": "",
+      "itinerary_of_transport": {
+        "name_place_of_first_airport_port_train_station_of_departure": "",
+        "name_place_of_final_airport_port_train_station_of_arrival": "",
+        "name_place_of_airport_port_train_station_of_transit": "",
+        "land_border_crossing_point_road_only": "",
+        "reference_number": "",
+        "transport_company": ""
+      }
+    },
+    "details_of_cash": {
+      "currency_banknotes_and_coins": {
+        "entry_1": {
+          "value": "",
+          "currency": ""
+        },
+        "entry_2": {
+          "value": "",
+          "currency": ""
+        },
+        "entry_3": {
+          "value": "",
+          "currency": ""
+        },
+        "entry_4": {
+          "value": "",
+          "currency": ""
+        }
+      },
+      "bearer_negotiable_instruments": {
+        "type_of_bearer_negotiable_instrument": "",
+        "value": "",
+        "currency": ""
+      },
+      "commodities_used_as_highly_liquid_stores_of_value": {
+        "type": "",
+        "quantity": "",
+        "total_weight_grams": "",
+        "value": "",
+        "currency": ""
+      }
+    },
+    "economic_provenance_and_intended_use": {
+      "economic_provenance_select_all_that_apply": "labour_profits | capital_profits | sale_of_real_estate_property | sale_of_moveable_property | loan_granted_by_a_natural_person | loan_granted_by_a_legal_entity | lottery_gambling | gift_donation | inheritance | other",
+      "economic_provenance_other_specify": "",
+      "intended_use_select_all_that_apply": "labour_expenses | capital_investment | funds_for_purchasing_real_estate | funds_for_purchasing_moveable_property | repayment_of_loan_granted_by_a_natural_person | repayment_of_loan_granted_by_a_legal_entity | lottery_gambling | charity | cash_to_shipmaster_board_cash | vacation_recreation | transfer_by_professional_cash_couriers_currency_exchange_companies | transfer_by_professional_cash_couriers_other | other",
+      "intended_use_other_specify": ""
+    },
+    "owner_of_the_cash": {
+      "are_you_the_sole_owner": "yes_sole_owner | no_sole_owner_another_natural_person | no_sole_owner_legal_person | no_more_than_one_owner",
+      "total_number_of_owners": "",
+      "sole_owner_natural_person": {
+        "first_name_s": "",
+        "last_name_s": "",
+        "gender": "male | female | other",
+        "date_of_birth": "",
+        "place_of_birth": {
+          "town": "",
+          "country": ""
+        },
+        "id_document_type": "passport | id_card | other",
+        "id_document_other_specify": "",
+        "id_document_number": "",
+        "country_of_issue": "",
+        "date_of_issue": "",
+        "nationality": "",
+        "personal_identification_number": "",
+        "address": {
+          "street": "",
+          "number": "",
+          "town": "",
+          "postal_zip_code": "",
+          "country": ""
+        },
+        "telephone_number": "",
+        "email_address": ""
+      },
+      "sole_owner_legal_person": {
+        "name": "",
+        "registration_number": "",
+        "name_of_register": "",
+        "registration_country": "",
+        "vat_identification_number": "",
+        "eori_number": "",
+        "address": {
+          "street": "",
+          "number": "",
+          "town": "",
+          "postal_zip_code": "",
+          "country": ""
+        },
+        "telephone_number": "",
+        "email_address": ""
+      }
+    },
+    "intended_recipient_of_the_cash": {
+      "are_you_the_sole_intended_recipient": "yes_sole_intended_recipient_for_all_cash | no_sole_intended_recipient_is_the_sole_owner | no_sole_intended_recipient_another_natural_person | no_sole_intended_recipient_legal_person | no_more_than_one_intended_recipient",
+      "total_number_of_intended_recipients": "",
+      "sole_intended_recipient_natural_person": {
+        "first_name_s": "",
+        "last_name_s": "",
+        "gender": "male | female | other",
+        "date_of_birth": "",
+        "place_of_birth": {
+          "town": "",
+          "country": ""
+        },
+        "id_document_type": "passport | id_card | other",
+        "id_document_other_specify": "",
+        "id_document_number": "",
+        "country_of_issue": "",
+        "date_of_issue": "",
+        "nationality": "",
+        "personal_identification_number": "",
+        "address": {
+          "street": "",
+          "number": "",
+          "town": "",
+          "postal_zip_code": "",
+          "country": ""
+        },
+        "telephone_number": "",
+        "email_address": ""
+      },
+      "sole_intended_recipient_legal_person": {
+        "name": "",
+        "registration_number": "",
+        "name_of_register": "",
+        "registration_country": "",
+        "vat_identification_number": "",
+        "eori_number": "",
+        "address": {
+          "street": "",
+          "number": "",
+          "town": "",
+          "postal_zip_code": "",
+          "country": ""
+        },
+        "telephone_number": "",
+        "email_address": ""
+      }
+    },
+    "signature": {
+      "signature": "",
+      "name_of_the_signee": "",
+      "date": "",
+      "place": {
+        "town": "",
+        "country": ""
+      },
+      "total_number_of_additional_sheets_used": "",
+      "endorsed_copy_requested": "yes | no"
+    }
+  }
+}

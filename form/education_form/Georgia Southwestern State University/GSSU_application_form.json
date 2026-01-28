@@ -8,7 +8,7 @@
         "middle_name": ""
       },
       "name_on_transcript_if_different": "",
-      "social_security_number": "",
+      "social_security_number(SSN)": "",
       "date_of_birth": "MM/DD/YYYY",
       "gender": "male | female",
       "hispanic_or_latino": "yes | no",

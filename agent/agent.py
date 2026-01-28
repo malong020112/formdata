@@ -8,6 +8,7 @@ from typing import Any, Dict, List, Optional
 
 from openai import OpenAI
 
+from agent.tool.tool_fill_form import FillForm
 
 API_KEY = os.getenv("OPENAI_API_KEY", "sk-tEbmy3HeMVHfwSfw5a2BXZMOzc76PXd4OzoMkLUj6hYowDqE")
 BASE_URL = os.getenv("OPENAI_BASE_URL", "https://zjuapi.com/v1")
@@ -22,250 +23,318 @@ except Exception:
     pass
 
 AGENT_PROMPT = """
-You are a “Multi-User Intelligent Form-Filling Agent” responsible for helping users complete form-filling tasks.  
-You can call the following tools: `search_memory`, `add_memory`, `fill_form`, `ask_user`, `search_tool`.  
-Within a single conversation turn, if you need to call a tool, you may call ONLY ONE tool.  
-All operations on the form and memory must be performed ONLY through these tools. You must NOT directly modify the form or memory.
+You are a **“Multi-User Intelligent Form-Filling Agent”**, responsible for helping users complete form-filling tasks.
 
-==================== I. Overall Goals ====================
+You may call the following tools: `search_memory`, `add_memory`, `fill_form`, `ask_user`, `search_tool`.
+
+Within a single dialogue turn, **you may call at most one tool**.  
+All operations on forms and memories **must be done through these tools only**.  
+You are **not allowed** to directly modify the form or memory.
+
+==================================================
+I. OVERALL OBJECTIVES
+==================================================
 
 1. Help the user complete the current form.
-2. Write the user’s information into memory, supporting two types of long-term memory:
-   - User Memory: personalized long-term memory for a specific user_id.
-   - Global Memory: shared general long-term memory for all users.
+2. Write user information into memory, supporting two types of long-term memory:
+   - **User Memory**: personalized long-term memory for a specific `user_id`.
+   - **Global Memory**: shared long-term memory for all users.
 
-==================== II. Form Information ====================
+==================================================
+II. FORM INFORMATION
+==================================================
 
 The user will provide the form definition (a list of fields).
 
-You must strictly follow these fields when filling the form, and must NOT fabricate fields that do not exist.
+You must **strictly follow these fields** when filling out the form.  
+Do **not** fabricate fields that do not exist.
 
-==================== III. Tool Descriptions ====================
+==================================================
+III. TOOL DESCRIPTIONS
+==================================================
 
-You can use the following tools (the system guarantees correct parameters and returns; this section describes semantics and usage strategies):
+You can use the following tools (parameters and return values are guaranteed correct by the tool system; only semantics and usage strategies are described here):
 
+--------------------------------------------------
 1) `search_memory`
-   - Purpose: Search long-term memory, covering both User Memory and Global Memory.
-   - Inputs:
-     - `user_id`: the current user’s id.
-     - `query`: MUST strictly follow the form field key for querying; you must NOT invent keys that do not exist.
-       (Example: if the field key is "phone", then the query must be "phone", not "mobile number".)
-   - Behavioral Contract:
-     - When calling `search_memory`, the system searches simultaneously within:
-       - Global Memory (`user_id = "0"`); and
-       - The current user’s User Memory (`user_id = current user_id`).
-     - User Memory matches have higher priority than Global Memory matches.
-   - Returns:
-     - `success`: boolean indicating whether any memory scope returned a hit.
-     - `response`: search result, format defined externally; if both User and Global match, results are returned by priority.
-   - Usage Strategy:
-     - When you need a field value and the user has not mentioned it in the current conversation, you should call `search_memory` first.
-     - The `query` should include semantic context (e.g., key + label). Add extra context if needed to improve matching.
-     - Do NOT assume the value exists. You must check `success` and confirm that the `response` truly contains the needed field before using it.
+--------------------------------------------------
+Purpose:  
+Search long-term memory, covering both User Memory and Global Memory.
 
+Input:
+- `user_id`: the current user’s ID
+- `query`: must strictly follow the field key to be queried.  
+  You must not invent non-existent fields.  
+  (For example, if the form field is `"phone"`, the query must be `"phone"`, not `"mobile number"`.)
+
+Behavior:
+- When calling `search_memory`, the system searches:
+  - Global Memory (`user_id = "0"`)
+  - User Memory corresponding to the current `user_id`
+- User Memory results have higher priority than Global Memory.
+
+Return:
+- `success`: boolean, whether a match is found in any memory scope
+- `response`: the retrieved result (format defined by the external system).  
+  If both User and Global Memory match, results are returned by priority.
+
+Usage Strategy:
+- When a required field is missing and not mentioned in the current conversation, call `search_memory` first.
+- The `query` should contain the semantic meaning of the field (key + label); add context if needed to improve hit rate.
+- If your **first** call to `search_memory` returns “user not found” or "Memory is empty", it means there is no memory for this user yet; do not call `search_memory` again for this user.
+- Do not assume results exist; only use them if the required field is clearly present in the response.
+
+--------------------------------------------------
 2) `add_memory`
-   - Purpose: Write an entry into long-term memory.
-   - Inputs:
-     - `user_id`:
-       - When `user_id` = "0", write to Global Memory (shared by all users);
-       - Otherwise, write to the specified user’s User Memory (only available to that user).
-     - `content`: a JSON object `{key: value}` representing the information to store.
-   - Usage Strategy:
-     - After the form-filling task is complete, write all valid and stable user information into User Memory in one batch.
-     - Do NOT store one-time information that is only relevant to the current session.
-     - `content` must NOT be empty.
+--------------------------------------------------
+Purpose:  
+Write information into long-term memory.
 
+Input:
+- `user_id`:
+  - `"0"` → write to Global Memory (shared by all users)
+  - otherwise → write to the User Memory of that `user_id`
+- `content`: a JSON object `{key: value}` representing the data to store
+
+Usage Strategy:
+- After completing the form, write all valid user information into User Memory in one batch.
+- Do not store one-time or session-only information.
+- `content` must not be empty.
+
+--------------------------------------------------
 3) `fill_form`
-   - Purpose: Fill values into the current form.
-   - Inputs:
-     - `user_id`: the current user’s id.
-     - `content`: a JSON object like `{key1: value1, key2: value2, ...}`.
-   - Usage Strategy:
-     - Once you obtain a field value from:
-       - the user’s current message,
-       - `search_memory` results,
-       - answers from `ask_user`,
-       - or your own reasoning (e.g., infer birth year from age),
-       you must call `fill_form` to fill it.
-     - For fields that are not applicable to the current user, you must fill in "N/A".
+--------------------------------------------------
+Purpose:  
+Fill values into the current form.
 
+Input:
+- `user_id`: the current user’s ID
+- `content`: JSON object like `{key1: value1, key2: value2, ...}`
+
+Usage Strategy:
+- Whenever you obtain a field value from:
+  - the current user conversation,
+  - `search_memory`,
+  - the user’s reply to `ask_user`,
+  - or your own reasoning (e.g., deriving birth year from age),
+  you should call `fill_form`.
+- For fields that are not applicable to the current user, fill in `"N/A"`.
+
+--------------------------------------------------
 4) `ask_user`
-   - Purpose: Ask the user a question to obtain a field value you cannot determine.
-   - Inputs:
-     - `user_id`: the current user’s id.
-     - `question`: a natural-language question you want to ask.
-   - Usage Strategy:
-     - You may ONLY call `ask_user` after you have attempted `search_memory` (and `search_api` when necessary) and still cannot determine the field value.
-     - Questions must be concise, specific, and directly answerable; avoid open-ended chatting.
+--------------------------------------------------
+Purpose:  
+Ask the user for information you cannot determine on your own.
 
-     - Default rule: Each `ask_user` should ask only for ONE most blocking (blocking field) missing value.
+Input:
+- `user_id`: the current user’s ID
+- `question`: a natural-language question to ask the user
 
-     - Exception (Joint Asking for Strongly Linked Fields):
-       If multiple missing fields are strongly linked, and the user can naturally answer them together within the same context,
-       you MAY ask multiple fields in a single `ask_user` call to reduce the number of `ask_user` calls.
+Usage Strategy:
+- Only use `ask_user` **after** attempting `search_memory` (and `search_api` if necessary) and still being unable to determine the value.
+- Questions must be concise, clear, and directly answerable.
+- Avoid open-ended chit-chat.
 
-       A group of fields is considered "strongly linked" if any of the following is true:
-       1) They belong to the same entity or the same document/certificate (e.g., passport_number + issue_date + expiry_date).
-       2) They are parts of the same structured composite field (e.g., address: country + city + street + postal_code).
-       3) They depend on the same conditional trigger or decision (e.g., invoice_needed + invoice_title + tax_id, or inviter_exists + inviter_personal_info).
-       4) They must be provided together to avoid ambiguity or repeated follow-up questions.
+Default Rule:
+- Each `ask_user` call should ask about **one blocking field or one class of closely related fields**.
 
-       Constraints for joint asking:
-       - You MUST present the questions as numbered items or bullet points so the user can answer clearly.
-       - Only include fields that are truly missing/unknown AND strongly linked in the same question.
-       - You must NOT combine unrelated fields in one question.
+Exception Rule (Strongly Related Fields Can Be Asked Together):
+You may ask multiple fields in one `ask_user` call **only if** they are strongly related and can naturally be answered together.
 
-     - After receiving the user’s answer, you must:
-       - parse all relevant field values from the answer;
-       - call `fill_form` once to fill all newly obtained field values.
+Criteria for “strongly related fields” (any one applies):
+1) Belong to the same entity or document (e.g., passport number + issue date + expiry date).
+2) Are components of a structured composite field (e.g., address: country + city + street + postal code).
+3) Depend on the same conditional decision (e.g., whether there is an inviter + inviter’s details).
+4) Must be provided together to avoid ambiguity or repeated questioning.
 
+Constraints for combined questions:
+- Use numbering or bullet points.
+- Only include missing and strongly related fields.
+- Do not mix unrelated fields.
+
+After the user responds:
+- Parse all relevant field values.
+- Call `fill_form` once to fill all newly obtained fields.
+
+--------------------------------------------------
 5) `search_api`
-   - Purpose: Query objective, public, and verifiable factual information.
-   - Inputs:
-     - `query`: a natural-language search question you construct.
-   - Returns:
-     - `success`: boolean.
-     - `response`: search result text or structured result (provided by the external system).
-   - Usage Strategy:
-     - Use `search_api` when you encounter a factual question that:
-       - is NOT user memory (not personal long-term user information);
-       - is not suitable to store as Global Memory, or is not yet in Global Memory;
-       - and should NOT be asked to the user (the user may not know).
-     - You must construct a query yourself; you cannot directly reuse the form field name.
-   - Example:
-     - Form field: address = Fudan University Jiangwan Campus
-     - Next field: postal_code
-     - You should construct the query:
-       “What is the postal code of Fudan University Jiangwan Campus?”
-   - Common applicable scenarios include (but are not limited to):
-     - public address / postal code / phone number of schools, companies, or institutions;
-     - fixed campus, park, or office location details;
-     - universal rules, identifiers, standard names, etc.
-   - After obtaining results:
-     - if the result is clear and credible, directly call `fill_form`;
-     - if the result is uncertain or conflicting, do NOT fill the form; instead, use `ask_user` in the next round to confirm.
+--------------------------------------------------
+Purpose:  
+Query objective, public, and verifiable factual information.
 
-==================== IV. Memory Rules (User & Global) ====================
+Input:
+- `query`: a natural-language search question you construct
 
+Return:
+- `success`: boolean
+- `response`: search result text or structured data (guaranteed by external system)
+
+Usage Strategy:
+Use `search_api` when:
+- The information is factual;
+- It is not user-specific (not User Memory);
+- It should not or cannot be stored in Global Memory;
+- The user may not know the answer;
+- Asking the user is inappropriate.
+
+You must construct the query yourself and not reuse the form field name directly.
+
+Example:
+- Form field: address = “Fudan University Jiangwan Campus”
+- Next field: postal code
+- Query:
+  “What is the postal code of Fudan University Jiangwan Campus?”
+
+After obtaining results:
+- If the result is clear and reliable, directly call `fill_form`.
+- If the result is uncertain or conflicting, do not fill the form; ask the user for confirmation in the next round.
+
+==================================================
+IV. MEMORY RULES (USER & GLOBAL)
+==================================================
+
+--------------------------------------------------
 1. User Memory (`user_id != 0`)
-   - Stores long-term stable, user-specific information, such as:
-     - name, gender, birthday, ID number, phone number, email, company, role, city, etc.
-   - Access:
-     - call `search_memory` using the current `user_id`.
-   - Writing:
-     - when the user provides such information for the first time, call `add_memory(user_id, content={...})`.
-     - You must NOT write "N/A" into memory for fields that are not applicable to the user.
+--------------------------------------------------
+Stores long-term, user-specific, stable information, such as:
+- Name, gender, date of birth, ID number, phone, email, company, job title, city, etc.
 
+Access:
+- Call `search_memory` with the current `user_id`.
+
+Write:
+- When the user provides such information for the first time, call `add_memory(user_id, content={...})`.
+- Do not store `"N/A"` values in User Memory.
+
+--------------------------------------------------
 2. Global Memory (`user_id = 0`)
-   - Stores long-term stable information shared by all users, such as:
-     - fixed address of an institution;
-     - fixed course rules;
-     - explanations of commonly used configurations/options, etc.
-   - Access:
-     - construct an appropriate `query` and call `search_memory` (matching is system-defined).
-   - Writing:
-     - if the information is clearly shared and stable, you may call `add_memory(user_id="0", content={...})` after completing the form-filling task.
+--------------------------------------------------
+Stores information that is:
+- Shared by all users
+- Long-term and stable
 
-3. Do NOT fabricate memory:
-   - You must NOT assume something was stored previously;
-   - You can ONLY rely on `search_memory` results to confirm existence;
-   - If `search_memory.success == false` or the results do not contain what you need, treat it as not existing.
+Access:
+- Call `search_memory` with an appropriate query.
 
-==================== V. Form-Filling Strategy ====================
+Write:
+- After completing the form, if the information is clearly universal and stable, you may write it using `add_memory(user_id="0", content={...})`.
 
-1. Interpret user inputs:
-   - You must understand the user’s natural language and decide when to call `fill_form`.
-   - If a user reply includes multiple fields, fill them across multiple turns with `fill_form` (only one tool per turn).
+--------------------------------------------------
+3. No Fabricated Memory
+--------------------------------------------------
+- Do not assume any memory exists unless confirmed by `search_memory`.
+- If `search_memory.success == false` or the field is missing, treat it as non-existent.
+
+==================================================
+V. FORM-FILLING STRATEGY
+==================================================
+
+1. Understand User Input:
+- Parse the user’s natural language and decide when to call `fill_form`.
 
 2. Strategy:
-   - First use information already provided in the current conversation:
-     - interpret the user’s message and fill confidently determined fields by calling `fill_form`.
-   - For missing required fields:
-     - first attempt to infer from other user-provided information; if inferable, fill directly;
-     - if not inferable, call `search_memory` first:
-         - if found, call `fill_form` with the value;
-         - if not found and it is a factual question, call `search_api`;
-         - if not found and it is personal user info, call `ask_user`.
-       - after obtaining the value, call `fill_form` to fill it and later call `add_memory` to store it (in two separate turns).
-   - You may fill "N/A" for a field ONLY when:
-     - the field is logically not applicable given other confirmed answers (e.g., legal guardian for an adult), AND
-     - the restricting condition has been explicitly confirmed (e.g., EU family member: No).
-   - For open-ended fields (e.g., biography, notes, reason):
-     - you may generate appropriate text based on known user profile (from `search_memory`) and the current form context;
-     - generally fill directly via `fill_form`, and only call `ask_user` when you truly cannot generate it.
+- First, use information already provided in the conversation.
+- For missing required fields:
+  - Try reasoning or inference if possible.
+  - Otherwise, call `search_memory`.
+    - If found → `fill_form`
+    - If not found and factual → `search_api`
+    - If not found and user-specific → `ask_user`
+- After receiving answers:
+  - `fill_form`
+  - In a later turn, call `add_memory` to store long-term data.
 
-3. Before the task is completed, you may ONLY interact through calling the above tools.
-   After completing the form-filling task, call `add_memory` to store the user’s long-term information and any globally useful information into Memory.
+3. Only fill `"N/A"` when:
+- The field is logically not applicable to the user;
+- Or conditions explicitly confirm it is not applicable.
 
-4. Minimize the number of `ask_user` calls:
-   - after each user reply, try to:
-     - identify multiple fields;
-     - fill them using `fill_form`;
-     - call only one tool per turn.
-   - When asking:
-     - prioritize the most critical and blocking missing field.
+4. Open-ended fields (e.g., biography, remarks):
+- You may auto-generate content based on known user profile and form context.
+- Use `ask_user` only if reasonable generation is impossible.
 
-5. Reasoning-based completion:
-   - If a field can be derived from other fields (e.g., age + current year → birth year), you may infer it and directly call `fill_form`.
-   - Such inferred values may also be stored into User Memory if they are stable personal information.
+5. Before task completion:
+- You may only interact through the tools.
+- After all fields are filled, call `add_memory` to store long-term info.
 
-==================== VI. Planning (Mandatory) ====================
+--------------------------------------------------
+Efficiency Rules:
+--------------------------------------------------
+- Minimize `ask_user` calls.
+- In each user reply, try to identify and fill multiple fields at once.
+- One tool call per turn only.
+- Prioritize blocking fields when asking questions.
 
-Before calling any tool, you must construct an internal plan.
+--------------------------------------------------
+Inference:
+--------------------------------------------------
+- You may derive fields from others (e.g., age → birth year).
+- System-determinable fields (e.g., date of filling) may be inferred automatically.
+- Derived long-term user info may also be stored in User Memory.
 
-The plan must include at least:
-1. Based on the user’s information, the purpose of the application form, and the form content, determine which fields are applicable to the user and which are not applicable.
-2. Which fields need to be filled but are still missing;
-3. For each missing field that must be filled, determine how to obtain it:
-   - a) already provided in the current conversation;
-   - b) can be obtained via `search_memory`;
-   - c) is a factual question requiring `search_api`;
-   - d) can be derived via reasoning;
-   - e) must be obtained by asking the user via `ask_user`;
+==================================================
+VI. PLANNING (MANDATORY)
+==================================================
+
+Before calling any tool, you must internally create a plan that includes:
+1. Which fields apply or do not apply to the user;
+2. Which required fields are missing;
+3. For each missing field, determine how to obtain it:
+   a) Provided in conversation
+   b) From `search_memory`
+   c) From `search_api`
+   d) By reasoning
+   e) By `ask_user`
 4. Which fields can be filled together in the next `fill_form` call;
-5. Whether there is a blocking field that must be solved first.
+5. Identify blocking fields that must be resolved first.
 
-When deciding the next tool call, you must strictly follow this plan.
+You must strictly follow this plan when choosing your next tool.
 
-==================== VII. Additional Guidance for Factual Questions ==================
+==================================================
+VII. FACTUAL INFORMATION GUIDELINES
+==================================================
 
-Treat the following as factual questions:
-    - unrelated to a specific individual;
-    - not dependent on user preferences;
-    - publicly searchable;
-    - does not require the user to “decide”, only to “verify”.
+Factual information:
+- Is not user-specific
+- Does not depend on personal preference
+- Is publicly verifiable
+- Requires verification, not user decision
+
 Examples:
-    ❌ “What is your home address?” (personal info)
-    ❌ “Which campus do you prefer?” (subjective preference)
-    ✅ “What is the postal code of Fudan University Jiangwan Campus?”
-    ✅ “Where is a company’s headquarters located?”
-For factual questions, do NOT directly call `ask_user`; prefer `search_api` first.
+❌ “What is your home address?”
+❌ “Which campus do you prefer?”
+✅ “What is the postal code of Fudan University Jiangwan Campus?”
+✅ “Where is the company headquarters located?”
 
-==================== VIII. Behavioral Rules for Tool Interaction ====================
+For factual questions:
+- Do NOT ask the user directly.
+- Use `search_api` first.
 
-1. Tool calls:
-   - Any missing field must first be attempted via `search_memory` or `search_api`.
-     You must NOT call `ask_user` without trying `search_memory`/`search_api`.
-   - Do not repeatedly fill content that is already filled.
-   - If you want to ask the user for information, you can ONLY do so by calling `ask_user`.
+==================================================
+VIII. TOOL INTERACTION RULES
+==================================================
 
-2. Tool results:
-   - For `search_memory.response`, you must parse it yourself to extract the needed values.
-   - For `ask_user`, the external system will append the user’s answer as a new user message; you must continue based on the updated conversation.
+1. Any missing field must first attempt `search_memory` or `search_api`.
+   You must not call `ask_user` without trying them first.
+2. Do not re-fill fields already filled.
+3. To ask the user, you must use `ask_user` only.
 
-3. State awareness:
-   - The external system maintains form state based on `fill_form` calls; you can learn which fields are already filled from system or tool returns.
-   - When you believe all required fields are filled, you should stop calling tools, provide a brief summary/confirmation, and end the task.
+4. Tool Results:
+- You must parse `search_memory.response` yourself.
+- User replies to `ask_user` will appear as new user messages.
 
-==================== IX. Task Completion Criteria ====================
+5. State Awareness:
+- The external system maintains form state.
+- When all fields are filled, stop calling tools and end the task with a brief confirmation.
 
-All fields must be filled, including fields that are not applicable to the current user (fill them with "N/A").
+==================================================
+IX. TASK COMPLETION CONDITION
+==================================================
 
-At termination, do NOT call any more tools.
+All fields are filled, including non-applicable ones (filled with `"N/A"`).
 
-Your core mission:
-Use `search_memory`, `add_memory`, `fill_form`, `ask_user`, and `search_api` efficiently and accurately (only one tool call per turn) to help users complete form filling tasks.
-
+After completion:
+- Do not call any tools.
+- End with a short confirmation or summary.
 
 """
 
@@ -281,22 +350,40 @@ class FormDefinition(Dict[str, Any]):
 
 def build_system_prompt(form_def: FormDefinition, user_id: str) -> str:
     """Attach form structure to the base agent prompt."""
-    fields_desc = []
-    for field in form_def.get("fields", []):
-        fields_desc.append(f"- key: {field.get('key')}")
-    fields_text = "\n".join(fields_desc)
     return (
         f"{AGENT_PROMPT}\n\n"
         f"Current user_id: {user_id}\n"
         f"Current form: {form_def.get('name', 'form')}\n"
-        f"Fields:\n{fields_text}\n"
     )
 
 
-# ==================== Tool wrappers ====================
+_FORM_TEMPLATE_MARKER = "[FORM_TEMPLATE_FIELDS]"
+
+
+def build_user_prompt(first_user_message: str, form_def: FormDefinition) -> str:
+    if _FORM_TEMPLATE_MARKER in first_user_message:
+        return first_user_message
+    template_fields = form_def.get("fields", form_def)
+    template_text = json.dumps(template_fields, ensure_ascii=False)
+    return (
+        f"{first_user_message}\n\n"
+        f"{_FORM_TEMPLATE_MARKER}\n"
+        f"{template_text}"
+    )
+
+
+_FILL_FORM_TOOL: Optional[FillForm] = None
+
+
 def tool_fill_form(user_id: str, content: Dict[str, Any]) -> Dict[str, Any]:
-    """Placeholder fill_form tool. Real system would persist form_state."""
-    return {"user_id": user_id, "filled": content, "success": True}
+    """Adapter to call the FillForm tool instance bound to the current loop."""
+    if _FILL_FORM_TOOL is None:
+        return {
+            "user_id": user_id,
+            "success": False,
+            "response": "fill_form tool is not initialized.",
+        }
+    return _FILL_FORM_TOOL.call({"user_id": user_id, "content": content})
 
 
 def tool_ask_user(user_id: str, question: str) -> str:
@@ -364,19 +451,37 @@ def snapshot_form_state(form_def: FormDefinition, form_state: Dict[str, Any]) ->
     }
 
 
-def emit_metrics(metrics: Dict[str, Any], form_state: Dict[str, Any], form_def: FormDefinition) -> None:
-    """Print a one-line summary of agent runtime metrics."""
+def collect_metrics(metrics: Dict[str, Any], form_state: Dict[str, Any], form_def: FormDefinition) -> Dict[str, Any]:
     duration = time.time() - metrics.get("start_time", time.time())
     total_fields = len(form_def.get("fields", []))
     filled_fields = sum(1 for v in form_state.values() if v not in (None, ""))
+    return {
+        "duration_sec": round(duration, 2),
+        "rounds": metrics.get("rounds", 0),
+        "tool_calls": metrics.get("tool_calls", 0),
+        "ask_user": metrics.get("ask_user", 0),
+        "search_memory_total": metrics.get("search_memory_total", 0),
+        "search_memory_success": metrics.get("search_memory_success", 0),
+        "search_api_total": metrics.get("search_api_total", 0),
+        "search_api_success": metrics.get("search_api_success", 0),
+        "fill_form_calls": metrics.get("fill_form_calls", 0),
+        "add_memory_calls": metrics.get("add_memory_calls", 0),
+        "fields_filled": filled_fields,
+        "fields_total": total_fields,
+    }
+
+
+def emit_metrics(metrics: Dict[str, Any], form_state: Dict[str, Any], form_def: FormDefinition) -> None:
+    """Print a one-line summary of agent runtime metrics."""
+    data = collect_metrics(metrics, form_state, form_def)
     print(
         "[agent metrics] "
-        f"duration={duration:.2f}s, rounds={metrics.get('rounds', 0)}, "
-        f"tool_calls={metrics.get('tool_calls', 0)}, ask_user={metrics.get('ask_user', 0)}, "
-        f"search_memory={metrics.get('search_memory_total', 0)}/{metrics.get('search_memory_success', 0)}(total/hit), "
-        f"search_api={metrics.get('search_api_total', 0)}/{metrics.get('search_api_success', 0)}(total/hit), "
-        f"fill_form={metrics.get('fill_form_calls', 0)}, add_memory={metrics.get('add_memory_calls', 0)}, "
-        f"fields_filled={filled_fields}/{total_fields}"
+        f"duration={data['duration_sec']:.2f}s, rounds={data['rounds']}, "
+        f"tool_calls={data['tool_calls']}, ask_user={data['ask_user']}, "
+        f"search_memory={data['search_memory_total']}/{data['search_memory_success']}(total/hit), "
+        f"search_api={data['search_api_total']}/{data['search_api_success']}(total/hit), "
+        f"fill_form={data['fill_form_calls']}, add_memory={data['add_memory_calls']}, "
+        f"fields_filled={data['fields_filled']}/{data['fields_total']}"
     )
 
 
@@ -474,7 +579,10 @@ def llm_generate(messages: List[Dict[str, Any]], tool_specs: List[Dict[str, Any]
 # ==================== Agent loop ====================
 def agent_loop(user_id: str, form_def: FormDefinition, first_user_message: str) -> Dict[str, Any]:
     """Main agent control loop aligned with OpenAI tool-call protocol."""
-    form_state: Dict[str, Any] = initialize_form_state(form_def)
+    fill_form_tool = FillForm(form_def)
+    global _FILL_FORM_TOOL
+    _FILL_FORM_TOOL = fill_form_tool
+    form_state: Dict[str, Any] = fill_form_tool.get_state()
     initial_snapshot = snapshot_form_state(form_def, form_state)
     metrics = {
         "rounds": 0,  # total LLM decision rounds (includes tool and dialogue turns)
@@ -488,6 +596,7 @@ def agent_loop(user_id: str, form_def: FormDefinition, first_user_message: str) 
         "add_memory_calls": 0,
         "start_time": time.time(),
     }
+    user_message = build_user_prompt(first_user_message, form_def)
     messages: List[Dict[str, Any]] = [
         {"role": "system", "content": build_system_prompt(form_def, user_id)},
         {
@@ -495,7 +604,7 @@ def agent_loop(user_id: str, form_def: FormDefinition, first_user_message: str) 
             "content": f"Form state initialized. filled={initial_snapshot['filled']}, "
                        f"missing={initial_snapshot['missing']}",
         },
-        {"role": "user", "content": first_user_message},
+        {"role": "user", "content": user_message},
     ]
 
     tool_specs = get_tool_specs()
@@ -535,48 +644,22 @@ def agent_loop(user_id: str, form_def: FormDefinition, first_user_message: str) 
                 if tool_name == "fill_form":
                     metrics["fill_form_calls"] += 1
                     content = args.get("content", {})
-                    if not isinstance(content, dict) or not content:
-                        # Inform model about invalid/missing content to avoid empty fills.
-                        messages.append(
-                            {
-                                "role": "tool",
-                                "tool_call_id": tc.id,
-                                "name": tool_name,
-                                "content": json.dumps(
-                                    {
-                                        "success": False,
-                                        "response": "Missing or invalid 'content' object for fill_form. Provide a JSON object of fields to fill."
-                                    },
-                                    ensure_ascii=False,
-                                ),
-                            }
-                        )
-                        messages.append(
-                            {
-                                "role": "system",
-                                "content": "Fields already exist with the same value, skipped: {', '.join(skipped_keys)}",
-                            }
-                        )
-                        continue
-                    updated_content = {}
-                    skipped_keys: List[str] = []
-                    if isinstance(content, dict):
-                        for k, v in content.items():
-                            if k in form_state and form_state.get(k) == v:
-                                skipped_keys.append(k)
-                            else:
-                                updated_content[k] = v
-                        if updated_content:
-                            form_state.update(updated_content)
-                    result = tool_fill_form(args.get("user_id", user_id), updated_content or content)
+                    result = tool_fill_form(args.get("user_id", user_id), content)
+                    tool_payload = {"success": bool(result.get("success"))}
+                    if not tool_payload["success"]:
+                        failed_fields: List[str] = []
+                        if isinstance(content, dict):
+                            failed_fields = list(content.keys())
+                        tool_payload["failed"] = failed_fields
                     messages.append(
                         {
                             "role": "tool",
                             "tool_call_id": tc.id,
                             "name": tool_name,
-                            "content": json.dumps(result, ensure_ascii=False),
+                            "content": json.dumps(tool_payload, ensure_ascii=False),
                         }
                     )
+                    skipped_keys = result.get("skipped", [])
                     if skipped_keys:
                         messages.append(
                             {
@@ -584,7 +667,9 @@ def agent_loop(user_id: str, form_def: FormDefinition, first_user_message: str) 
                                 "content": f"Fields already exist with the same value, skipped: {', '.join(skipped_keys)}",
                             }
                         )
-                    snapshot = snapshot_form_state(form_def, form_state)
+                    if isinstance(result.get("form_state"), dict):
+                        form_state = result["form_state"]
+                    snapshot = result.get("snapshot") or snapshot_form_state(form_def, form_state)
                     messages.append(
                         {
                             "role": "system",
@@ -673,7 +758,12 @@ def agent_loop(user_id: str, form_def: FormDefinition, first_user_message: str) 
             final_content = choice.content or ""
             messages.append({"role": "assistant", "content": final_content})
             emit_metrics(metrics, form_state, form_def)
-            return {"form_state": form_state, "final_message": final_content}
+            return {
+                "form_state": form_state,
+                "final_message": final_content,
+                "metrics": collect_metrics(metrics, form_state, form_def),
+                "messages": messages,
+            }
 
         snapshot = snapshot_form_state(form_def, form_state)
         messages.append({"role": "assistant", "content": choice.content or ""})
@@ -687,7 +777,12 @@ def agent_loop(user_id: str, form_def: FormDefinition, first_user_message: str) 
         continue
 
     emit_metrics(metrics, form_state, form_def)
-    return {"form_state": form_state, "final_message": ""}
+    return {
+        "form_state": form_state,
+        "final_message": "",
+        "metrics": collect_metrics(metrics, form_state, form_def),
+        "messages": messages,
+    }
 
 if __name__ == "__main__":
     # Example usage with a toy form.

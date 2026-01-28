@@ -1,0 +1,53 @@
+{
+  "name": "Customs Declaration Form",
+  "fields": {
+    "from_sender": {
+      "name": "",
+      "business": "",
+      "street": "",
+      "postcode": "",
+      "city": "",
+      "country": "",
+      "sender_customs_reference_optional": ""
+    },
+    "to_addressee": {
+      "name": "",
+      "business": "",
+      "street": "",
+      "postcode": "",
+      "city": "",
+      "country": ""
+    },
+    "commercial_items_only_importer_optional": {
+      "importer_reference_optional": "",
+      "importer_telephone_fax_email_if_known": ""
+    },
+    "contents": {
+      "items": [
+        {
+          "detailed_description_of_contents": "",
+          "quantity": "",
+          "net_weight_kg": "",
+          "value": "",
+          "hs_tariff_number": "",
+          "country_of_origin_of_goods": ""
+        }
+      ],
+      "total_gross_weight_kg": "",
+      "total_value": "",
+      "postal_charges_fees": "",
+      "category_of_item": "gift | documents | commercial_sample | returned_goods | other",
+      "explanation": "",
+      "comments": ""
+    },
+    "accompanying_documents_optional": {
+      "licence_number_s": "",
+      "certificate_number_s": "",
+      "invoice_number": ""
+    },
+    "declaration": {
+      "date": "",
+      "sender_signature": ""
+    }
+  }
+}

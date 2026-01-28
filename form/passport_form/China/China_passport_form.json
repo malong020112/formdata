@@ -1,0 +1,71 @@
+{
+  "name": "PRC Passport / Travel Document / Certificate of Return Application Form",
+  "fields": {
+    "applicant_declaration_signature": {
+      "applicant_signature_in_simplified_chinese": "",
+      "application_date": ""
+    },
+    "personal_information": {
+      "chinese_surname": "",
+      "surname_in_pinyin": "",
+      "chinese_given_name": "",
+      "given_name_in_pinyin": "",
+      "sex": "male | female",
+      "ethnicity": "",
+      "date_of_birth": "",
+      "place_of_birth_province_autonomous_region_municipality": ""
+    },
+    "original_document_information": {
+      "document_type": "ordinary_passport | diplomatic_passport | service_passport | service_ordinary_passport | other",
+      "other_document_type_description": "",
+      "document_number": "",
+      "place_of_issue": "",
+      "date_of_issue": "",
+      "valid_until": ""
+    },
+    "for_official_passport_or_seaman_book_only": {
+      "domestic_dispatching_unit": "",
+      "approved_overseas_stay_period": "",
+      "purpose_of_going_abroad": "temporary_business_trip | long_term_assignment | other",
+      "other_purpose_description": ""
+    },
+    "contact_and_addresses": {
+      "household_registration_address_in_china": "",
+      "emergency_contact_person": "",
+      "emergency_contact_phone_number": "",
+      "overseas_long_term_residential_address": "",
+      "overseas_phone_number": "",
+      "current_occupation": "",
+      "current_employer_name": "",
+      "current_employer_phone_number": ""
+    },
+    "application_items": {
+      "requested_service": "new_passport_application | passport_renewal | passport_replacement | travel_document | certificate_of_return | convert_official_passport_to_personal_passport",
+      "passport_endorsement_details": ""
+    },
+    "family_members": {
+      "spouse": {
+        "name": "",
+        "current_address": "",
+        "phone_number": ""
+      },
+      "father": {
+        "name": "",
+        "current_address": "",
+        "phone_number": ""
+      },
+      "mother": {
+        "name": "",
+        "current_address": "",
+        "phone_number": ""
+      }
+    },
+    "foreign_nationality_or_foreign_passport": {
+      "has_foreign_nationality": "yes | no",
+      "date_of_naturalization": "",
+      "has_foreign_passport": "yes | no",
+      "foreign_passport_number": "",
+      "explanation_required": ""
+    }
+  }
+}
