@@ -1,868 +1,90 @@
 [
   {
-    "user_id": "4001",
-    "information": [
-      {
-        "key": "personal_details.given_names",
-        "value": "Danielle Marie"
-      },
-      {
-        "key": "personal_details.family_name",
-        "value": "McAllister"
-      },
-      {
-        "key": "personal_details.sex",
-        "value": "Female"
-      },
-      {
-        "key": "personal_details.marital_status",
-        "value": "Single"
-      },
-      {
-        "key": "personal_details.date_of_birth",
-        "value": "1988-09-14"
-      },
-      {
-        "key": "personal_details.place_of_birth",
-        "value": "Vancouver, British Columbia"
-      },
-      {
-        "key": "personal_details.country_of_birth",
-        "value": "Canada"
-      },
-      {
-        "key": "personal_details.nationality",
-        "value": "Canadian"
-      },
-      {
-        "key": "passport_information.current_passport_number",
-        "value": "KJ482931"
-      },
-      {
-        "key": "passport_information.place_of_issue",
-        "value": "Gatineau, Quebec, Canada"
-      },
-      {
-        "key": "passport_information.issuing_authority",
-        "value": "Government of Canada"
-      },
-      {
-        "key": "passport_information.date_of_issue",
-        "value": "2021-04-30"
-      },
-      {
-        "key": "passport_information.date_of_expiry",
-        "value": "2031-04-30"
-      },
-      {
-        "key": "contact_details.residential_address",
-        "value": "Unit 604, 221 King Street West, Toronto, ON M5V 1J5, Canada"
-      },
-      {
-        "key": "contact_details.home_telephone",
-        "value": "+1-416-555-2173"
-      },
-      {
-        "key": "contact_details.mobile_telephone",
-        "value": "+1-647-555-4839"
-      },
-      {
-        "key": "contact_details.email_address",
-        "value": "danielle.mcallister@gmail.com"
-      },
-      {
-        "key": "employment_and_finances.occupation",
-        "value": "Procurement Specialist"
-      },
-      {
-        "key": "employment_and_finances.employer_name",
-        "value": "Northern HealthCare Solutions Inc."
-      },
-      {
-        "key": "employment_and_finances.employment_start_date",
-        "value": "2017-03-01"
-      },
-      {
-        "key": "employment_and_finances.work_address",
-        "value": "Northern HealthCare Solutions Inc., Suite 1200, 250 Front Street West, Toronto, ON M5V 3G5, Canada"
-      },
-      {
-        "key": "employment_and_finances.employer_telephone",
-        "value": "+1-416-555-9834"
-      },
-      {
-        "key": "employment_and_finances.employer_email",
-        "value": "hr@northernhealthcare.ca"
-      },
-      {
-        "key": "personal_information.surname_last_name_requested_in_passport",
-        "value": "McAllister"
-      },
-      {
-        "key": "personal_information.given_names_requested_in_passport",
-        "value": "Danielle Marie"
-      },
-      {
-        "key": "personal_information.date_of_birth",
-        "value": "1988-09-14"
-      },
-      {
-        "key": "personal_information.place_of_birth.city",
-        "value": "Vancouver"
-      },
-      {
-        "key": "personal_information.place_of_birth.prov_terr_state_if_applicable",
-        "value": "BC"
-      },
-      {
-        "key": "personal_information.place_of_birth.country_or_territory",
-        "value": "Canada"
-      },
-      {
-        "key": "personal_information.sex",
-        "value": "Female"
-      },
-      {
-        "key": "personal_information.natural_eye_colour",
-        "value": "Brown"
-      },
-      {
-        "key": "personal_information.height",
-        "value": "168 cm"
-      },
-      {
-        "key": "personal_information.current_home_address.number",
-        "value": "221"
-      },
-      {
-        "key": "personal_information.current_home_address.street",
-        "value": "King Street West"
-      },
-      {
-        "key": "personal_information.current_home_address.apt",
-        "value": "Unit 604"
-      },
-      {
-        "key": "personal_information.current_home_address.city",
-        "value": "Toronto"
-      },
-      {
-        "key": "personal_information.current_home_address.prov_terr_state",
-        "value": "ON"
-      },
-      {
-        "key": "personal_information.current_home_address.postal_zip_code",
-        "value": "M5V 1J5"
-      },
-      {
-        "key": "personal_information.email_address",
-        "value": "danielle.mcallister@gmail.com"
-      },
-      {
-        "key": "personal_information.telephone_primary",
-        "value": "+1-647-555-4839"
-      },
-      {
-        "key": "personal_information.telephone_other",
-        "value": "+1-416-555-2173"
-      }
-    ]
-  },
-  {
-    "user_id": "1001",
-    "information": [
-      {
-        "key": "personal_details.full_name.family_name",
-        "value": "Carter"
-      },
-      {
-        "key": "personal_details.full_name.given_names",
-        "value": "Jordan Michael"
-      },
-      {
-        "key": "personal_details.sex",
-        "value": "Male"
-      },
-      {
-        "key": "personal_details.date_of_birth",
-        "value": "2005-08-14"
-      },
-      {
-        "key": "personal_details.place_of_birth.city_or_town",
-        "value": "Austin"
-      },
-      {
-        "key": "personal_details.place_of_birth.country_or_territory",
-        "value": "United States"
-      },
-      {
-        "key": "personal_details.citizenship.current_country",
-        "value": "United States"
-      },
-      {
-        "key": "personal_details.citizenship.other_countries",
-        "value": "None"
-      },
-      {
-        "key": "personal_details.current_country_of_residence.country",
-        "value": "United States"
-      },
-      {
-        "key": "personal_details.current_country_of_residence.status",
-        "value": "Citizen"
-      },
-      {
-        "key": "personal_details.current_country_of_residence.from_date",
-        "value": "2005-08-14"
-      },
-      {
-        "key": "personal_details.current_country_of_residence.to_date",
-        "value": "Present"
-      },
-      {
-        "key": "personal_details.marital_status",
-        "value": "Single"
-      },
-      {
-        "key": "personal_details.language.native_language",
-        "value": "English"
-      },
-      {
-        "key": "personal_details.language.english_ability",
-        "value": "Fluent"
-      },
-      {
-        "key": "personal_details.language.french_ability",
-        "value": "None"
-      },
-      {
-        "key": "passport.passport_number",
-        "value": "569812347"
-      },
-      {
-        "key": "passport.country_of_issue",
-        "value": "United States"
-      },
-      {
-        "key": "passport.issue_date",
-        "value": "2023-06-15"
-      },
-      {
-        "key": "passport.expiry_date",
-        "value": "2033-06-14"
-      },
-      {
-        "key": "national_identity_document.has_national_id",
-        "value": "Yes"
-      },
-      {
-        "key": "national_identity_document.id_number",
-        "value": "TX-48729163"
-      },
-      {
-        "key": "national_identity_document.country_of_issue",
-        "value": "United States"
-      },
-      {
-        "key": "national_identity_document.issue_date",
-        "value": "2023-08-22"
-      },
-      {
-        "key": "national_identity_document.expiry_date",
-        "value": "2031-08-14"
-      },
-      {
-        "key": "contact_information.current_mailing_address.address",
-        "value": "1427 W 6th St Apt 312"
-      },
-      {
-        "key": "contact_information.current_mailing_address.city",
-        "value": "Austin"
-      },
-      {
-        "key": "contact_information.current_mailing_address.province_or_state",
-        "value": "Texas"
-      },
-      {
-        "key": "contact_information.current_mailing_address.country",
-        "value": "United States"
-      },
-      {
-        "key": "contact_information.current_mailing_address.postal_code",
-        "value": "78703"
-      },
-      {
-        "key": "contact_information.telephone.mobile",
-        "value": "(512) 555-0198"
-      },
-      {
-        "key": "contact_information.telephone.home",
-        "value": "(512) 555-0134"
-      },
-      {
-        "key": "contact_information.email",
-        "value": "jordan.m.carter05@gmail.com"
-      },
-      {
-        "key": "personal_information.full_legal_name.first_name",
-        "value": "Jordan"
-      },
-      {
-        "key": "personal_information.full_legal_name.middle_name",
-        "value": "Michael"
-      },
-      {
-        "key": "personal_information.full_legal_name.last_name",
-        "value": "Carter"
-      },
-      {
-        "key": "personal_information.date_of_birth",
-        "value": "2005-08-14"
-      },
-      {
-        "key": "personal_information.gender",
-        "value": "Male"
-      },
-      {
-        "key": "personal_information.hispanic_or_latino",
-        "value": "No"
-      },
-      {
-        "key": "personal_information.race",
-        "value": "White"
-      },
-      {
-        "key": "contact_information.student_email_address",
-        "value": "jordan.m.carter05@gmail.com"
-      },
-      {
-        "key": "contact_information.parent_email_address",
-        "value": "erin.carter@example.com"
-      },
-      {
-        "key": "contact_information.cell_phone",
-        "value": "(512) 555-0198"
-      },
-      {
-        "key": "contact_information.home_phone",
-        "value": "(512) 555-0134"
-      },
-      {
-        "key": "contact_information.work_phone",
-        "value": "(512) 555-0176"
-      },
-      {
-        "key": "contact_information.mailing_address.street_or_po_box",
-        "value": "1427 W 6th St Apt 312"
-      },
-      {
-        "key": "contact_information.mailing_address.city",
-        "value": "Austin"
-      },
-      {
-        "key": "contact_information.mailing_address.state",
-        "value": "TX"
-      },
-      {
-        "key": "contact_information.mailing_address.zip_code",
-        "value": "78703"
-      },
-      {
-        "key": "contact_information.mailing_address.county",
-        "value": "Travis County"
-      },
-      {
-        "key": "contact_information.permanent_address_same_as_mailing",
-        "value": "Yes"
-      },
-      {
-        "key": "education_history.high_schools_attended",
-        "value": "Austin High School (Austin, TX)"
-      },
-      {
-        "key": "education_history.colleges_attended",
-        "value": "Austin Community College District (Austin, TX)"
-      },
-      {
-        "key": "applicant_information.name.first_name",
-        "value": "Jordan"
-      },
-      {
-        "key": "applicant_information.name.middle_name",
-        "value": "Michael"
-      },
-      {
-        "key": "applicant_information.name.last_name",
-        "value": "Carter"
-      },
-      {
-        "key": "applicant_information.date_of_birth",
-        "value": "2005-08-14"
-      },
-      {
-        "key": "applicant_information.sex",
-        "value": "Male"
-      },
-      {
-        "key": "applicant_information.place_of_birth",
-        "value": "Austin, Texas, USA"
-      },
-      {
-        "key": "applicant_information.email_address",
-        "value": "jordan.carter@example.com"
-      },
-      {
-        "key": "applicant_information.primary_contact_phone_number",
-        "value": "(512) 555-0176"
-      },
-      {
-        "key": "applicant_information.mailing_address.address_line_1",
-        "value": "2401 San Gabriel St"
-      },
-      {
-        "key": "applicant_information.mailing_address.address_line_2_in_care_of",
-        "value": "Apt 312"
-      },
-      {
-        "key": "applicant_information.mailing_address.city",
-        "value": "Austin"
-      },
-      {
-        "key": "applicant_information.mailing_address.state",
-        "value": "TX"
-      },
-      {
-        "key": "applicant_information.mailing_address.zip_code",
-        "value": "78705"
-      },
-      {
-        "key": "applicant_information.social_security_number",
-        "value": "612-45-9831"
-      },
-      {
-        "key": "additional_contact_and_work.occupation_if_age_16_or_older",
-        "value": "Student intern (part-time)"
-      },
-      {
-        "key": "additional_contact_and_work.employer_or_school_if_applicable",
-        "value": "The University of Texas at Austin"
-      },
-      {
-        "key": "physical_description.height",
-        "value": "5 ft 11 in"
-      },
-      {
-        "key": "physical_description.hair_color",
-        "value": "Brown"
-      },
-      {
-        "key": "physical_description.eye_color",
-        "value": "Hazel"
-      },
-      {
-        "key": "permanent_address.street_rfd_or_urb",
-        "value": "2401 San Gabriel St"
-      },
-      {
-        "key": "permanent_address.apartment_unit",
-        "value": "Apt 312"
-      },
-      {
-        "key": "permanent_address.city",
-        "value": "Austin"
-      },
-      {
-        "key": "permanent_address.state",
-        "value": "TX"
-      },
-      {
-        "key": "permanent_address.zip_code",
-        "value": "78705"
-      },
-      {
-        "key": "student_information.legal_name.first_given",
-        "value": "Jordan"
-      },
-      {
-        "key": "student_information.legal_name.middle",
-        "value": "Michael"
-      },
-      {
-        "key": "student_information.legal_name.last_family",
-        "value": "Carter"
-      },
-      {
-        "key": "student_information.preferred_name",
-        "value": "Jordan"
-      },
-      {
-        "key": "student_information.date_of_birth",
-        "value": "2005-08-14"
-      },
-      {
-        "key": "contact_information.preferred_phone.number",
-        "value": "+1 512-555-0198"
-      },
-      {
-        "key": "contact_information.preferred_phone.type",
-        "value": "Mobile"
-      },
-      {
-        "key": "contact_information.alternate_phone.number",
-        "value": "+1 512-555-0134"
-      },
-      {
-        "key": "contact_information.alternate_phone.type",
-        "value": "Home"
-      },
-      {
-        "key": "contact_information.email_address",
-        "value": "jordan.m.carter05@gmail.com"
-      },
-      {
-        "key": "contact_information.permanent_home_address.number_and_street",
-        "value": "1427 W 6th St"
-      },
-      {
-        "key": "contact_information.permanent_home_address.apartment_number",
-        "value": "Apt 312"
-      },
-      {
-        "key": "contact_information.permanent_home_address.city_town",
-        "value": "Austin"
-      },
-      {
-        "key": "contact_information.permanent_home_address.county",
-        "value": "Travis County"
-      },
-      {
-        "key": "contact_information.permanent_home_address.state_province",
-        "value": "Texas"
-      },
-      {
-        "key": "contact_information.permanent_home_address.country",
-        "value": "United States"
-      },
-      {
-        "key": "contact_information.permanent_home_address.zip_postal_code",
-        "value": "78703"
-      },
-      {
-        "key": "demographics.pronouns",
-        "value": "he/him"
-      },
-      {
-        "key": "demographics.gender",
-        "value": "Male"
-      },
-      {
-        "key": "demographics.legal_sex",
-        "value": "Male"
-      },
-      {
-        "key": "demographics.citizenship_status",
-        "value": "U.S. Citizen"
-      },
-      {
-        "key": "demographics.birthplace.city",
-        "value": "Austin"
-      },
-      {
-        "key": "demographics.birthplace.state_province",
-        "value": "Texas"
-      },
-      {
-        "key": "demographics.birthplace.country_region_territory",
-        "value": "United States"
-      },
-      {
-        "key": "parent_1_information.name.first",
-        "value": "Erin"
-      },
-      {
-        "key": "parent_1_information.name.middle",
-        "value": "Leigh"
-      },
-      {
-        "key": "parent_1_information.name.last",
-        "value": "Carter"
-      },
-      {
-        "key": "parent_1_information.former_last_name",
-        "value": "Henderson"
-      },
-      {
-        "key": "parent_1_information.preferred_phone",
-        "value": "+1 512-555-0147"
-      },
-      {
-        "key": "parent_1_information.preferred_email",
-        "value": "erin.carter@example.com"
-      },
-      {
-        "key": "parent_1_information.occupation",
-        "value": "Registered Nurse"
-      },
-      {
-        "key": "parent_1_information.employer",
-        "value": "St. David's Medical Center"
-      },
-      {
-        "key": "parent_2_information.name.first",
-        "value": "Derrick"
-      },
-      {
-        "key": "parent_2_information.name.middle",
-        "value": "James"
-      },
-      {
-        "key": "parent_2_information.name.last",
-        "value": "Carter"
-      },
-      {
-        "key": "parent_2_information.preferred_phone",
-        "value": "+1 512-555-0162"
-      },
-      {
-        "key": "parent_2_information.preferred_email",
-        "value": "derrick.carter@example.com"
-      },
-      {
-        "key": "parent_2_information.occupation",
-        "value": "Project Manager"
-      },
-      {
-        "key": "parent_2_information.employer",
-        "value": "Austin Commercial"
-      },
-      {
-        "key": "education_secondary.current_or_most_recent_high_school.school_name",
-        "value": "Austin High School"
-      },
-      {
-        "key": "education_secondary.current_or_most_recent_high_school.ceeb_code",
-        "value": "440015"
-      },
-      {
-        "key": "declaration_of_source_of_funds.telephone_no",
-        "value": "(512) 555-0198"
-      },
-      {
-        "key": "declaration_of_source_of_funds.individual_name.first_name",
-        "value": "Jordan"
-      },
-      {
-        "key": "declaration_of_source_of_funds.individual_name.middle_initial",
-        "value": "M"
-      },
-      {
-        "key": "declaration_of_source_of_funds.individual_name.last_name",
-        "value": "Carter"
-      },
-      {
-        "key": "declaration_of_source_of_funds.individual_address.number",
-        "value": "2401"
-      },
-      {
-        "key": "declaration_of_source_of_funds.individual_address.street",
-        "value": "San Gabriel St"
-      },
-      {
-        "key": "declaration_of_source_of_funds.individual_address.apt_rr",
-        "value": "Apt 312"
-      },
-      {
-        "key": "declaration_of_source_of_funds.individual_address.city",
-        "value": "Austin"
-      },
-      {
-        "key": "declaration_of_source_of_funds.individual_address.province",
-        "value": "TX"
-      },
-      {
-        "key": "declaration_of_source_of_funds.postal_code",
-        "value": "78705"
-      },
-      {
-        "key": "declaration_of_source_of_funds.occupation",
-        "value": "Student intern (part-time)"
-      },
-      {
-        "key": "declaration_of_source_of_funds.drivers_license_number",
-        "value": "TX-48729163"
-      },
-      {
-        "key": "declaration_of_source_of_funds.drivers_license_expiry_date",
-        "value": "14 Aug 2031"
-      },
-      {
-        "key": "declaration_of_source_of_funds.passport_number",
-        "value": "569812347"
-      },
-      {
-        "key": "declaration_of_source_of_funds.passport_expiry_date",
-        "value": "14 Jun 2033"
-      }
-    ]
-  },
-  {
     "user_id": "2001",
     "information": [
       {
-        "key": "personal_details.given_names",
-        "value": "Azlan"
-      },
-      {
-        "key": "personal_details.family_name",
-        "value": "bin Ismail"
-      },
-      {
-        "key": "personal_details.sex",
-        "value": "Male"
-      },
-      {
-        "key": "personal_details.marital_status",
-        "value": "Married / civil partner"
-      },
-      {
-        "key": "personal_details.date_of_birth",
-        "value": "1974-06-18"
-      },
-      {
-        "key": "personal_details.place_of_birth",
-        "value": "Kuala Lumpur"
-      },
-      {
-        "key": "personal_details.country_of_birth",
-        "value": "Malaysia"
-      },
-      {
-        "key": "personal_details.nationality",
-        "value": "Malaysian"
-      },
-      {
-        "key": "passport_information.current_passport_number",
-        "value": "A61234567"
-      },
-      {
-        "key": "passport_information.place_of_issue",
-        "value": "Kuala Lumpur"
-      },
-      {
-        "key": "passport_information.issuing_authority",
-        "value": "Immigration Department of Malaysia"
-      },
-      {
-        "key": "passport_information.date_of_issue",
-        "value": "2021-03-12"
-      },
-      {
-        "key": "passport_information.date_of_expiry",
-        "value": "2031-03-11"
-      },
-      {
-        "key": "contact_details.residential_address",
-        "value": "No. 18, Jalan SS 21/35, Damansara Utama, 47400 Petaling Jaya, Selangor, Malaysia"
-      },
-      {
-        "key": "contact_details.length_of_residence_at_address",
-        "value": "11 years"
-      },
-      {
-        "key": "contact_details.home_telephone",
-        "value": "+60-3-7728-1145"
-      },
-      {
-        "key": "contact_details.mobile_telephone",
-        "value": "+60-12-345-6789"
-      },
-      {
-        "key": "contact_details.email_address",
-        "value": "azlan.ismail@um.edu.my"
-      },
-      {
-        "key": "employment_and_finances.occupation",
-        "value": "University Lecturer (Educational Technology)"
-      },
-      {
-        "key": "employment_and_finances.employer_name",
-        "value": "Universiti Malaya"
-      },
-      {
-        "key": "employment_and_finances.employment_start_date",
-        "value": "2006-07-01"
-      },
-      {
-        "key": "employment_and_finances.work_address",
-        "value": "Jalan Universiti, 50603 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia"
-      },
-      {
-        "key": "employment_and_finances.employer_telephone",
-        "value": "+60-3-7967-7000"
-      },
-      {
-        "key": "cover_page.applicant_name",
+        "key": "full_name",
         "value": "Azlan bin Ismail"
       },
       {
-        "key": "cover_page.brid",
-        "value": "740618-14-5679"
+        "key": "given_names",
+        "value": "Azlan bin"
       },
       {
-        "key": "cover_page.office_phone",
-        "value": "+60-3-7967-7000"
+        "key": "family_name",
+        "value": "Ismail"
       },
       {
-        "key": "cover_page.mailing_address",
+        "key": "sex",
+        "value": "Male"
+      },
+      {
+        "key": "marital_status",
+        "value": "Married"
+      },
+      {
+        "key": "date_of_birth",
+        "value": "18 Jun 1974"
+      },
+      {
+        "key": "place_of_birth",
+        "value": "Kuala Lumpur, Malaysia"
+      },
+      {
+        "key": "nationality",
+        "value": "Malaysian"
+      },
+      {
+        "key": "passport_number",
+        "value": "A61234567"
+      },
+      {
+        "key": "passport_place_of_issue",
+        "value": "Kuala Lumpur"
+      },
+      {
+        "key": "passport_issuing_authority",
+        "value": "Immigration Department of Malaysia"
+      },
+      {
+        "key": "passport_date_of_issue",
+        "value": "12 Mar 2021"
+      },
+      {
+        "key": "passport_date_of_expiry",
+        "value": "11 Mar 2031"
+      },
+      {
+        "key": "residential_address",
         "value": "No. 18, Jalan SS 21/35, Damansara Utama, 47400 Petaling Jaya, Selangor, Malaysia"
       },
       {
-        "key": "cover_page.postal_code",
-        "value": "47400"
+        "key": "mobile_telephone",
+        "value": "+60-12-345-6789"
       },
       {
-        "key": "cover_page.email",
+        "key": "home_telephone",
+        "value": "+60-3-7728-1145"
+      },
+      {
+        "key": "email",
         "value": "azlan.ismail@um.edu.my"
       },
       {
-        "key": "basic_information.applicant_information.sex",
-        "value": "male"
-      },
-      {
-        "key": "basic_information.applicant_information.birth_year_month",
-        "value": "1974-06"
-      },
-      {
-        "key": "basic_information.applicant_information.ethnicity",
-        "value": "Malay"
-      },
-      {
-        "key": "basic_information.applicant_information.degree",
-        "value": "PhD in Educational Technology"
-      },
-      {
-        "key": "basic_information.applicant_information.professional_title",
-        "value": "Senior Lecturer"
-      },
-      {
-        "key": "basic_information.applicant_information.postdoctoral_status",
-        "value": "not postdoc"
-      },
-      {
-        "key": "basic_information.applicant_information.country_or_region",
-        "value": "Malaysia"
-      },
-      {
-        "key": "basic_information.applicant_information.applicant_category",
-        "value": "Overseas collaborator (Malaysia)"
-      },
-      {
-        "key": "basic_information.applicant_information.work_unit",
+        "key": "employer_name",
         "value": "Universiti Malaya"
       },
       {
-        "key": "basic_information.applicant_information.main_research_area",
-        "value": "Learning analytics; teacher professional development; educational technology"
+        "key": "occupation",
+        "value": "University lecturer (Educational Technology)"
+      },
+      {
+        "key": "employment_start_date",
+        "value": "01 Jul 2006"
+      },
+      {
+        "key": "work_address",
+        "value": "Jalan Universiti, 50603 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia"
       }
     ]
   },
@@ -870,256 +92,256 @@
     "user_id": "2002",
     "information": [
       {
-        "key": "personal_details.given_names",
+        "key": "full_name",
+        "value": "Ethan McLeod"
+      },
+      {
+        "key": "given_names",
         "value": "Ethan"
       },
       {
-        "key": "personal_details.family_name",
+        "key": "family_name",
         "value": "McLeod"
       },
       {
-        "key": "personal_details.date_of_birth",
+        "key": "date_of_birth",
         "value": "1998-08-14"
       },
       {
-        "key": "personal_details.place_of_birth",
-        "value": "Calgary"
+        "key": "place_of_birth",
+        "value": "Calgary, Alberta, Canada"
       },
       {
-        "key": "personal_details.country_of_birth",
-        "value": "Canada"
-      },
-      {
-        "key": "personal_details.nationality",
+        "key": "nationality",
         "value": "Canadian"
       },
       {
-        "key": "personal_details.sex",
+        "key": "sex",
         "value": "Male"
       },
       {
-        "key": "personal_details.marital_status",
+        "key": "marital_status",
         "value": "Single"
       },
       {
-        "key": "passport_information.current_passport_number",
-        "value": "PP4279156"
-      },
-      {
-        "key": "passport_information.place_of_issue",
-        "value": "Calgary, AB"
-      },
-      {
-        "key": "passport_information.issuing_authority",
-        "value": "Government of Canada"
-      },
-      {
-        "key": "passport_information.date_of_issue",
-        "value": "2021-11-03"
-      },
-      {
-        "key": "passport_information.date_of_expiry",
-        "value": "2031-11-02"
-      },
-      {
-        "key": "contact_details.residential_address",
+        "key": "current_address",
         "value": "1208 14 Ave SW, Apartment 503, Calgary, AB T2R 0P3, Canada"
       },
       {
-        "key": "contact_details.mobile_telephone",
+        "key": "mobile_phone",
         "value": "+1 403-555-0198"
       },
       {
-        "key": "contact_details.email_address",
+        "key": "email",
         "value": "ethan.mcleod98@gmail.com"
       },
       {
-        "key": "employment_and_finances.occupation",
-        "value": "Laboratory Engineer (Materials Testing)"
+        "key": "passport_number",
+        "value": "PP4279156"
       },
       {
-        "key": "employment_and_finances.employer_name",
+        "key": "passport_issue_date",
+        "value": "2021-11-03"
+      },
+      {
+        "key": "passport_expiry_date",
+        "value": "2031-11-02"
+      },
+      {
+        "key": "passport_place_of_issue",
+        "value": "Calgary, AB, Canada"
+      },
+      {
+        "key": "passport_issuing_authority",
+        "value": "Government of Canada"
+      },
+      {
+        "key": "employer_name",
         "value": "Prairie Materials Testing Ltd."
       },
       {
-        "key": "employment_and_finances.work_address",
-        "value": "4100 72 Ave SE, Calgary, AB T2C 2B3, Canada"
-      },
-      {
-        "key": "employment_and_finances.employer_telephone",
-        "value": "+1 403-555-0116"
-      },
-      {
-        "key": "employment_and_finances.employer_email",
-        "value": "hr@prairiematerialstesting.ca"
-      },
-      {
-        "key": "cover_page.email",
-        "value": "ethan.mcleod98@gmail.com"
-      },
-      {
-        "key": "basic_information.applicant_information.name",
-        "value": "Ethan McLeod"
-      },
-      {
-        "key": "basic_information.applicant_information.sex",
-        "value": "Male"
-      },
-      {
-        "key": "basic_information.applicant_information.birth_year_month",
-        "value": "1998-08"
-      },
-      {
-        "key": "basic_information.applicant_information.degree",
-        "value": "Bachelor’s"
-      },
-      {
-        "key": "basic_information.applicant_information.professional_title",
+        "key": "occupation",
         "value": "Laboratory Engineer"
       },
       {
-        "key": "basic_information.applicant_information.postdoctoral_status",
-        "value": "No"
+        "key": "employment_start_date",
+        "value": "2022-09-12"
       },
       {
-        "key": "basic_information.applicant_information.office_phone",
+        "key": "work_address",
+        "value": "4100 72 Ave SE, Calgary, AB T2C 2B3, Canada"
+      },
+      {
+        "key": "host_institution_contact_person",
+        "value": "Hannah Li"
+      },
+      {
+        "key": "host_institution_contact_email",
+        "value": "hr@prairiematerialstesting.ca"
+      },
+      {
+        "key": "host_institution_contact_phone",
         "value": "+1 403-555-0116"
       },
       {
-        "key": "basic_information.applicant_information.country_or_region",
-        "value": "Canada"
+        "key": "host_institution_website",
+        "value": "https://www.prairiematerialstesting.ca"
       },
       {
-        "key": "basic_information.applicant_information.work_unit",
-        "value": "Prairie Materials Testing Ltd., Calgary"
+        "key": "highest_degree",
+        "value": "Bachelor’s (BEng-equivalent)"
       },
       {
-        "key": "basic_information.applicant_information.applicant_category",
+        "key": "applicant_category",
         "value": "Overseas researcher (industry)"
       },
       {
-        "key": "cover_page.office_phone",
-        "value": "+1 403-555-0116"
+        "key": "nsfc_application_code_4_digits",
+        "value": "2102"
       },
       {
-        "key": "cover_page.applicant_name",
-        "value": "Ethan McLeod"
+        "key": "project_title",
+        "value": "Automated Multi-Modal Characterization and Data-Driven Quality Control for Polymer Composite Interfaces"
       },
       {
-        "key": "personal_information.surname_last_name_requested_in_passport",
-        "value": "McLeod"
+        "key": "cooperating_institution",
+        "value": "Tsinghua University, Department of Chemical Engineering"
       },
       {
-        "key": "personal_information.given_names_requested_in_passport",
-        "value": "Ethan"
+        "key": "cooperating_pi_name",
+        "value": "Wei Zhang"
       },
       {
-        "key": "personal_information.date_of_birth",
-        "value": "1998-08-14"
+        "key": "project_duration_start",
+        "value": "2026-09-01"
       },
       {
-        "key": "personal_information.place_of_birth.city",
-        "value": "Calgary"
+        "key": "project_duration_end",
+        "value": "2029-08-31"
       },
       {
-        "key": "personal_information.place_of_birth.prov_terr_state_if_applicable",
-        "value": "Alberta"
+        "key": "direct_costs_10k_rmb",
+        "value": 90
       },
       {
-        "key": "personal_information.place_of_birth.country_or_territory",
-        "value": "Canada"
+        "key": "project_application_number",
+        "value": "NSFC-2102-2026"
       },
       {
-        "key": "personal_information.current_home_address.number",
-        "value": "1208"
-      },
-      {
-        "key": "personal_information.current_home_address.street",
-        "value": "14 Ave SW"
-      },
-      {
-        "key": "personal_information.current_home_address.apt",
-        "value": "503"
-      },
-      {
-        "key": "personal_information.current_home_address.city",
-        "value": "Calgary"
-      },
-      {
-        "key": "personal_information.current_home_address.prov_terr_state",
-        "value": "Alberta"
-      },
-      {
-        "key": "personal_information.current_home_address.postal_zip_code",
-        "value": "T2R 0P3"
-      },
-      {
-        "key": "personal_information.email_address",
-        "value": "ethan.mcleod98@gmail.com"
-      },
-      {
-        "key": "personal_information.telephone_primary",
-        "value": "+1 403-555-0198"
-      },
-      {
-        "key": "personal_information.sex",
-        "value": "M"
-      },
-      {
-        "key": "personal_information.natural_eye_colour",
+        "key": "natural_eye_colour",
         "value": "Brown"
       },
       {
-        "key": "personal_information.height",
-        "value": "180"
+        "key": "height_cm",
+        "value": 180
       },
       {
-        "key": "declaration_of_source_of_funds.individual_name.first_name",
-        "value": "Ethan"
+        "key": "guarantor_name",
+        "value": "Maya R. Patel"
       },
       {
-        "key": "declaration_of_source_of_funds.individual_name.last_name",
-        "value": "McLeod"
+        "key": "guarantor_date_of_birth",
+        "value": "1993-04-27"
       },
       {
-        "key": "declaration_of_source_of_funds.individual_address.number",
-        "value": "1208"
+        "key": "guarantor_passport_number",
+        "value": "PP5126089"
       },
       {
-        "key": "declaration_of_source_of_funds.individual_address.street",
-        "value": "14 Ave SW"
+        "key": "guarantor_passport_issue_date",
+        "value": "2020-05-18"
       },
       {
-        "key": "declaration_of_source_of_funds.individual_address.apt_rr",
-        "value": "Apt 503"
+        "key": "guarantor_passport_expiry_date",
+        "value": "2030-05-17"
       },
       {
-        "key": "declaration_of_source_of_funds.individual_address.city",
-        "value": "Calgary"
+        "key": "guarantor_phone",
+        "value": "+1 403-555-0163"
       },
       {
-        "key": "declaration_of_source_of_funds.individual_address.province",
-        "value": "AB"
+        "key": "guarantor_address",
+        "value": "221 8 Ave SE, Apt 1204, Calgary, AB T2G 0K7, Canada"
       },
       {
-        "key": "declaration_of_source_of_funds.postal_code",
-        "value": "T2R 0P3"
+        "key": "citizenship_proof_document_type",
+        "value": "Canadian provincial/territorial birth certificate"
       },
       {
-        "key": "declaration_of_source_of_funds.telephone_no",
-        "value": "+1 403-555-0198"
+        "key": "birth_certificate_registration_number",
+        "value": "1998-AB-438271"
       },
       {
-        "key": "declaration_of_source_of_funds.occupation",
-        "value": "Laboratory Engineer (materials testing)"
+        "key": "birth_certificate_date_of_issue",
+        "value": "2016-04-12"
       },
       {
-        "key": "declaration_of_source_of_funds.drivers_license_number",
+        "key": "identity_document_1_type",
+        "value": "Alberta Driver’s Licence"
+      },
+      {
+        "key": "identity_document_1_number",
         "value": "MCLDE-9808-1412"
       },
       {
-        "key": "declaration_of_source_of_funds.drivers_license_expiry_date",
+        "key": "identity_document_1_expiry",
         "value": "2027-08-14"
+      },
+      {
+        "key": "identity_document_2_type",
+        "value": "Canadian Health Card (Alberta)"
+      },
+      {
+        "key": "identity_document_2_number",
+        "value": "AHS 5421 778 903"
+      },
+      {
+        "key": "reference_1_name",
+        "value": "Liam Chen"
+      },
+      {
+        "key": "reference_1_phone",
+        "value": "+1 403-555-0129"
+      },
+      {
+        "key": "reference_1_email",
+        "value": "liam.chen@example.com"
+      },
+      {
+        "key": "reference_2_name",
+        "value": "Sarah O’Connor"
+      },
+      {
+        "key": "reference_2_phone",
+        "value": "+1 403-555-0182"
+      },
+      {
+        "key": "reference_2_email",
+        "value": "sarah.oconnor@example.com"
+      },
+      {
+        "key": "emergency_contact_name",
+        "value": "Fiona Marie McLeod"
+      },
+      {
+        "key": "emergency_contact_relationship",
+        "value": "Mother"
+      },
+      {
+        "key": "emergency_contact_phone",
+        "value": "+1 403-555-0142"
+      },
+      {
+        "key": "emergency_contact_email",
+        "value": "fiona.mcleod@email.com"
+      },
+      {
+        "key": "previous_address_2023_01_to_2024_06",
+        "value": "915 5 St SW, Apt 204, Calgary, AB T2P 1L2, Canada"
+      },
+      {
+        "key": "current_address_from_2024_07",
+        "value": "1208 14 Ave SW, Apt 503, Calgary, AB T2R 0P3, Canada"
       }
     ]
   }
