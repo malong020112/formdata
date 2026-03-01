@@ -1,15 +1,16 @@
 import json
-import os
+import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
 from openai import OpenAI
+from config import API_KEY, BASE_URL, SEARCH_MODEL_NAME
 
 from qwen_agent.tools.base import BaseTool
 
-API_KEY = os.getenv("OPENAI_API_KEY", "sk-tEbmy3HeMVHfwSfw5a2BXZMOzc76PXd4OzoMkLUj6hYowDqE")
-BASE_URL = os.getenv("OPENAI_BASE_URL", "https://zjuapi.com/v1")
-SEARCH_MODEL_NAME = os.getenv("OPENAI_SEARCH_MODEL", "gpt-4o-mini")  # New variable for search model
 LLM = OpenAI(api_key=API_KEY, base_url=BASE_URL)
+API_RETRY_MAX_ATTEMPTS = 5
+API_RETRY_BASE_DELAY_SEC = 1.0
+API_RETRY_MAX_DELAY_SEC = 16.0
 
 class SearchMemory(BaseTool):
     name = "searchmemory"
@@ -128,11 +129,26 @@ class SearchMemory(BaseTool):
         ]
 
         try:
-            llm_resp = LLM.chat.completions.create(
-                model=SEARCH_MODEL_NAME,
-                messages=messages,
-                temperature=0,
-            )
+            last_exc: Optional[Exception] = None
+            llm_resp = None
+            for attempt in range(1, API_RETRY_MAX_ATTEMPTS + 1):
+                try:
+                    llm_resp = LLM.chat.completions.create(
+                        model=SEARCH_MODEL_NAME,
+                        messages=messages,
+                        temperature=0,
+                    )
+                    break
+                except Exception as exc:  # noqa: BLE001
+                    last_exc = exc
+                    if attempt >= API_RETRY_MAX_ATTEMPTS:
+                        raise
+                    delay = min(API_RETRY_BASE_DELAY_SEC * (2 ** (attempt - 1)), API_RETRY_MAX_DELAY_SEC)
+                    print(f"[api retry] tool_memory_search attempt={attempt} failed: {exc}; retry in {delay:.1f}s")
+                    time.sleep(delay)
+
+            if llm_resp is None and last_exc is not None:
+                raise last_exc
             print(llm_resp)
             content = llm_resp.choices[0].message.content or ""
         except Exception as exc:  # pragma: no cover - defensive path

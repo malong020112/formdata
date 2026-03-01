@@ -133,7 +133,8 @@ def extract_details_update(
         except Exception as exc:  # noqa: BLE001
             last_error = exc
             if attempt < max_retries and retry_delay > 0:
-                time.sleep(retry_delay)
+                delay = retry_delay * (2 ** (attempt - 1))
+                time.sleep(delay)
 
     raise RuntimeError(f"Failed to extract details after {max_retries} attempts: {last_error}")
 
@@ -247,4 +248,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

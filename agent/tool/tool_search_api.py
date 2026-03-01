@@ -1,18 +1,15 @@
 import json
-from concurrent.futures import ThreadPoolExecutor
+import time
 from typing import List, Union
-import requests
-from qwen_agent.tools.base import BaseTool, register_tool
-import asyncio
-from typing import Dict, List, Optional, Union
-import uuid
+from qwen_agent.tools.base import BaseTool
+from typing import Optional
 import http.client
-import json
 
-import os
+from config import SERPER_KEY
 
-
-SERPER_KEY="44ba7a256b789ca8a1bc53e8eb96e60980f73ac3" #os.environ.get('SERPER_KEY_ID')
+SERPER_HOST = "google.serper.dev"
+SERPER_TIMEOUT_SEC = 12
+SERPER_MAX_RETRIES = 5
 
 
 class Search(BaseTool):
@@ -34,10 +31,14 @@ class Search(BaseTool):
 
     def __init__(self, cfg: Optional[dict] = None):
         super().__init__(cfg)
+
     def google_search_with_serp(self, query: str):
         def contains_chinese_basic(text: str) -> bool:
             return any('\u4E00' <= char <= '\u9FFF' for char in text)
-        conn = http.client.HTTPSConnection("google.serper.dev")
+
+        if not SERPER_KEY:
+            return "Search API key is empty (SERPER_KEY)."
+
         if contains_chinese_basic(query):
             payload = json.dumps({
                 "q": query,
@@ -57,25 +58,39 @@ class Search(BaseTool):
                 'X-API-KEY': SERPER_KEY,
                 'Content-Type': 'application/json'
             }
-        
-        
-        for i in range(5):
+
+        last_error: Optional[Exception] = None
+        results = None
+
+        for i in range(SERPER_MAX_RETRIES):
+            conn = http.client.HTTPSConnection(SERPER_HOST, timeout=SERPER_TIMEOUT_SEC)
             try:
                 conn.request("POST", "/search", payload, headers)
                 res = conn.getresponse()
+                raw = res.read().decode("utf-8", errors="replace")
+                if res.status >= 400:
+                    raise RuntimeError(f"HTTP {res.status}: {raw[:300]}")
+                results = json.loads(raw)
                 break
             except Exception as e:
+                last_error = e
                 print(e)
-                if i == 4:
-                    return f"Google search Timeout, return None, Please try again later."
-                continue
-    
-        data = res.read()
-        results = json.loads(data.decode("utf-8"))
+                if i == SERPER_MAX_RETRIES - 1:
+                    return f"Google search failed after retries: {e}"
+                # Exponential backoff: 1s, 2s, 4s, ...
+                time.sleep(2 ** i)
+            finally:
+                try:
+                    conn.close()
+                except Exception:
+                    pass
+
+        if results is None:
+            return f"Google search failed: {last_error}"
 
         try:
             if "organic" not in results:
-                raise Exception(f"No results found for query: '{query}'. Use a less specific query.")
+                return f"No results found for '{query}'. Try with a more general query."
 
             web_snippets = list()
             idx = 0

@@ -425,7 +425,8 @@ def generate_user_profile(
         except Exception as exc:  # noqa: BLE001
             last_error = exc
             if attempt < max_retries and retry_delay > 0:
-                time.sleep(retry_delay)
+                delay = retry_delay * (2 ** (attempt - 1))
+                time.sleep(delay)
 
     raise RuntimeError(f"Failed to generate user profile after {max_retries} attempts: {last_error}")
 

@@ -1,15 +1,36 @@
 import argparse
 import json
-import os
+import time
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from openai import OpenAI
+from config import API_KEY, BASE_URL, MODEL_NAME
 
-API_KEY = os.getenv("OPENAI_API_KEY", "sk-tEbmy3HeMVHfwSfw5a2BXZMOzc76PXd4OzoMkLUj6hYowDqE")
-BASE_URL = os.getenv("OPENAI_BASE_URL", "https://zjuapi.com/v1")
-MODEL_NAME = os.getenv("OPENAI_MODEL", "gpt-5.2")
 LLM = OpenAI(api_key=API_KEY, base_url=BASE_URL)
+API_RETRY_MAX_ATTEMPTS = 5
+API_RETRY_BASE_DELAY_SEC = 1.0
+API_RETRY_MAX_DELAY_SEC = 16.0
+
+
+def _chat_completion_with_backoff(messages: List[Dict[str, str]], temperature: float):
+    last_error: Optional[Exception] = None
+    for attempt in range(1, API_RETRY_MAX_ATTEMPTS + 1):
+        try:
+            return LLM.chat.completions.create(
+                model=MODEL_NAME,
+                messages=messages,
+                temperature=temperature,
+            )
+        except Exception as exc:  # noqa: BLE001
+            last_error = exc
+            if attempt >= API_RETRY_MAX_ATTEMPTS:
+                raise
+            delay = min(API_RETRY_BASE_DELAY_SEC * (2 ** (attempt - 1)), API_RETRY_MAX_DELAY_SEC)
+            print(f"[api retry] user_simulation attempt={attempt} failed: {exc}; retry in {delay:.1f}s")
+            time.sleep(delay)
+    if last_error:
+        raise last_error
 
 
 def load_json(path: Path) -> Any:
@@ -58,7 +79,7 @@ def build_user_system_prompt(user_data: Dict[str, Any]) -> str:
 def user_llm_reply(user_data: Dict[str, Any], history: List[Dict[str, str]], prompt: str) -> str:
     sys_prompt = build_user_system_prompt(user_data)
     messages = [{"role": "system", "content": sys_prompt}, {"role": "user", "content": prompt}]
-    resp = LLM.chat.completions.create(model=MODEL_NAME, messages=messages, temperature=0)
+    resp = _chat_completion_with_backoff(messages=messages, temperature=0)
     return resp.choices[0].message.content.strip()
 
 
@@ -77,7 +98,7 @@ def get_first_prompt(user_data: Dict[str, Any], form_def: Dict[str, Any]) -> str
             "content": f"form name: {form_name}\nuser data: {json.dumps(user_data, ensure_ascii=False)}",
         },
     ]
-    resp = LLM.chat.completions.create(model=MODEL_NAME, messages=messages, temperature=0.3)
+    resp = _chat_completion_with_backoff(messages=messages, temperature=0.3)
     return resp.choices[0].message.content.strip()
 
 

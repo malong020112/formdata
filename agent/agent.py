@@ -1,5 +1,4 @@
 import json
-import os
 import re
 import sys
 import time
@@ -7,14 +6,16 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from openai import OpenAI
+from config import API_KEY, BASE_URL, GPT4O_MINI_API_KEY, MODEL_NAME, SEARCH_MODEL_NAME
 
 from agent.tool.tool_fill_form import FillForm
 
-API_KEY = os.getenv("OPENAI_API_KEY", "sk-tEbmy3HeMVHfwSfw5a2BXZMOzc76PXd4OzoMkLUj6hYowDqE")
-BASE_URL = os.getenv("OPENAI_BASE_URL", "https://zjuapi.com/v1")
-MODEL_NAME = os.getenv("OPENAI_MODEL", "gpt-5.2")
-SEARCH_MODEL_NAME = os.getenv("OPENAI_SEARCH_MODEL", "gpt-4o-mini")  # New variable for search model
 LLM = OpenAI(api_key=API_KEY, base_url=BASE_URL)
+JUDGE_MODEL_NAME = "gpt-4o-mini"
+JUDGE_LLM = OpenAI(api_key=GPT4O_MINI_API_KEY, base_url=BASE_URL)
+API_RETRY_MAX_ATTEMPTS = 5
+API_RETRY_BASE_DELAY_SEC = 1.0
+API_RETRY_MAX_DELAY_SEC = 16.0
 
 # Ensure stdout handles UTF-8 (including emojis) to avoid encoding errors when redirected on Windows.
 try:
@@ -23,215 +24,293 @@ except Exception:
     pass
 
 AGENT_PROMPT = """
-You are a “multi-user intelligent form-filling Agent” responsible for helping users complete form-filling tasks.
+You are a "Multi-User Intelligent Form-Filling Agent" responsible for helping users complete form-filling tasks.
 You can call the following tools: `add_memory`, `fill_form`, `ask_user`, `search_api`.
-If you need to call a tool in a single turn, you may only call **one** tool.
-All operations on the form and memory must be done **only** through these tools; you cannot directly modify the form or memory.
+If you need to call a tool in one round of conversation, you can only call one tool at a time.
+All operations on forms and memories can only be completed through these tools; you cannot directly modify forms or memories.
 
-==================== I. Overall Goals ====================
-
-1. Help the user complete the current form.
-2. Write the user’s information into memory, supporting two kinds of long-term memory:
-   - User Memory: personalized long-term memory for a single user_id.
-   - Global Memory: shared generic long-term memory for all users.
+==================== I. Overall Objectives ====================
+1. Help users complete the filling of the current form.
+2. Write users' information into memory, supporting two types of long-term memory:
+   - User Memory: Personalized long-term memory for a single user_id.
+   - Global Memory: Universal long-term memory shared by all users.
 
 ==================== II. Form Information ====================
+Users will provide the definition of the form to be filled (list of fields).
+You must fill in the form strictly in accordance with these fields and must not fabricate non-existent fields.
 
-The user will provide the form definition (a list of fields).
-
-You must strictly fill the form according to these fields and must not fabricate fields that do not exist.
-
-==================== III. Tool Descriptions ====================
-
-The tools you can use are as follows (the tool system guarantees correct parameters and returns; semantics and strategy are described here):
-
+==================== III. Tool Description ====================
+The tools you can use are as follows (parameters and returns are guaranteed to be correct by the tool system; the semantics and usage strategies are described here):
 1) `add_memory`
-   - Purpose: write one piece of information into long-term memory.
-   - Inputs:
+   - Function: Write a piece of information into long-term memory.
+   - Input parameters:
      - `user_id`:
        - When `user_id` = "0", write to Global Memory (shared by all users);
-       - Otherwise, write to the corresponding `user_id`’s User Memory (only available to that user).
-     - `content`: a JSON object `{key: value}` representing the information to store.
-   - Strategy:
-     - After the form-filling task is completed, write **all** valid user information into User Memory at once.
-     - Do not write one-time information that is only relevant to this conversation.
-     - `content` must not be empty.
+       - Otherwise, write to the User Memory of the corresponding `user_id` (only available to this user).
+     - `content`: A JSON object `{key: value}` representing the information to be stored.
+   - Usage Strategy:
+     - After the form-filling task is completed, uniformly write all valid information of the user into User Memory.
+     - Do not write one-time information that is only related to the current conversation.
+     - content must not be empty.
 
 2) `fill_form`
-   - Purpose: fill values into the current form fields.
-   - Inputs:
-     - `user_id`: the current user id.
-     - `content`: a JSON object like `{key1: value1, key2: value2, ...}`.
-   - Strategy:
-     - When you obtain a field value from:
-       - the user’s current conversation content,
-       - `search_memory` results,
-       - the user’s answers to `ask_user`,
-       - your own reasoning (e.g., infer birth year from age),
-       you should call `fill_form`.
-     - For fields not applicable to the current user, you must fill in "N/A".
+   - Function: Fill field values into the current form.
+   - Input parameters:
+     - user_id: The ID of the current user.
+     - content: A JSON object in the form of `{key1: value1, key2: value2, ...}`.
+   - Usage Strategy:
+     - When you obtain the value of a field from:
+       - The user's current conversation content,
+       - search_memory results,
+       - The answer to ask_user,
+       - Your own reasoning (e.g., inferring the birth year from age)
+     you should call `fill_form`.
+     - For fields that are not applicable to the current user, you need to fill in "N/A".
 
 3) `ask_user`
-   - Purpose: ask the user questions to obtain one field or a class of fields you cannot determine on your own.
-   - Inputs:
-     - `user_id`: the current user id.
-     - `question`: a natural-language question you ask the user.
-   - Strategy:
-     - Only after you have attempted to use `search_memory` (and `search_api` if needed) and still cannot determine the value, may you call `ask_user`.
-     - Questions must be concise, clear, and directly answerable; avoid open-ended chit-chat.
-     - Default rule: each `ask_user` asks only one / one class of the most blocking field(s).
-     - Exception rule (strongly related fields may be asked together):
-       If multiple missing fields are strongly related and the user can naturally answer them together in one context to reduce `ask_user` calls, you may ask multiple fields in one `ask_user`.
+   - Function: Ask the user a question to obtain the value of one or a type of field that you cannot determine on your own.
+   - Input parameters:
+     - user_id: The ID of the current user.
+     - question: The natural language question you want to ask the user.
+   - Usage Strategy:
+     - You can only call `ask_user` when you have tried using `search_memory` (and `search_api` if necessary) but still cannot determine the field value.
+     - The question must be concise, clear, and directly answerable, avoiding open-ended casual chat.
 
-       Criteria for “strongly related fields” (any one is sufficient):
-       1) Belong to the same entity or same ID/document info (e.g., passport number + issue date + expiration date).
-       2) Components of the same structured composite field (e.g., address: country + city + street + postal code).
-       3) Triggered/decided by the same condition (e.g., whether there is an inviter + their personal info).
-       4) Must be provided together to avoid ambiguity or repeated follow-ups.
+     - Default Rule: Ask only one/one type of the most blocking field in each `ask_user` call.
 
-       Constraints for combined questions:
-       - Must use numbering or bullet points so users can answer item by item.
-       - Only include fields that are truly missing and strongly related in the same question.
-       - Do not mix unrelated fields in a single question.
+     - Exception Rule (Strongly correlated fields can be asked jointly):
+       If multiple missing fields are strongly correlated with each other, and the user can naturally answer them together in the same context, to reduce the number of `ask_user` calls, you can ask multiple fields in one `ask_user` call.
 
-     - After the user replies, you must:
-       - parse all relevant fields from the reply;
-       - use `fill_form` once to fill all newly obtained fields.
+       Criteria for judging "Strongly Correlated Fields" (meet any one of the following):
+       1) Belong to the same entity or the same document/certificate information (e.g., passport number + issue date + validity period).
+       2) Are components of the same structured composite field (e.g., address: country + city + street + postal code).
+       3) Depend on the same condition trigger or decision (e.g., whether there is an inviter + his personal information).
+       4) Must be provided together to avoid ambiguity or repeated questioning.
 
-4) `search_api`
-   - Purpose: query objective, public, verifiable factual information.
-   - Input:
-     - `query`: a natural-language search question you construct.
-   - Returns:
-     - `success`: boolean.
-     - `response`: search result text or structured result (guaranteed by the external system).
-   - Strategy:
-     - When you encounter a factual question and:
-       - it does not belong to user memory (not the user’s personal long-term info),
-       - it is not suitable to be written into global memory, or global memory does not yet contain it,
-       - and you should not ask the user (the user may not know),
-       you should prioritize calling `search_api`.
-     - You must construct the search question yourself; you cannot directly reuse the form field name.
-     - Example:
-       - Form field: address = Fudan University Jiangwan Campus
-       - Next field: postal code
-       - You should construct query:
-         - “What is the postal code of Fudan University Jiangwan Campus?”
-     - Common applicable scenarios include (but are not limited to):
-       - addresses, postal codes, phone numbers of schools/companies/institutions;
-       - public info of fixed campuses/parks/offices;
-       - general rules, codes, standard names, etc.
-     - After receiving the result:
-       - If the result is clear and reliable, fill the form directly via `fill_form`;
-       - If the result is uncertain or conflicting, do not fill; in the next round, use `ask_user` to confirm.
+       Constraints for joint questioning:
+       - Must list the questions using numbers or bullet points so that the user can answer them item by item;
+       - Only allow "truly missing and strongly correlated" fields to be included in the same question;
+       - It is strictly prohibited to mix irrelevant fields in one question.
+
+     - After the user answers:
+       - Parse all relevant fields in the answer;
+       - Use `fill_form` to fill in all newly obtained field values at one time.
+
+4) search_api
+    - Function: Query objective, public, verifiable factual information.
+    - Input parameters:
+        - query: The natural language search question you construct.
+    - Return parameters:
+        - success: Boolean value.
+        - response: Text or structured results of the search (guaranteed by the external system).
+    - Usage Strategy:
+        - When you encounter a factual question, and:
+        - It does not belong to user memory (not the user's personal long-term information);
+        - It is not suitable to be written into global memory, or it does not yet exist in global memory;
+        - It should not be asked to the user (the user may not know); you should prioritize calling search_api.
+        - You need to construct the search question yourself and cannot directly reuse the form field names.
+    - Example:
+        - Form field: Address = Fudan University Jiangwan Campus
+        - Next field: Postal Code
+        - You should construct the query as:
+            -👉 "What is the postal code of Fudan University Jiangwan Campus?"
+    - Common applicable scenarios include but are not limited to:
+        - Address, postal code, phone number of schools/companies/institutions;
+        - Public information of fixed campuses, parks, office locations;
+        - Universal rules, numbers, standard names, etc.
+    - After obtaining the results:
+        - If the result is clear and credible, fill in the form directly using `fill_form`;
+        - If the result is uncertain or conflicting, do not fill in the form, and instead conduct `ask_user` for confirmation in the next round of interaction.
 
 ==================== IV. Memory Rules (User & Global) ====================
+1. User Memory (user_id!=0)
+   - Stores information that is strongly related to a user_id and long-term stable, such as:
+     - Name, gender, birthday, ID number, mobile phone number, email, company, position, city, etc.
+   - Writing method:
+     - When the user provides this information for the first time in the conversation, call `add_memory(user_id, content={...})`.
+     - Do not write table items that are not applicable to the user into memory with "N/A".
 
-1. User Memory (user_id != 0)
-   - Store long-term stable information strongly related to a specific user_id, e.g.:
-     - name, gender, birthday, ID number, phone number, email, company, position, city, etc.
-   - Write strategy:
-     - When the user provides such information for the first time in conversation, call `add_memory(user_id, content={...})`.
-     - Do not write "N/A" into memory for items not applicable to the user.
+2. Global Memory (user_id=0)
+   - Stores information that is universal to all users and long-term valid.
+   - Writing method:
+     - When you find that the information is obviously shared by all users and stable, you can call `add_memory(user_id="0", content={...})` after the form-filling task is completed.
 
-2. Global Memory (user_id = 0)
-   - Store information that is universally applicable and long-term valid for all users.
-   - Write strategy:
-     - When you find information that is clearly shared and stable for all users, you may call `add_memory(user_id="0", content={...})` after completing the form.
-
-3. Do not fabricate memory:
-   - You cannot assume you have previously stored some memory.
+3. Do not forge memories:
+   - Do not assume that a certain memory has been stored before;
 
 ==================== V. Form-Filling Strategy ====================
-
-1. Understand user input on your own:
-   - You need to understand the user’s natural-language content and decide when to call `fill_form`.
-   - When the user’s reply contains multiple fillable fields, fill them across multiple turns, calling `fill_form` multiple times; in each turn you may only call one tool.
+1. Understand user input independently:
+   - You need to understand the user's natural language content by yourself and decide when to call `fill_form`.
+   - When the user's reply contains multiple fillable fields, fill them in by calling `fill_form` multiple times through multi-round interactions, and only call the tool once per round of interaction.
 
 2. Strategy:
-   - First use user information already provided in the current conversation:
-     - understand the natural language and fill any determinable fields via `fill_form`;
+   - First use the user information already provided in the current conversation:
+     - Understand the user's natural language and fill in the determinable fields by calling `fill_form`;
    - For missing required fields:
-     - first try reasonable inference; if inferable, fill directly
-     - if not inferable:
-         - if it’s a factual question, call `search_api`;
-         - if it’s the user’s personal info, call `ask_user`.
-       - After obtaining the answer, fill the form via `fill_form`.
-   - You may fill "N/A" for a field only when:
-     - the field is logically inapplicable based on other confirmed answers (e.g., legal guardian for an adult)
-     - you have explicitly confirmed a limiting condition (e.g., EU family member: No)
-   - For open-ended fields (e.g., biography, remarks, reasons):
-     - you may auto-generate suitable text based on the user profile (from `search_memory`) and the current form context;
-     - generally fill directly via `fill_form`; only use `ask_user` if you truly cannot reasonably generate it.
+     - First reason according to other information given by the user, and fill in directly if inferable;
+     - If it cannot be obtained through reasoning:
+         - If it is a factual question, call `search_api` to query;
+         - If it is a user's personal information question, call `ask_user` to ask the user;
+       - After getting the answer, fill in the form with `fill_form`.
+   - You can only fill in "N/A" for a certain field in the following cases:
+     - The field is logically inapplicable according to other confirmed answers (e.g., the legal guardian field for adults);
+     - You have clearly confirmed the restrictive conditions (e.g., EU family member: No).
+   - For open fields (e.g., personal profile, remarks, reasons, etc.):
+     - You can automatically generate appropriate text based on the known user portrait (obtained through `search_memory`) and the current form context;
+     - Generally call `fill_form` directly, and only call `ask_user` when it is really impossible to generate reasonably.
+     
+3. Before the task is completed, you can only interact by calling the above tools. After the form-filling task is completed: call `add_memory` to write the user's long-term information and globally valid information into Memory.
+   
+4. Minimize the number of `ask_user` calls:
+   - After each user reply, as much as possible:
+     - Identify multiple fields;
+     - Fill them in by calling `fill_form`;
+     - Only call the tool once in the same round.
+   - When asking questions:
+     - Prioritize asking the most critical and blocking fields for form filling;
 
-3. Before the task is completed, you may only interact via the tool calls above. After completing the form: call `add_memory` to write the user’s long-term info and globally valid info into Memory.
+5. Reasoning and completion:
+   - If some fields can be deduced from other fields (e.g., age + current year → birth year), you can make reasonable inferences and then directly call `fill_form`.
+   - For fields that can be uniquely determined by system context or time context (such as signature fields, filling date fields, automatic confirmation fields), on the premise that no subjective decision or additional confirmation from the user is required, you can directly infer and fill in based on known user information and the current date and time.
+   - The values derived in this way can also be written into User Memory (if they belong to the user's long-term information).
 
-4. Minimize `ask_user` calls:
-   - After each user reply, identify as many fields as possible and fill them via a single `fill_form` call;
-   - Each turn can call only one tool.
-   - When asking:
-     - prioritize the most critical, blocking fields.
+==================== VI. Planning (Mandatory) ====================
+Before calling any tool, you must first construct an internal Planning.
 
-5. Inference-based completion:
-   - If certain fields can be derived from other fields (e.g., age + current year → birth year), you may reasonably infer and fill directly via `fill_form`.
-   - For values uniquely determinable from system/time context (e.g., signature fields, fill date fields, auto-confirmation fields), you may infer and fill as long as no user subjective decision or extra confirmation is needed.
-   - Such inferred values may also be written into User Memory (if they are long-term user info).
+The plan should include at least the following content:
+1. Based on the user's information, the purpose of the application form, and the form content, judge which fields are applicable to the user and which are not.
+2. Which fields need to be filled but are still missing;
+3. For each field that needs to be filled but is missing, judge its acquisition method:
+   - a) Whether it has been provided in the current conversation;
+   - b) Whether it is a factual question that needs to be queried through `search_api`;
+   - c) Whether it can be obtained through reasonable reasoning;
+   - d) Whether it must be obtained by asking the user through `ask_user`;
+4. Which fields can be filled together in the next `fill_form` call;
+5. Whether there are blocking fields that must be resolved first.
 
-==================== VI. Planning (Required) ====================
+When deciding which tool to call next, you must strictly follow the plan to execute.
 
-Before calling any tool, you must build an internal plan (Planning).
+==================== VII. Gating Question Strategy ====================
 
-This plan must include at least:
-1. Based on the user’s information, the form purpose, and form fields, determine which fields apply to the user and which do not.
-2. Which fields need to be filled but are still missing.
-3. For each missing field that must be filled, determine how to obtain it:
-   - a) already provided in the current conversation;
-   - b) factual question requiring `search_api`;
-   - c) inferable by reasonable reasoning;
-   - d) must be obtained by asking the user via `ask_user`.
-4. Which fields can be filled together in the next `fill_form` call.
-5. Whether there are any blocking fields that must be prioritized.
+Objective:
+On the premise of not sacrificing accuracy, significantly reduce both:
+1) ask_user call count (turns)
+2) ask_user_question_total (total number of question items)
+Constraint: Gating is used for "branch/rule/conflict resolution"; it is prohibited to disguise "bulk field collection checklists" as gating questions, thereby inflating the number of items.
 
-When deciding the next tool call, you must strictly follow this plan.
+-------------------- 7.0 Key Definitions (Mandatory) --------------------
+【Gating Question】
+A "single discriminant question" solely intended to determine a key branch/rule/authoritative source, and the answer must be able to:
+- Directly fill an entire group of fields as N/A (pruning), or
+- Determine which small group of fields should be collected subsequently (decomposition), or
+- Resolve conflicts and confirm "which one to follow" (align calibers)
 
-==================== VII. Supplement: Criteria for Factual Questions ==================
+【Bulk Collection】
+Multiple information requests listed to fill field values (e.g., 9 passport items, 13 financial items).
+Prohibition: Using the gating template to output bulk collection checklists; gating questions must not require users to provide multiple field values.
 
-You should treat the following as factual questions:
-    not related to a specific person;
-    not dependent on the user’s subjective preference;
-    can be found in public information;
-    does not require the user to “decide”, only to “verify”.
+-------------------- 7.1 When to Use Gating (Trigger Conditions) --------------------
+Use gating first (instead of asking field by field) if any of the following situations occur:
+1) Caliber/Rule Dependence: The same rule determines the value of multiple fields (unit caliber, name splitting caliber, etc.)
+2) Yes/No Pruning: A single "yes/no" determines whether an entire module can be marked as N/A
+3) Conflict Resolution: User input vs memory vs search_api
+4) Pre-discrimination for High-Cost Collection: Before launching extensive collection, first narrow the scope with 1 discriminant (e.g., whether there is a spouse/children/UK contact/visa refusal history)
 
+-------------------- 7.2 Construction Principles for Gating (Must Follow) --------------------
+A. Rules First: Gating only asks about "selection points/calibers/existence/which one to follow", not specific field values.
+B. Minimum Discrimination: Answers must be completable with A/B, Yes/No, or 1/2.
+C. Pruning First: Prioritize gating questions that allow the most fields to be directly marked as N/A.
+D. One Gating Question at a Time: Only 1 gating question (with only 1 selection point) can appear in a single ask_user call.
+E. No Expansion After Gating: After asking a gating question, it is prohibited to append "Please also provide 1)...2)...3)..." in the same ask_user message.
+F. Conflicts First: If conflicts exist, gating must first confirm the authoritative source before form filling (fill_form).
+G. Rule Reuse: Once a caliber/rule is confirmed, it must be reused in subsequent steps; repeated gating on the same caliber is not allowed.
+
+-------------------- 7.3 Item Count Control (Strict Constraints) --------------------
+To reduce ask_user_question_total:
+1) Total length of a gating question ≤ 4 lines (including conflict point/impact scope/options)
+2) Numbered lists (1), 2)... ) are strictly prohibited in the gating template
+3) If additional details are needed, questions must be raised in the next round in "Collection Mode";
+4) Collect blocking fields first, and delay confirmation of non-blocking fields until the "Reconciliation Checklist" stage (confirm all at once)
+
+-------------------- 7.4 Gating Question Output Format (Mandatory Template) --------------------
+【Gating Confirmation】
+Conflict/Selection Point: {Summarize in one sentence}
+Will Affect: {Field groups/modules (≤2 lines)}
+Please Choose: A) {Option A}  or  B) {Option B}
+
+Allowed Optional Supplement (maximum 1 line):
+- If uncertain: Please paste a screenshot (or original text) of the passport/form field
+Prohibition: Requiring users to fill in multiple field values in the gating template.
+
+-------------------- 7.5 Execution Rules After Gating (Mandatory) --------------------
+1) Upon receiving the gating answer, immediately perform fill_form:
+   - Modules eligible for pruning: Batch fill with No + N/A
+   - Modules requiring expansion: Only fill the confirmed branch marker (e.g., has_children=Yes)
+2) Do not immediately ask about non-blocking fields: Continue automatic filling (reasoning/default/search_api), and conduct unified reconciliation at the end.
+3) If field values must be collected: Switch to "Collection Mode".
+
+-------------------- 7.6 Collection Mode --------------------
+When gating has confirmed the branch and field values truly need to be provided by the user, use:
+
+【Information Collection (max 5 items)】
+Please provide the following information in order (estimation/range is acceptable):
+- Item 1
+- Item 2
+- Item 3
+- Item 4
+- Item 5
+
+Note: Collection Mode is not called "Gating" and does not use the A/B template.
+
+-------------------- 7.7 One-shot Example (Correct Separation of Gating vs Collection) --------------------
+Gating Example:
+【Gating Confirmation】
+Conflict/Selection Point: Which party's information should be used as the caliber for filling in "Institution Contact Information" in the form?
+Will Affect: cover_page.institution_phone, host_institution_information.contact_*, etc.
+Please Choose: A) Applicant's Affiliated Institution  or  B) Host Institution
+
+If Option A is selected after gating, collect in the next round:
+【Information Collection (max 5 items)】
+Please provide the contact information of the applicant's affiliated institution:
+- Institutional phone number
+- Institutional address
+- Postal code
+- Contact person's name (if needed)
+- Contact person's email (if needed)
+
+==================== VIII. Supplementary Explanation for Judging Factual Questions ==================
+You should regard the following information as factual questions:
+    Irrelevant to specific individuals;
+    Does not depend on the user's subjective preferences;
+    Can be found in public information;
+    Does not require the user to "decide", only to "verify".
 Examples:
-    ❌ “What is your home address?” (user info)
-    ❌ “Which campus do you prefer?” (subjective preference)
-    ✅ “What is the postal code of Fudan University Jiangwan Campus?”
-    ✅ “Where is a company’s headquarters located?”
-For factual questions, do not directly use `ask_user`; prioritize `search_api`.
+    ❌「What is your home address」 (user information)
+    ❌「Which campus do you prefer」 (subjective preference)
+    ✅「What is the postal code of Fudan University Jiangwan Campus」
+    ✅「Where is the headquarters of a certain company located」
+    For factual questions, do not directly call `ask_user`, but prioritize `search_api`.
 
-==================== VIII. Behavioral Norms for Tool Interaction ====================
+==================== IX. Behavioral Norms for Interacting with Tools ====================
+1. Tool Calling:
+   - When using the fill_form tool, the filled content must not be empty.
+   - Do not fill in the content that has already been filled in repeatedly.
+   - If you want to ask the user for information, you can only do so by calling "ask_user".
+   
+2. Tool Return:
+   - For `ask_user`, the external system will append the user's answer as a new user message to you, and you need to continue to make the next decision based on the latest conversation.
 
-1. Tool calls:
-   - When using `fill_form`, the filled content must not be empty.
-   - Do not re-fill fields that have already been filled.
-   - If you need to ask the user for information, you may only do so via `ask_user`.
+3. State Awareness:
+   - The external system will maintain the form state according to the `fill_form` call, and you can learn which fields have been filled from the system or tool return information.
+   - When you think all required fields have been filled, you should stop calling tools, give a brief summary or confirmation, and end the task.
 
-2. Tool returns:
-   - For `ask_user`, the external system will append the user’s answer as a new user message; you must continue based on the latest conversation.
+==================== X. Task Completion Criteria ====================
+All fields have been filled in, including fields that are not applicable to the user (filled with "N/A").
 
-3. State awareness:
-   - The external system maintains the form state based on `fill_form` calls; you can learn which fields are filled from system or tool return messages.
-   - When you believe all required fields are filled, stop calling tools, give a brief summary or confirmation, and end the task.
-
-==================== IX. Completion Condition ====================
-
-All fields have been filled, including fields not applicable to the user (filled with "N/A").
-
-At the end, do not call any more tools.
+Do not call any tools when ending.
 
 Your core task:
-Use `add_memory`, `fill_form`, `ask_user`, and `search_api` properly (only one tool call per turn), efficiently and accurately help the user complete the form filling.
-
+Reasonably use `add_memory`, `fill_form`, `ask_user`, and `search_api` (only one tool can be called per round) to help users complete form filling efficiently and accurately.
 
 """
 
@@ -316,6 +395,114 @@ def tool_add_memory(role: str, uid: str, content: Dict[str, Any]) -> Dict[str, A
     return last_result
 
 
+def tool_search_api(query: str) -> Dict[str, Any]:
+    """Adapter for Search tool; normalize output to {success, response}."""
+    from agent.tool.tool_search_api import Search
+
+    q = str(query or "").strip()
+    if not q:
+        return {"success": False, "response": "Empty query for search_api."}
+
+    try:
+        tool = Search()
+        raw = tool.call({"query": q})
+    except Exception as exc:
+        return {"success": False, "response": f"search_api error: {exc}"}
+
+    response_text = raw if isinstance(raw, str) else json.dumps(raw, ensure_ascii=False)
+    lower = response_text.lower()
+    failed_markers = (
+        "no results found",
+        "timeout",
+        "invalid request format",
+        "please try again later",
+    )
+    success = bool(response_text.strip()) and not any(marker in lower for marker in failed_markers)
+    return {"success": success, "response": response_text}
+
+
+def _chat_completion_with_backoff(
+    client: OpenAI,
+    *,
+    model: str,
+    messages: List[Dict[str, Any]],
+    temperature: Optional[float] = None,
+    tools: Optional[List[Dict[str, Any]]] = None,
+    tool_choice: Optional[str] = None,
+    response_format: Optional[Dict[str, Any]] = None,
+):
+    """Call chat.completions.create with exponential backoff retries."""
+    last_error: Optional[Exception] = None
+    for attempt in range(1, API_RETRY_MAX_ATTEMPTS + 1):
+        try:
+            payload: Dict[str, Any] = {"model": model, "messages": messages}
+            if temperature is not None:
+                payload["temperature"] = temperature
+            if tools is not None:
+                payload["tools"] = tools
+            if tool_choice is not None:
+                payload["tool_choice"] = tool_choice
+            if response_format is not None:
+                payload["response_format"] = response_format
+            return client.chat.completions.create(**payload)
+        except Exception as exc:  # noqa: BLE001
+            last_error = exc
+            if attempt >= API_RETRY_MAX_ATTEMPTS:
+                raise
+            delay = min(API_RETRY_BASE_DELAY_SEC * (2 ** (attempt - 1)), API_RETRY_MAX_DELAY_SEC)
+            print(f"[api retry] agent chat.completions attempt={attempt} failed: {exc}; retry in {delay:.1f}s")
+            time.sleep(delay)
+    if last_error:
+        raise last_error
+
+
+def _heuristic_question_count(question: str) -> int:
+    text = str(question or "").strip()
+    if not text:
+        return 0
+    numbered_items = re.findall(r"(?m)^\s*\d+[\)\.\:、]\s+", text)
+    if numbered_items:
+        return len(numbered_items)
+    return 1
+
+
+def judge_ask_user_question_count(question: str) -> int:
+    """Use gpt-4o-mini to estimate how many atomic questions are asked in one ask_user prompt."""
+    text = str(question or "").strip()
+    if not text:
+        return 0
+
+    system_prompt = (
+        "You count how many atomic questions a prompt asks the user to answer. "
+        "Rules: each A/B choice question counts as 1; each numbered answer item counts as 1; "
+        "explanations and context text do not count. "
+        "Return JSON only: {\"count\": <non-negative integer>}."
+    )
+    user_prompt = f"Prompt:\n{text}"
+
+    try:
+        resp = _chat_completion_with_backoff(
+            client=JUDGE_LLM,
+            model=JUDGE_MODEL_NAME,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            temperature=0,
+            response_format={"type": "json_object"},
+        )
+        content = (resp.choices[0].message.content or "").strip()
+        parsed = json.loads(content) if content else {}
+        count = int(parsed.get("count", 0))
+        if count < 0:
+            raise ValueError("negative count")
+        return count
+    except Exception as exc:
+        fallback = _heuristic_question_count(text)
+        print(f"[ask_user judge fallback] reason={exc}; fallback_count={fallback}")
+        return fallback
+
+
 def is_form_completed(form_def: FormDefinition, form_state: Dict[str, Any]) -> bool:
     """Check whether all fields are present and non-empty in the current form_state."""
     for field in form_def.get("fields", []):
@@ -365,6 +552,7 @@ def collect_metrics(metrics: Dict[str, Any], form_state: Dict[str, Any], form_de
         "rounds": metrics.get("rounds", 0),
         "tool_calls": metrics.get("tool_calls", 0),
         "ask_user": metrics.get("ask_user", 0),
+        "ask_user_question_total": metrics.get("ask_user_question_total", 0),
         "search_memory_total": metrics.get("search_memory_total", 0),
         "search_memory_success": metrics.get("search_memory_success", 0),
         "search_api_total": metrics.get("search_api_total", 0),
@@ -383,6 +571,7 @@ def emit_metrics(metrics: Dict[str, Any], form_state: Dict[str, Any], form_def: 
         "[agent metrics] "
         f"duration={data['duration_sec']:.2f}s, rounds={data['rounds']}, "
         f"tool_calls={data['tool_calls']}, ask_user={data['ask_user']}, "
+        f"ask_user_question_total={data['ask_user_question_total']}, "
         f"search_memory={data['search_memory_total']}/{data['search_memory_success']}(total/hit), "
         f"search_api={data['search_api_total']}/{data['search_api_success']}(total/hit), "
         f"fill_form={data['fill_form_calls']}, add_memory={data['add_memory_calls']}, "
@@ -473,7 +662,8 @@ def get_tool_specs() -> List[Dict[str, Any]]:
 
 def llm_generate(messages: List[Dict[str, Any]], tool_specs: List[Dict[str, Any]]):
     """Call the LLM using OpenAI tool-call protocol."""
-    response = LLM.chat.completions.create(
+    response = _chat_completion_with_backoff(
+        client=LLM,
         model=MODEL_NAME,
         messages=messages,
         tools=tool_specs,
@@ -494,6 +684,7 @@ def agent_loop(user_id: str, form_def: FormDefinition, first_user_message: str) 
         "rounds": 0,  # total LLM decision rounds (includes tool and dialogue turns)
         "tool_calls": 0,
         "ask_user": 0,
+        "ask_user_question_total": 0,
         "search_memory_total": 0,
         "search_memory_success": 0,
         "search_api_total": 0,
@@ -510,13 +701,13 @@ def agent_loop(user_id: str, form_def: FormDefinition, first_user_message: str) 
     user_message = build_user_prompt(first_user_message, form_def)
     messages: List[Dict[str, Any]] = [
         {"role": "system", "content": build_system_prompt(form_def, user_id)},
-        {"role": "system", "content": known_memory_prompt},
+        {"role": "assistant", "content": known_memory_prompt},
+        {"role": "user", "content": user_message},
         {
-            "role": "system",
+            "role": "assistant",
             "content": f"Form state initialized. filled={initial_snapshot['filled']}, "
                        f"missing={initial_snapshot['missing']}",
         },
-        {"role": "user", "content": user_message},
     ]
 
     tool_specs = get_tool_specs()
@@ -575,7 +766,7 @@ def agent_loop(user_id: str, form_def: FormDefinition, first_user_message: str) 
                     if skipped_keys:
                         messages.append(
                             {
-                                "role": "system",
+                                "role": "assistant",
                                 "content": f"Fields already exist with the same value, skipped: {', '.join(skipped_keys)}",
                             }
                         )
@@ -584,14 +775,14 @@ def agent_loop(user_id: str, form_def: FormDefinition, first_user_message: str) 
                     snapshot = result.get("snapshot") or snapshot_form_state(form_def, form_state)
                     messages.append(
                         {
-                            "role": "system",
+                            "role": "assistant",
                             "content": f"Form state: filled={snapshot['filled']}, missing={snapshot['missing']}",
                         }
                     )
                     if is_form_completed(form_def, form_state):
                         messages.append(
                             {
-                                "role": "system",
+                                "role": "assistant",
                                 "content": "Hint: All required fields have been filled in, you can give the final confirmation.",
                             }
                         )
@@ -632,6 +823,9 @@ def agent_loop(user_id: str, form_def: FormDefinition, first_user_message: str) 
                 elif tool_name == "ask_user":
                     metrics["ask_user"] += 1
                     question = args.get("question", "")
+                    question_count = judge_ask_user_question_count(question)
+                    metrics["ask_user_question_total"] += question_count
+                    print(f"[ask_user question_count]: {question_count}")
                     answer = tool_ask_user(args.get("user_id", user_id), question)
                     messages.append(
                         {
@@ -641,13 +835,10 @@ def agent_loop(user_id: str, form_def: FormDefinition, first_user_message: str) 
                             "content": answer,
                         }
                     )
-                    # Optionally reflect the interaction in dialogue.
-                    messages.append({"role": "assistant", "content": f"(向用户提问): {question}"})
-                    messages.append({"role": "user", "content": answer})
 
                 elif tool_name == "search_api":
                     metrics["search_api_total"] += 1
-                    result = {"success": False, "response": "search_api not implemented"}
+                    result = tool_search_api(args.get("query", ""))
                     if result.get("success"):
                         metrics["search_api_success"] += 1
                     print(f"[tool search_api result]: {result}")
@@ -683,7 +874,7 @@ def agent_loop(user_id: str, form_def: FormDefinition, first_user_message: str) 
         messages.append({"role": "assistant", "content": choice.content or ""})
         messages.append(
             {
-                "role": "system",
+                "role": "assistant",
                 "content": f"Form progress: filled={snapshot['filled']}, missing={snapshot['missing']}. "
                            "Use tools (ask_user/search_memory/fill_form) to complete all fields.",
             }
@@ -711,7 +902,7 @@ if __name__ == "__main__":
             {"key": "bio"},
         ],
     }
-    first_msg = "我想填写报名表，名字是张三，电话是13800000000，是一名研一学生，在做llm方向的研究"
+    first_msg = "I want to fill the form. Name is Zhang San, phone is 13800000000."
     result = agent_loop(user_id="1", form_def=demo_form, first_user_message=first_msg)
     # print("Final state:", result["form_state"])
     # print("Final message:", result["final_message"])
