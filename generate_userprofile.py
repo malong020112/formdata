@@ -192,34 +192,34 @@ PROFILE_TEMPLATES = [
     },
 
     # 3) 30–45 家庭迁居/子女教育：签证+护照（含未成年）+医疗+（可选）教育
-    {
-        "name": "family_relocation_or_kids_edu",
-        "age_min": 30,
-        "age_max": 45,
-        "weight": 16,
-        "occupations": [
-            "HR manager",
-            "Finance manager",
-            "Civil engineer",
-            "Nurse",
-            "Teacher (K-12)",
-            "Accountant",
-            "Small business owner",
-            "Government staff",
-            "Customer success manager",
-            "Freelancer (designer/writer)"
-        ],
-        "occupation_hint": (
-            "parent relocating or traveling with kids; spouse employed or family visit/long stay. "
-            "Triggers: family visas, passports for adults + minors, customs (family goods), "
-            "health/vaccination forms, insurance claims; optional prep/intl school apps."
-        ),
-        "family_status_hint": "married; 1-2 kids (6-18)",
-        "finance_hint": "dual-income or single-income; family savings; sponsor/relative invitation possible",
-        "travel_hint": "family itinerary; longer stay; accommodation/relative address",
-    },
+    # {
+    #     "name": "family_relocation_or_kids_edu",
+    #     "age_min": 30,
+    #     "age_max": 45,
+    #     "weight": 16,
+    #     "occupations": [
+    #         "HR manager",
+    #         "Finance manager",
+    #         "Civil engineer",
+    #         "Nurse",
+    #         "Teacher (K-12)",
+    #         "Accountant",
+    #         "Small business owner",
+    #         "Government staff",
+    #         "Customer success manager",
+    #         "Freelancer (designer/writer)"
+    #     ],
+    #     "occupation_hint": (
+    #         "parent relocating or traveling with kids; spouse employed or family visit/long stay. "
+    #         "Triggers: family visas, passports for adults + minors, customs (family goods), "
+    #         "health/vaccination forms, insurance claims; optional prep/intl school apps."
+    #     ),
+    #     "family_status_hint": "married; 1-2 kids (6-18)",
+    #     "finance_hint": "dual-income or single-income; family savings; sponsor/relative invitation possible",
+    #     "travel_hint": "family itinerary; longer stay; accommodation/relative address",
+    # },
 
-    # 4) 28–55 跨境创业/投资/企业合规：税务金融主力 + 商务签证 + 项目扶持
+    # 3) 28–55 跨境创业/投资/企业合规：税务金融主力 + 商务签证 + 项目扶持
     {
         "name": "crossborder_founder_compliance",
         "age_min": 28,
@@ -248,7 +248,7 @@ PROFILE_TEMPLATES = [
         "travel_hint": "business travel; may carry samples or higher cash",
     },
 
-    # 5) 25–60 科研人员/高校：项目资助主力 + 学术签证 + 报销
+    # 4) 25–60 科研人员/高校：项目资助主力 + 学术签证 + 报销
     {
         "name": "researcher_grant_and_visit",
         "age_min": 25,
@@ -276,7 +276,7 @@ PROFILE_TEMPLATES = [
         "travel_hint": "conference/visiting scholar; invitation letter from university/lab",
     },
 
-    # 6) 50–75 退休/探亲/医疗旅游：医疗表主力 + 探亲签 + 护照换发
+    # 5) 50–75 退休/探亲/医疗旅游：医疗表主力 + 探亲签 + 护照换发
     {
         "name": "senior_visit_or_medical_trip",
         "age_min": 50,
@@ -302,7 +302,7 @@ PROFILE_TEMPLATES = [
         "travel_hint": "longer stays; carries medications; needs accessible itinerary",
     },
 
-    # 7) 25–50 外贸/物流/海关业务：海关申报主力 + 商务签证 + 公司合规
+    # 6) 25–50 外贸/物流/海关业务：海关申报主力 + 商务签证 + 公司合规
     {
         "name": "trade_logistics_customs",
         "age_min": 25,
@@ -402,7 +402,7 @@ def generate_user_profile(
             f"- Sex: {c.get('sex', 'male/female')}",
             f"- Occupation: {occupation_choice}" if occupation_choice else "",
             f"- Nationality/current residence should align with: {c.get('country')}",
-            "- Occupation list just for reference, you can also choose an option outside the list.But make sure it's realistic.",
+            "- Ensure the generated data is as diverse as possible while remaining realistic and internally consistent.",
         ]
     )
 

@@ -28,6 +28,30 @@ class FillForm:
             (filled if has_val else missing).append(key)
         return {"filled": filled, "missing": missing}
 
+    @staticmethod
+    def _set_nested_value(target: Dict[str, Any], dotted_key: str, value: Any) -> None:
+        parts = [p for p in str(dotted_key).split(".") if p]
+        if not parts:
+            return
+        node = target
+        for part in parts[:-1]:
+            child = node.get(part)
+            if not isinstance(child, dict):
+                child = {}
+                node[part] = child
+            node = child
+        node[parts[-1]] = value
+
+    def _form_state_view(self) -> Dict[str, Any]:
+        """Return form state in original nested form-style structure."""
+        view: Dict[str, Any] = {}
+        for field in self.form_def.get("fields", []):
+            key = field.get("key")
+            if key is None:
+                continue
+            self._set_nested_value(view, str(key), self.form_state.get(key))
+        return view
+
     def get_state(self) -> Dict[str, Any]:
         return dict(self.form_state)
 
@@ -40,6 +64,7 @@ class FillForm:
                     "success": False,
                     "response": "Invalid params: expected JSON with user_id and content.",
                     "form_state": self.get_state(),
+                    "form_state_view": self._form_state_view(),
                     "snapshot": self._snapshot_form_state(),
                 }
 
@@ -48,6 +73,7 @@ class FillForm:
                 "success": False,
                 "response": "Params must be a JSON object with user_id and content.",
                 "form_state": self.get_state(),
+                "form_state_view": self._form_state_view(),
                 "snapshot": self._snapshot_form_state(),
             }
 
@@ -60,6 +86,7 @@ class FillForm:
                 "response": "Missing or invalid 'content' object for fill_form. Provide a JSON object of fields to fill.",
                 "filled": {},
                 "form_state": self.get_state(),
+                "form_state_view": self._form_state_view(),
                 "snapshot": self._snapshot_form_state(),
             }
 
@@ -80,5 +107,6 @@ class FillForm:
             "skipped": skipped_keys,
             "success": True,
             "form_state": self.get_state(),
+            "form_state_view": self._form_state_view(),
             "snapshot": self._snapshot_form_state(),
         }

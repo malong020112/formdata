@@ -6,6 +6,7 @@ from typing import Any, Dict, List, Optional
 
 from openai import OpenAI
 from config import API_KEY, BASE_URL, MODEL_NAME
+from field_accuracy import evaluate_form_state_against_ground_truth
 
 LLM = OpenAI(api_key=API_KEY, base_url=BASE_URL)
 API_RETRY_MAX_ATTEMPTS = 5
@@ -77,8 +78,25 @@ def build_user_system_prompt(user_data: Dict[str, Any]) -> str:
 
 
 def user_llm_reply(user_data: Dict[str, Any], history: List[Dict[str, str]], prompt: str) -> str:
+    """
+    Generate simulated user reply with dialogue context.
+    History must only contain visible user-assistant interaction messages
+    (e.g., ask_user question + user answer), not internal tool messages.
+    """
     sys_prompt = build_user_system_prompt(user_data)
-    messages = [{"role": "system", "content": sys_prompt}, {"role": "user", "content": prompt}]
+    messages: List[Dict[str, str]] = [{"role": "system", "content": sys_prompt}]
+
+    # Keep recent visible interaction turns for coherence.
+    history_window = history[-20:] if history else []
+    for msg in history_window:
+        role = str(msg.get("role", "")).strip()
+        content = str(msg.get("content", "")).strip()
+        if role in {"user", "assistant"} and content:
+            messages.append({"role": role, "content": content})
+
+    if prompt:
+        messages.append({"role": "user", "content": prompt})
+
     resp = _chat_completion_with_backoff(messages=messages, temperature=0)
     return resp.choices[0].message.content.strip()
 
@@ -162,7 +180,10 @@ def simulate(form_path: Path, profile_path: Path, count: int) -> None:
                 answer = user_llm_reply(
                     user_data,
                     user_history,
-                    prompt=f"Question:\n{question}\n\nAnswer as the user using the provided data.",
+                    prompt=(
+                        "Please answer the assistant's latest question as the user. "
+                        "Use only the provided profile data, keep it concise, and do not invent facts."
+                    ),
                 )
                 user_history.append({"role": "user", "content": answer})
                 print(f"[User reply]: {answer}")
@@ -205,6 +226,11 @@ def simulate(form_path: Path, profile_path: Path, count: int) -> None:
             if result is not None:
                 final_message = result.get("final_message") or ""
                 metrics = result.get("metrics") or {}
+                final_form_state = result.get("form_state") or {}
+                ground_truth_data = user_data.get("data") if isinstance(user_data, dict) else {}
+                if isinstance(metrics, dict) and isinstance(final_form_state, dict) and isinstance(ground_truth_data, dict):
+                    eval_result = evaluate_form_state_against_ground_truth(final_form_state, ground_truth_data)
+                    metrics.update(eval_result)
                 raw_messages = result.get("messages") or []
                 if isinstance(raw_messages, list):
                     for msg in raw_messages:

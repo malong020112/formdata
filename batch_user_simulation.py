@@ -108,7 +108,7 @@ def main() -> None:
     parser.add_argument(
         "--user-count",
         type=int,
-        default=2,
+        default=5,
         help="Number of user records to process per class (0 = all).",
     )
     args = parser.parse_args()

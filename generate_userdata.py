@@ -382,7 +382,7 @@ def main() -> None:
         "--form-path",
         dest="form_path",
         type=str,
-        default=r"E:\project\主动提问\formdata\form\finance_form\EU Cash Declaration\EU_Cash_Declaration.json",
+        default=r"E:\project\主动提问\formdata\form\medical_form\New_Patient_Health_History_form\Health_history_form.json",
         help="Path to a single form template JSON (e.g. form/visa_form/India/India_visa_form.json).",
     )
     parser.add_argument(
@@ -396,14 +396,14 @@ def main() -> None:
         "--profile-path",
         dest="profile_path",
         type=str,
-        default=r"E:\project\主动提问\formdata\data\user_data\trade_logistics_customs\userprofile.json",
+        default=r"E:\project\主动提问\formdata\data\user_data\senior_visit_or_medical_trip\userprofile.json",
         help="User profile file path (JSON array or NDJSON). Default: ./data/userprofile.json",
     )
     parser.add_argument(
         "--user-data-path",
         dest="user_data_path",
         type=str,
-        default=r"E:\project\主动提问\formdata\data\user_data\trade_logistics_customs\user_data.json",
+        default=r"E:\project\主动提问\formdata\data\user_data\senior_visit_or_medical_trip\user_data.json",
         help="Output path for generated user data (NDJSON). Default: ./data/user_data.json",
     )
     parser.add_argument(
